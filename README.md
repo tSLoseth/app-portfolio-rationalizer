@@ -278,6 +278,3 @@ This is a method demonstrator, not a finished advisory product.
 Nordlys Gruppen ASA, its acquisitions, systems and all figures are **fictional and illustrative**.
 Vendor and product names are used only to make the portfolio realistic; no statement about any real
 product's cost or quality is intended.
-
----
-
