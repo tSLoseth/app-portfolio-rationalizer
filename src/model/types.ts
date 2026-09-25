@@ -188,15 +188,29 @@ export interface Assumptions {
 
 // ---- Engine outputs (produced by src/engine in later steps) ----
 
+export type TimeOverride = 'non_primary_duplicate' | 'eol_critical';
+/**
+ * shadow_it_governance: built/bought outside IT — needs an owner and a governance decision.
+ * critical_consolidation: business-critical duplicate with imminent EOL; the EOL override was
+ * superseded by consolidation, so the retirement is a real migration project, not a switch-off.
+ */
+export type TimeFlag = 'shadow_it_governance' | 'critical_consolidation';
+
 export interface TimeResult {
   systemId: string;
   businessValue: number;
   technicalHealth: number;
+  eolPenalty: number;
+  /** Years from reference year to platform EOL; null when vendor-managed. Negative = expired. */
+  yearsToEol: number | null;
   /** Quadrant from scores alone, before overrides. */
   quadrant: TimeCategory;
   /** Final category after overrides. */
   category: TimeCategory;
-  overridesApplied: ('non_primary_duplicate' | 'eol_critical')[];
+  overridesApplied: TimeOverride[];
+  flags: TimeFlag[];
+  /** Id of the duplicate-group primary this system should be consolidated into. */
+  consolidateInto?: string;
   rationale: string[];
 }
 
