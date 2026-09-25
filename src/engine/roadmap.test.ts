@@ -322,6 +322,17 @@ describe('roadmap on the real portfolio', () => {
     expect(quarterIndex(i.quarter)).toBeLessThan(quarterIndex(roadmap.dcExit.milestone));
   });
 
+  it('assigns calendar horizons by cutover quarter, independent of the migration track', () => {
+    const ends = base.roadmap.horizonEnds.value;
+    for (const i of roadmap.items) {
+      const q = quarterIndex(i.quarter);
+      expect(i.horizon).toBe(q <= quarterIndex(ends.H1) ? 'H1' : q <= quarterIndex(ends.H2) ? 'H2' : 'H3');
+    }
+    expect(quarterIndex(ends.H2)).toBe(quarterIndex(roadmap.dcExit.milestone));
+    const tracksInH1 = new Set(roadmap.items.filter((i) => i.horizon === 'H1').map((i) => i.wave));
+    expect(tracksInH1.size).toBeGreaterThan(1);
+  });
+
   it('schedules every non-retained system and none of the retained ones', () => {
     for (const x of assessments) expect(items.has(x.system.id)).toBe(x.sixR.sixR !== 'retain');
   });

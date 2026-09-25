@@ -2,6 +2,7 @@ import type {
   Assumptions,
   BrokenCycle,
   CostResult,
+  Horizon,
   Quarter,
   RoadmapItem,
   RoadmapResult,
@@ -16,6 +17,27 @@ import { buildGraph, degree, stronglyConnected, topologicalOrder, type Integrati
 import { quarterFromIndex, quarterIndex } from './quarters';
 
 const WAVES: Wave[] = [0, 1, 2, 3];
+
+/** Migration tracks: a track sets scheduling priority by migration type, not a calendar period. */
+export const TRACK_NAME: Record<Wave, string> = {
+  0: 'Retire track',
+  1: 'Rehost & consolidation track',
+  2: 'Replatform track',
+  3: 'Refactor & repurchase track',
+};
+
+export const HORIZON_NAME: Record<Horizon, string> = {
+  H1: 'Quick wins',
+  H2: 'Transform and exit',
+  H3: 'Close-out',
+};
+
+/** Calendar horizon of a quarter, from the presentation boundaries in assumptions. */
+export function horizonOf(q: Quarter, a: Assumptions): Horizon {
+  const ends = a.roadmap.horizonEnds.value;
+  const i = quarterIndex(q);
+  return i <= quarterIndex(ends.H1) ? 'H1' : i <= quarterIndex(ends.H2) ? 'H2' : 'H3';
+}
 
 function baseWave(sixR: SixR, a: Assumptions): Wave {
   for (const w of WAVES) if (a.roadmap.waves.value[String(w) as '0' | '1' | '2' | '3'].includes(sixR)) return w;
@@ -46,8 +68,8 @@ export function assignWaves(
       out.set(
         s.id,
         n <= max
-          ? { wave: 0, reason: `Wave 0 quick win: plain retirement with ${n} dependant(s) (≤ ${max}).` }
-          : { wave: 1, reason: `Wave 1: retirement with ${n} dependants (> ${max}) needs consumers re-pointed first.` },
+          ? { wave: 0, reason: `${TRACK_NAME[0]}, quick win: plain retirement with ${n} dependant(s) (≤ ${max}).` }
+          : { wave: 1, reason: `${TRACK_NAME[1]}: retirement with ${n} dependants (> ${max}) needs consumers re-pointed first.` },
       );
     } else if (r.sixR === 'rehost') {
       const n = degree(g, s.id);
@@ -55,12 +77,12 @@ export function assignWaves(
       out.set(
         s.id,
         n <= max
-          ? { wave: baseWave('rehost', a), reason: `Wave ${baseWave('rehost', a)}: rehost with ${n} integration(s) (≤ ${max}).` }
-          : { wave: 2, reason: `Wave 2: rehost with ${n} integrations (> ${max}) is not a low-risk first move.` },
+          ? { wave: baseWave('rehost', a), reason: `${TRACK_NAME[baseWave('rehost', a)]}: rehost with ${n} integration(s) (≤ ${max}).` }
+          : { wave: 2, reason: `${TRACK_NAME[2]}: rehost with ${n} integrations (> ${max}) is not a low-risk first move.` },
       );
     } else {
       const w = baseWave(r.sixR, a);
-      out.set(s.id, { wave: w, reason: `Wave ${w}: ${r.sixR}.` });
+      out.set(s.id, { wave: w, reason: `${TRACK_NAME[w]}: ${r.sixR}.` });
     }
   }
   for (const s of consolidations) {
@@ -71,9 +93,9 @@ export function assignWaves(
       pw
         ? {
             wave: Math.max(1, pw.wave) as Wave,
-            reason: `Wave ${Math.max(1, pw.wave)}: consolidation into ${nameOf(p)}, which itself moves in wave ${pw.wave}.`,
+            reason: `${TRACK_NAME[Math.max(1, pw.wave) as Wave]}: consolidation into ${nameOf(p)}, which itself moves in the ${TRACK_NAME[pw.wave].toLowerCase()}.`,
           }
-        : { wave: 1, reason: `Wave 1: consolidation into ${nameOf(p)}, which is already in place.` },
+        : { wave: 1, reason: `${TRACK_NAME[1]}: consolidation into ${nameOf(p)}, which is already in place.` },
     );
   }
   return out;
@@ -107,7 +129,7 @@ function findPath(edges: Map<string, string[]>, from: string, to: string): strin
 
 export const CYCLE_RULE =
   'Cut the edge that is cheapest to bridge: prefer an edge touching a retained system (no bridge needed), ' +
-  'then the lowest-criticality dependency, then the dependency that moves in the latest wave; ties by system id.';
+  'then the lowest-criticality dependency, then the dependency in the latest migration track; ties by system id.';
 
 /**
  * Breaks every dependency cycle by repeatedly cutting one edge inside a strongly connected
@@ -293,6 +315,8 @@ export function planRoadmap(
         `Temporary integration to ${bridges.map(nameOf).join(', ')} (${bridges.length} × ${bridgeDays} person-days): they move later.`,
       );
     }
+    const horizon = horizonOf(q(cutover), a);
+    rationale.push(`Calendar horizon: ${horizon} (${HORIZON_NAME[horizon].toLowerCase()}), cutover ${q(cutover)}.`);
     const dcScope = isDcScope(s);
     if (dcScope) {
       const ok = startIdx + cutover <= quarterIndex(a.roadmap.dcExitMilestone.value);
@@ -301,6 +325,7 @@ export function planRoadmap(
     items.push({
       systemId: id,
       wave: w.wave,
+      horizon,
       sixR: r.sixR,
       startQuarter: q(start),
       quarter: q(cutover),

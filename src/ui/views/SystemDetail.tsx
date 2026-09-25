@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import type { Origin, SystemAssessment } from '../../model/types';
+import { TRACK_NAME } from '../../engine/roadmap';
 import { aiRationale } from '../derive';
 import { cap, HOSTING_LABEL, nokM, num, originLabel } from '../format';
 
@@ -97,7 +98,8 @@ export function SystemDetail({ assessment: a, all, originLabels, onClose, onOpen
             </div>
             <div>
               <span className="muted">Cutover</span>
-              <strong>{a.roadmap ? `${a.roadmap.quarter} (wave ${a.roadmap.wave})` : 'Not scheduled'}</strong>
+              <strong>{a.roadmap ? `${a.roadmap.quarter} (${a.roadmap.horizon})` : 'Not scheduled'}</strong>
+              {a.roadmap && <span className="muted verdict-sub">{TRACK_NAME[a.roadmap.wave]}</span>}
             </div>
           </div>
 

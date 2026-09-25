@@ -368,17 +368,24 @@
     },
     "waves": {
       "value": { "0": ["retire"], "1": ["rehost"], "2": ["replatform"], "3": ["refactor", "repurchase"] },
-      "unit": "6R per wave",
-      "description": "Wave assignment by 6R: quick-win retirements first, heavy transformations last. Retain is not scheduled.",
+      "unit": "6R per migration track",
+      "description": "Migration track by 6R (0 retire, 1 rehost and consolidation, 2 replatform, 3 refactor and repurchase). A track sets scheduling priority, not a calendar period: long transformations in track 3 start early and run in parallel. Retain is not scheduled.",
       "estimate": true,
       "rationale": "Standard migration sequencing: free capacity and cost early, build cloud skills on simple moves before complex ones."
     },
     "rehostWaveMaxIntegrations": {
       "value": 3,
       "unit": "integrations",
-      "description": "Rehost candidates with more integrations than this move to wave 2.",
+      "description": "Rehost candidates with more integrations than this move to the replatform track (2).",
       "estimate": true,
-      "rationale": "Wave 1 should be low-risk moves that build migration muscle."
+      "rationale": "The rehost track should be low-risk moves that build migration muscle."
+    },
+    "horizonEnds": {
+      "value": { "H1": "2027Q3", "H2": "2028Q4" },
+      "unit": "last quarter of each horizon",
+      "description": "Calendar horizons for presenting the roadmap: H1 quick wins up to this quarter, H2 transform and data-center exit, H3 close-out after the H2 end. Presentation only; scheduling does not use it.",
+      "estimate": true,
+      "rationale": "H2 is set to end at the data-center exit milestone so the exit sits inside one horizon; H1 covers the first three quarters of switch-offs and simple moves."
     },
     "temporaryIntegrationPersonDays": {
       "value": 10,
@@ -390,7 +397,7 @@
     "retireQuickWinMaxDependants": {
       "value": 2,
       "unit": "dependent systems",
-      "description": "A retirement is a wave-0 quick win only if it is not a consolidation and at most this many systems depend on it.",
+      "description": "A retirement is a quick win (track 0) only if it is not a consolidation and at most this many systems depend on it.",
       "estimate": true,
       "rationale": "Switching off a system that few others call needs little re-pointing; beyond two consumers it becomes a coordinated change."
     },

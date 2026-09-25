@@ -1,17 +1,11 @@
 import { useMemo } from 'react';
 import { Bar, BarChart, CartesianGrid, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { quarterFromIndex, quarterIndex } from '../../engine/quarters';
-import type { Quarter, Wave } from '../../model/types';
+import { HORIZON_NAME, TRACK_NAME } from '../../engine/roadmap';
+import type { Horizon, Quarter } from '../../model/types';
 import { cap, num } from '../format';
 import type { ViewProps } from '../types';
 import { SystemTable } from './SystemTable';
-
-const WAVE_NAME: Record<Wave, string> = {
-  0: 'Wave 0: quick-win retirements',
-  1: 'Wave 1: rehost and consolidation',
-  2: 'Wave 2: replatform',
-  3: 'Wave 3: refactor and repurchase',
-};
 
 const shortQ = (q: Quarter) => `${q.slice(2, 4)} ${q.slice(4)}`;
 
@@ -26,12 +20,12 @@ export function RoadmapView(props: ViewProps) {
   const ms = quarterIndex(rm.dcExit.milestone) - q0 + 1;
   const col = (q: Quarter) => quarterIndex(q) - q0;
 
-  const waves = ([0, 1, 2, 3] as Wave[]).map((w) => ({
-    w,
-    items: rm.items
-      .filter((i) => i.wave === w)
-      .sort((a, b) => quarterIndex(a.startQuarter) - quarterIndex(b.startQuarter) || quarterIndex(a.quarter) - quarterIndex(b.quarter)),
-  }));
+  const horizons = (['H1', 'H2', 'H3'] as Horizon[]).map((h) => {
+    const items = rm.items
+      .filter((i) => i.horizon === h)
+      .sort((a, b) => quarterIndex(a.quarter) - quarterIndex(b.quarter) || quarterIndex(a.startQuarter) - quarterIndex(b.startQuarter) || a.wave - b.wave);
+    return { h, items, from: items[0]?.quarter, to: items.at(-1)?.quarter };
+  });
 
   const capData = rm.quarters.map((q) => ({ ...q, label: shortQ(q.quarter) }));
   const bridges = rm.cyclesBroken;
@@ -44,12 +38,14 @@ export function RoadmapView(props: ViewProps) {
       <header className="view-head">
         <h2>Roadmap</h2>
         <p>
-          {rm.items.length} systems scheduled in four waves from {quarters[0]} to {quarters[n - 1]}, respecting dependencies and a capacity of{' '}
+          {rm.items.length} systems scheduled from {quarters[0]} to {quarters[n - 1]}, respecting dependencies and a capacity of{' '}
           {rm.capacity.maxCutoversPerQuarter} cutovers and {num(rm.capacity.maxPersonDaysPerQuarter)} person-days per quarter.{' '}
           {rm.retained.length} retained systems are not scheduled.{' '}
           {rm.dcExit.achieved
             ? `All ${rm.dcExit.inScope} data-center systems are out by ${rm.dcExit.exitQuarter}, meeting the ${rm.dcExit.milestone} deadline.`
-            : `${rm.dcExit.violations.length} data-center systems miss the ${rm.dcExit.milestone} deadline.`}
+            : `${rm.dcExit.violations.length} data-center systems miss the ${rm.dcExit.milestone} deadline.`}{' '}
+          Rows are grouped by calendar horizon of the cutover and ordered by time; each system also belongs to a migration track (retire,
+          rehost and consolidation, replatform, refactor and repurchase) that sets its scheduling priority, not its date.
         </p>
       </header>
 
@@ -77,11 +73,14 @@ export function RoadmapView(props: ViewProps) {
                 ))}
               </div>
             </div>
-            {waves.map(({ w, items }) =>
+            {horizons.map(({ h, items, from, to }) =>
               items.length ? (
-                <details key={w} open className="gantt-wave">
+                <details key={h} open className="gantt-wave">
                   <summary>
-                    {WAVE_NAME[w]} <span className="muted num">{items.length}</span>
+                    {h} · {HORIZON_NAME[h]}{' '}
+                    <span className="muted num">
+                      {from === to ? from : `${from}–${to}`} · {items.length} cutovers
+                    </span>
                   </summary>
                   {items.map((i) => {
                     const s = col(i.startQuarter);
@@ -92,7 +91,7 @@ export function RoadmapView(props: ViewProps) {
                         key={i.systemId}
                         className="gantt-row"
                         onClick={() => openSystem(i.systemId)}
-                        title={`${names.get(i.systemId)}: ${cap(i.sixR)}, ${i.startQuarter} to ${i.quarter}, ${Math.round(i.personDays)} person-days`}
+                        title={`${names.get(i.systemId)}: ${cap(i.sixR)} (${TRACK_NAME[i.wave].toLowerCase()}), ${i.startQuarter} to ${i.quarter}, ${Math.round(i.personDays)} person-days`}
                       >
                         <span className="gantt-name">{names.get(i.systemId)}</span>
                         <span className="gantt-track">

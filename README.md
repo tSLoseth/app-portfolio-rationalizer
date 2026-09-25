@@ -1,15 +1,15 @@
 # Application Portfolio Rationalizer
 
 **Give it an application inventory; get a traceable TIME/6R decision per system, a cloud business
-case and a wave-based migration roadmap — reproducible, auditable, recomputed live.**
+case and a dependency-aware migration roadmap — reproducible, auditable, recomputed live.**
 
 - **Classifies** every system with Gartner's TIME model (Tolerate / Invest / Migrate / Eliminate)
   and a 6R migration strategy (Rehost, Replatform, Refactor, Repurchase, Retire, Retain) using an
   explicit, tested rules engine.
 - **Prices** the change: baseline TCO → target run cost per 6R, one-off migration cost, simple
   payback, cash break-even quarter, 5-year NPV and a ±30 % sensitivity grid.
-- **Plans** the programme: quarterly waves on a dependency graph with cycle breaking, capacity
-  limits and validation against a hard data-center exit date.
+- **Plans** the programme: quarterly cutovers on a dependency graph with cycle breaking, capacity
+  limits and validation against a hard data-center exit date, presented as calendar horizons.
 - **Explains** itself: every decision carries a rule trace (`rationale[]`); an LLM (Claude Haiku
   4.5) rewrites that trace into CIO-readable prose at build time — it never makes the decision.
 
@@ -128,8 +128,10 @@ flowchart TD
 
 ### 4. Roadmap
 
-1. **Waves**: 0 = retirement quick wins, 1 = rehost (≤ 3 integrations) and consolidations,
-   2 = replatform, 3 = refactor and repurchase. Consolidations follow their primary.
+1. **Migration tracks** set scheduling priority by migration type: retire (quick wins), rehost
+   (≤ 3 integrations) and consolidation, replatform, refactor and repurchase. Consolidations follow
+   their primary. A track is not a calendar period: long refactor and repurchase projects start early
+   and run in parallel with switch-offs.
 2. **Topological ordering** on the integration graph: a system moves after its dependencies, or
    gets a *temporary integration* (bridge, 10 person-days) to a dependency that moves later.
 3. **Cycle breaking**: dependency cycles are cut one edge at a time by a stated rule — prefer an edge
@@ -141,6 +143,9 @@ flowchart TD
    and draws 15 % of its effort from the shared pool.
 5. **DC-exit validation**: systems in the closing data center are scheduled first; the result lists
    every system that is retained in, unscheduled for, or late for the 2028Q4 milestone.
+6. **Calendar horizons** for presentation (Gantt and memo), by cutover quarter: **H1 2027Q1–Q3** quick
+   wins (41 cutovers), **H2 2027Q4–2028Q4** transform and data-center exit (59), **H3 2029** close-out
+   (5). The boundaries are a labelled assumption (`roadmap.horizonEnds`).
 
 ## Architecture
 
@@ -185,9 +190,9 @@ flowchart LR
   language model only turns the rule trace into prose and is not allowed to change the decision.
 - **Every recommendation is traceable.** Each system carries `rationale[]` entries for TIME, 6R,
   cost and roadmap — scores against thresholds, overrides applied, rate card lines, why it waits.
-- **Every number is labelled.** All 57 parameters in `assumptions.json` carry a unit, a description
+- **Every number is labelled.** All 58 parameters in `assumptions.json` carry a unit, a description
   and either a source or `"estimate": true` with a written rationale; the Assumptions tab shows them.
-  In this demo all 57 are estimates.
+  In this demo all 58 are estimates.
 - **Deterministic and reproducible.** Fixed generator seed, deterministic tie-breaks in graph
   algorithms; the same inputs always give the same plan.
 - **Pure functions.** No hidden state in the engine, which makes it testable (vitest suite covering

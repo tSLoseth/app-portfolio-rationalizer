@@ -193,6 +193,7 @@ export interface Assumptions {
     dcExitMilestone: Param<Quarter>;
     waves: Param<Record<'0' | '1' | '2' | '3', SixR[]>>;
     rehostWaveMaxIntegrations: Param<number>;
+    horizonEnds: Param<Record<'H1' | 'H2', Quarter>>;
     temporaryIntegrationPersonDays: Param<number>;
     retireQuickWinMaxDependants: Param<number>;
     maxPersonDaysPerSystemPerQuarter: Param<number>;
@@ -332,11 +333,15 @@ export interface PortfolioCostSummary {
   sensitivity: SensitivityResult;
 }
 
+/** Migration track (scheduling priority by migration type); not a calendar period. */
 export type Wave = 0 | 1 | 2 | 3;
+/** Calendar horizon of the cutover quarter, for presentation. */
+export type Horizon = 'H1' | 'H2' | 'H3';
 
 export interface RoadmapItem {
   systemId: string;
   wave: Wave;
+  horizon: Horizon;
   sixR: SixR;
   /** First quarter of migration work. */
   startQuarter: Quarter;
