@@ -249,7 +249,11 @@ export function planRoadmap(
       if (!t) blocked = true;
       else {
         earliest = Math.max(earliest, t.cutover + 1);
-        rationale.push(`Consolidation: scheduled after ${nameOf(r.consolidateInto)} is in place (cutover ${q(t.cutover)}).`);
+        rationale.push(
+          r.consolidationTargetFuture
+            ? `Consolidation: scheduled after the group standard's future state goes live (${nameOf(r.consolidateInto)} → ${r.consolidationTargetFuture.futureState}, cutover ${q(t.cutover)}).`
+            : `Consolidation: scheduled after ${nameOf(r.consolidateInto)} is in place (cutover ${q(t.cutover)}).`,
+        );
       }
     }
     const bridgePersonDays = bridges.length * bridgeDays;

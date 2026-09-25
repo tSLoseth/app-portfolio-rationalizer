@@ -243,6 +243,8 @@ export interface SixRResult {
   sixR: SixR;
   flags: SixRFlag[];
   consolidateInto?: string;
+  /** Set when the consolidation target is itself being transformed: the duplicate lands on its future state. */
+  consolidationTargetFuture?: { sixR: SixR; futureState: string };
   rationale: string[];
 }
 

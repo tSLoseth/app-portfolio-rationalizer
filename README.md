@@ -66,7 +66,10 @@ logged in the system's `rationale[]`:
 When both apply, **consolidation takes precedence**: migrating a platform that is about to be
 consolidated away wastes money. The system is still flagged `critical_consolidation`, so its
 retirement is planned as a real migration project behind the primary, not a switch-off (9 systems in
-the demo, including two integration middlewares and the acquired company's ERP). Shadow-IT systems
+the demo, including two integration middlewares and the acquired company's ERP). When the group
+standard is itself being repurchased, replatformed or refactored, the duplicate consolidates into its
+**future state** and is scheduled after that goes live: Dynamics NAV moves into the group ERP (SAP ECC
+→ S/4HANA-class SaaS replacement, go-live 2028Q2), not onto ECC. Shadow-IT systems
 get a governance flag, but their category follows the scores, not their origin.
 
 ### 2. 6R decision tree

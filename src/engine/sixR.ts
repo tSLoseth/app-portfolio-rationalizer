@@ -128,8 +128,33 @@ export function assessSixRAll(
 ): SixRResult[] {
   const caps = new Map(capabilities.map((c) => [capabilityKey(c), c]));
   const names = new Map(systems.map((s) => [s.id, s.name]));
+  const byId = new Map(systems.map((s) => [s.id, s]));
   const timeById = new Map(times.map((t) => [t.systemId, t]));
-  return systems.map((s) =>
+  const results = systems.map((s) =>
     assessSixR(s, timeById.get(s.id)!, caps.get(capabilityKey(s.capability)), g, a, (id) => names.get(id) ?? id),
   );
+  const resultById = new Map(results.map((r) => [r.systemId, r]));
+  for (const r of results) {
+    const target = r.consolidateInto ? resultById.get(r.consolidateInto) : undefined;
+    if (!target || !TRANSFORMS_TARGET.includes(target.sixR)) continue;
+    const t = byId.get(target.systemId)!;
+    const futureState = futureStateOf(target.sixR, caps.get(capabilityKey(t.capability)));
+    r.consolidationTargetFuture = { sixR: target.sixR, futureState };
+    r.rationale.push(
+      `The group standard ${t.name} is itself being ${target.sixR === 'repurchase' ? 'repurchased' : `${target.sixR}ed`}; data and users consolidate into its future state ` +
+        `(${futureState}), not into today's platform.`,
+    );
+  }
+  return results;
+}
+
+/** 6R strategies that change what the consolidation target will be once it goes live. */
+export const TRANSFORMS_TARGET: SixR[] = ['repurchase', 'replatform', 'refactor'];
+
+export function futureStateOf(sixR: SixR, capability: CapabilityDef | undefined): string {
+  if (sixR === 'repurchase') {
+    const example = capability?.saasAlternativeExample?.split(',')[0]?.trim();
+    return `SaaS replacement${example ? ` (e.g. ${example})` : ''}`;
+  }
+  return sixR === 'refactor' ? 'cloud-native rebuild' : 'managed cloud edition';
 }

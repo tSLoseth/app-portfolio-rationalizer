@@ -153,4 +153,15 @@ describe('6R on the real portfolio', () => {
       if (!s.siteBound) expect(r.consolidateInto).toBe(t.consolidateInto);
     }
   });
+
+  it('points a consolidation at the future state when the group standard is itself transformed', () => {
+    const nav = results.find((r) => r.systemId === 'SYS-012')!;
+    expect(nav.consolidateInto).toBe('SYS-011');
+    expect(results.find((r) => r.systemId === 'SYS-011')!.sixR).toBe('repurchase');
+    expect(nav.consolidationTargetFuture).toEqual({ sixR: 'repurchase', futureState: 'SaaS replacement (e.g. SAP S/4HANA Cloud)' });
+    expect(nav.rationale.at(-1)).toMatch(/itself being repurchased; data and users consolidate into its future state/);
+    for (const r of results.filter((x) => x.consolidateInto && !x.consolidationTargetFuture)) {
+      expect(['retire', 'retain', 'rehost']).toContain(results.find((x) => x.systemId === r.consolidateInto)!.sixR);
+    }
+  });
 });

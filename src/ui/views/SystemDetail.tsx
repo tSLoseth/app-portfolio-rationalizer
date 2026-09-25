@@ -219,6 +219,13 @@ export function SystemDetail({ assessment: a, all, originLabels, onClose, onOpen
                     <button type="button" className="link" onClick={() => onOpen(consolidateInto)}>
                       {name(consolidateInto)}
                     </button>
+                    {a.sixR.consolidationTargetFuture && (
+                      <span className="muted">
+                        {' '}
+                        → its {a.sixR.consolidationTargetFuture.futureState}
+                        {byId.get(consolidateInto)?.roadmap ? `, go-live ${byId.get(consolidateInto)!.roadmap!.quarter}` : ''}
+                      </span>
+                    )}
                   </dd>
                 </>
               )}
