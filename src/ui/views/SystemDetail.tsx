@@ -1,11 +1,12 @@
 import { useEffect, useRef } from 'react';
-import type { SystemAssessment } from '../../model/types';
+import type { Origin, SystemAssessment } from '../../model/types';
 import { aiRationale } from '../derive';
-import { cap, HOSTING_LABEL, nokM, num, ORIGIN_LABEL } from '../format';
+import { cap, HOSTING_LABEL, nokM, num, originLabel } from '../format';
 
 interface Props {
   assessment: SystemAssessment;
   all: SystemAssessment[];
+  originLabels?: Partial<Record<Origin, string>>;
   onClose: () => void;
   onOpen: (id: string) => void;
 }
@@ -19,7 +20,7 @@ const FLAG_TEXT: Record<string, string> = {
   critical_consolidation: 'Business-critical duplicate with imminent EOL: a real migration project',
 };
 
-export function SystemDetail({ assessment: a, all, onClose, onOpen }: Props) {
+export function SystemDetail({ assessment: a, all, originLabels, onClose, onOpen }: Props) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const s = a.system;
   const byId = new Map(all.map((x) => [x.system.id, x]));
@@ -166,6 +167,7 @@ export function SystemDetail({ assessment: a, all, onClose, onOpen }: Props) {
 
           <section>
             <h3>Rule trace</h3>
+            {s.importNotes && <Trace title="Data import (assumed or derived values)" lines={s.importNotes} />}
             <Trace title="TIME" lines={a.time.rationale} />
             <Trace title="6R" lines={a.sixR.rationale} />
             <Trace title="Cost" lines={a.cost.rationale} />
@@ -176,7 +178,7 @@ export function SystemDetail({ assessment: a, all, onClose, onOpen }: Props) {
             <h3>Attributes</h3>
             <dl className="kv">
               <dt>Origin</dt>
-              <dd>{ORIGIN_LABEL[s.origin]}</dd>
+              <dd>{originLabel(s.origin, originLabels)}</dd>
               <dt>Type / hosting</dt>
               <dd>
                 {s.type.toUpperCase()}, {HOSTING_LABEL[s.hosting]}

@@ -1,0 +1,27 @@
+﻿Sys-ID;Applikasjon;Leverandør;Beskrivelse;Owner dept;Business capability;Hosting/Deployment;Type (SaaS/COTS/Custom);Platform / OS;End of support;Antall brukere;Criticality (1-10);Business fit;Tech health (1-5);TCO (NOK/år);Lisenskost/år;Support FTE;Persondata?;Integrerer med;Overlapp-gruppe;Sist oppgradert;Eier;Kommentar
+A-001;SAP ECC 6.0;SAP;"ERP: økonomi; innkjøp og lager";Økonomi;ERP / regnskap;Eget datasenter;Standard;"SUSE Linux 12; Oracle 19c";2027;1 200;10;Høy;2;12 400 000;4,1 mill;6;Ja;A-005, A-009, A-014;;2015;Økonomisjef;Kritisk for månedsslutt
+A-002;Visma Lønn;Visma;Lønnskjøring for norske selskaper;HR;Lønn;On-prem;COTS;Windows Server 2012 R2;31.12.2023;25;9;4;2;1 850 000;;0,5;Sensitiv (helse);SAP ECC 6.0;Lønn;2017;HR-sjef;
+A-003;Huldt & Lillevik Lønn;Visma;Lønn for det oppkjøpte datterselskapet Nordvik (fiktivt);HR;Lønn;On-prem;COTS;Windows Server 2008 R2;Q4 2020;6;7;2;1;kr 420 000,-;;0,2;Ja;;Lønn;2012;HR-sjef;Skal fases ut?
+A-004;Salesforce Sales Cloud;Salesforce;CRM for salg og nøkkelkunder;Salg;CRM;Cloud (SaaS);SaaS;;Vendor managed;180;8;4;4;2,4 mill;1 900 000;0,2;Ja;A-001;CRM;2025;Salgsdirektør;
+A-005;SuperOffice CRM;SuperOffice;"Gammelt CRM fra oppkjøpet av Nordvik, brukes fortsatt i ""Region Vest""";Salg;Kundeoppfølging;Hosted (Evry);Standard;"Windows Server 2016; SQL Server 2016";2026;45;5;Middels;3;380k;;0,1;Ja;SAP ECC 6.0;crm;2019;Salgsdirektør;
+A-006;Power BI;Microsoft;Rapportering og dashboards;IT;BI / rapportering;SaaS;SaaS;;;400;6;4;5;650 000;520 000;0,1;Nei;SAP ECC 6.0, Azure Data Platform;BI;2024;BI-teamet;
+A-007;QlikView;Qlik;Eldre rapporter for økonomiavdelingen;Økonomi;Rapportering;On-prem;COTS;Windows Server 2012 R2;des. 2024;60;4;Lav;2;1.100.000;600.000;0,3;Nei;SAP ECC;bi;2016;Controller;
+A-008;Azure Data Platform;Microsoft;Datavarehus og dataintegrasjoner i Azure;IT;Datavarehus;Azure (Norway East);Custom;Azure Data Factory, Synapse;;12;7;4;4;1 600 000;;0,8;Nei;SAP ECC 6.0;;2024;Dataplattform;
+A-009;Lagerstyring (egenutviklet);In-house;Lagerstyring for sentrallageret i Ålesund;Logistikk;Lager;Eget datasenter;Egenutviklet;".NET Framework 3.5; Windows Server 2012";2022;85;8;3;1;2 300 000;;1,5;Nei;A-001;;2011;Logistikksjef;"Ingen dokumentasjon;
+én utvikler igjen"
+A-010;Transportportal;Transporeon;Transportbooking mot speditører;Logistikk;Transport;SaaS;SaaS;;;30;6;4;4;450 000;;0,2;Nei;"A-001; A-009";;2023;Logistikksjef;
+A-011;Microsoft 365;Microsoft;"E-post, Teams og SharePoint";IT;E-post;SaaS;SaaS;;;ca. 900;8;5;5;4 800 000;3 000 000;1,5;Ja;;;2025;IT-sjef;
+A-012;Websak arkiv;Sikri;Dokumenthåndtering og arkiv;Ledelse;Dokumenthåndtering;On-prem;COTS;Windows Server 2016;2027;40;5;3;3;520 000;;0,2;Ja;Microsoft 365;;2018;Arkivar;
+A-013;ServiceNow ITSM;ServiceNow;IT-servicedesk og endringshåndtering;IT;Servicedesk;SaaS;SaaS;;;35;6;4;5;900 000;;0,3;Nei;;;2025;IT-sjef;
+A-014;Innkjøpsportal;Mercell;Anbud og innkjøp;Innkjøp;Innkjøp;Cloud (SaaS);SaaS;;;20;5;3;4;280 000;;;Nei;A-001;;2022;Innkjøpssjef;
+A-015;Produksjonsplan.xlsm;Microsoft (Excel/VBA);Makrotung planleggingsmodell på filområdet;Produksjon;Produksjonsplanlegging;Filserver;Egenutviklet;Excel 2010;2020;8;7;Middels;1;;;0,2;Nei;SAP ECC;;2014;Produksjonssjef;Skygge-IT
+A-016;MES Linje 2;Siemens;Produksjonsstyring på fabrikken;Produksjon;MES;Fabrikk (Ålesund);COTS;Windows 10 LTSC;2029;50;9;4;3;1 900 000;;1;Nei;A-001;;2021;Produksjonssjef;
+A-017;SCADA WinCC;Siemens;Prosesskontroll for kjøleanlegget;Produksjon;SCADA;Fabrikk;COTS;Windows Embedded Standard 7;2020;10;10;4;2;350 000;;0,2;Nei;MES Linje 2;;2016;Vedlikeholdssjef;
+A-018;Maximo vedlikehold;IBM;Vedlikeholdsplanlegging og arbeidsordre;Produksjon;Vedlikehold;Privat sky;COTS;RHEL 7;2024;70;7;3;2;1 250 000;700 000;0,4;Nei;A-001, A-016;;2017;Vedlikeholdssjef;
+A-019;Kvalitetssystem (Landax);Landax;Avvik og kvalitetsstyring;Kvalitet;Kvalitetsstyring;SaaS;SaaS;;;150;6;4;4;190 000;;;Nei;;;2023;Kvalitetssjef;
+A-020;Timeføring (Tripletex);Tripletex;Timer og prosjektregnskap;Økonomi;Timeføring;SaaS;SaaS;;;300;5;3;4;240 000;;;Ja;Visma Lønn;;2024;Controller;
+A-021;Rekrutteringsportal;Webcruiter;Stillingsannonser og søknader;HR;Rekruttering;SaaS;SaaS;;;15;3;4;;110 000;;;Ja;;;2022;HR-sjef;
+A-022;Bærekraftsrapport (ESG);Position Green;CSRD-rapportering og klimaregnskap;Ledelse;Bærekraftsrapportering;SaaS;SaaS;;;10;6;4;4;320 000;;0,1;Nei;SAP ECC 6.0;;2025;CFO;
+A-023;Flåtestyring;Mapon;GPS-sporing av servicebiler;Logistikk;Flåtestyring;SaaS;SaaS;;;25;4;3;4;95 000;;;Ja;;;2023;Logistikksjef;
+A-024;Kundeportal (egenutviklet);In-house;Ordrestatus og dokumenter for forhandlere;Salg;Nettbutikk / forhandlerportal;Azure;Custom;"Azure App Service; .NET 6";2024;600;7;3;3;2 200 000;;1,2;Ja;A-001, Salesforce;;2022;Salgsdirektør;.NET 6 er ute av support
+A-025;Active Directory;Microsoft;Identitet og tilgang (on-prem);IT;Tilgangsstyring;On-prem;COTS;Windows Server 2016;2027;900;9;4;3;300 000;;0,2;Ja;;;2019;IT-sjef;

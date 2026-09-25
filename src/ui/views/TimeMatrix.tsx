@@ -12,7 +12,7 @@ import {
   ZAxis,
 } from 'recharts';
 import type { CapabilityL1, Hosting, Origin, TimeCategory } from '../../model/types';
-import { cap, HOSTING_LABEL, nokM, ORIGIN_LABEL, TIME_ORDER } from '../format';
+import { cap, HOSTING_LABEL, nokM, ORIGIN_LABEL, originLabel, TIME_ORDER } from '../format';
 import type { ViewProps } from '../types';
 
 interface Point {
@@ -107,11 +107,13 @@ export function TimeMatrix({ portfolio, assumptions, result, palette, openSystem
           <span>Origin</span>
           <select value={origin} onChange={(e) => setOrigin(e.target.value as Origin | '')}>
             <option value="">All</option>
-            {(Object.keys(ORIGIN_LABEL) as Origin[]).map((o) => (
-              <option key={o} value={o}>
-                {ORIGIN_LABEL[o]}
-              </option>
-            ))}
+            {(Object.keys(ORIGIN_LABEL) as Origin[])
+              .filter((o) => portfolio.systems.some((s) => s.origin === o))
+              .map((o) => (
+                <option key={o} value={o}>
+                  {originLabel(o, portfolio.meta.originLabels)}
+                </option>
+              ))}
           </select>
         </label>
         <label>

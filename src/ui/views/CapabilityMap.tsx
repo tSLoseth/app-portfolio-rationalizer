@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { CapabilityL1, SystemAssessment } from '../../model/types';
-import { cap, nokM, ORIGIN_LABEL } from '../format';
+import { cap, nokM, originLabel } from '../format';
 import type { ViewProps } from '../types';
 
 interface Cell {
@@ -136,7 +136,7 @@ export function CapabilityMap({ portfolio, result, palette, openSystem }: ViewPr
                         {a.system.name}
                       </button>
                     </td>
-                    <td>{ORIGIN_LABEL[a.system.origin]}</td>
+                    <td>{originLabel(a.system.origin, portfolio.meta.originLabels)}</td>
                     <td>{a.system.duplicateGroup ? `${a.system.duplicateGroup}${a.system.isPrimary ? ' (primary)' : ''}` : ''}</td>
                     <td>
                       <span className="chip">

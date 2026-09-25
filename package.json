@@ -9,7 +9,8 @@
     "typecheck": "tsc -b --noEmit",
     "test": "vitest run",
     "generate": "tsx scripts/generate.ts",
-    "rationale": "tsx scripts/rationale.ts"
+    "rationale": "tsx scripts/rationale.ts",
+    "map-columns": "tsx scripts/map-columns.ts"
   },
   "dependencies": {
     "react": "^19.3.0",

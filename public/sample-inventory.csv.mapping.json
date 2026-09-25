@@ -1,0 +1,123 @@
+{
+  "source": "sample-inventory.csv",
+  "model": "claude-haiku-4-5-20251001",
+  "generatedAt": "2026-09-25T19:04:20.656Z",
+  "note": "Proposed by a model; review and confirm in the Import tab before the engine runs.",
+  "mapping": {
+    "Sys-ID": {
+      "field": "externalId",
+      "confidence": 0.95,
+      "reason": "Unique system identifier, matches source id pattern"
+    },
+    "Applikasjon": {
+      "field": "name",
+      "confidence": 0.98,
+      "reason": "Application name column, direct match"
+    },
+    "Leverandør": {
+      "field": "vendor",
+      "confidence": 0.98,
+      "reason": "Vendor/supplier column, direct match"
+    },
+    "Beskrivelse": {
+      "field": "description",
+      "confidence": 0.98,
+      "reason": "Description column, direct match"
+    },
+    "Owner dept": {
+      "field": null,
+      "confidence": 0.95,
+      "reason": "Department ownership; no target field for owner"
+    },
+    "Business capability": {
+      "field": "capabilityL1",
+      "confidence": 0.75,
+      "reason": "Maps to capability but unclear if L1 or L2; appears domain-level"
+    },
+    "Hosting/Deployment": {
+      "field": "hosting",
+      "confidence": 0.92,
+      "reason": "Hosting type (On-prem, Cloud, Eget datasenter)"
+    },
+    "Type (SaaS/COTS/Custom)": {
+      "field": "type",
+      "confidence": 0.98,
+      "reason": "Application type, direct match"
+    },
+    "Platform / OS": {
+      "field": "techStack",
+      "confidence": 0.92,
+      "reason": "Platform and OS details; matches tech stack list"
+    },
+    "End of support": {
+      "field": "platformEolYear",
+      "confidence": 0.85,
+      "reason": "EOL date; extract year from date/text"
+    },
+    "Antall brukere": {
+      "field": "users",
+      "confidence": 0.98,
+      "reason": "User count column, direct match"
+    },
+    "Criticality (1-10)": {
+      "field": "businessCriticality",
+      "confidence": 0.95,
+      "reason": "1–10 scale matches criticality score"
+    },
+    "Business fit": {
+      "field": "businessFit",
+      "confidence": 0.92,
+      "reason": "Business fit score; values are text (Høy/Middels) or numeric"
+    },
+    "Tech health (1-5)": {
+      "field": "technicalFit",
+      "confidence": 0.8,
+      "reason": "Tech health likely maps to technical fit; 1–5 scale"
+    },
+    "TCO (NOK/år)": {
+      "field": "totalCost",
+      "confidence": 0.98,
+      "reason": "Total cost of ownership, direct match"
+    },
+    "Lisenskost/år": {
+      "field": "license",
+      "confidence": 0.98,
+      "reason": "License cost per year, direct match"
+    },
+    "Support FTE": {
+      "field": "supportFteCount",
+      "confidence": 0.85,
+      "reason": "Support FTE count (0.5, 0.2, 0.1); numeric FTE values"
+    },
+    "Persondata?": {
+      "field": "dataSensitivity",
+      "confidence": 0.8,
+      "reason": "Personal data indicator; maps to sensitivity enum"
+    },
+    "Integrerer med": {
+      "field": "integrations",
+      "confidence": 0.98,
+      "reason": "Integration dependencies, direct match"
+    },
+    "Overlapp-gruppe": {
+      "field": "duplicateGroup",
+      "confidence": 0.92,
+      "reason": "Overlap/duplicate group classification"
+    },
+    "Sist oppgradert": {
+      "field": "lastMajorUpgrade",
+      "confidence": 0.9,
+      "reason": "Last upgrade year, direct match"
+    },
+    "Eier": {
+      "field": null,
+      "confidence": 0.95,
+      "reason": "Owner name; no target field for person names"
+    },
+    "Kommentar": {
+      "field": null,
+      "confidence": 0.98,
+      "reason": "Free-text comments; no target field"
+    }
+  }
+}

@@ -83,6 +83,8 @@ export interface System {
   duplicateGroup?: string;
   /** Exactly one system per duplicateGroup is primary (the group standard to consolidate onto). */
   isPrimary?: boolean;
+  /** CSV import audit trail: values that were assumed, derived or could not be read. */
+  importNotes?: string[];
 }
 
 export interface PortfolioMeta {
@@ -94,6 +96,8 @@ export interface PortfolioMeta {
   acquisitions: { origin: 'acquired_A' | 'acquired_B'; name: string; year: number; employees: number }[];
   seed: number;
   generator: string;
+  originLabels?: Partial<Record<Origin, string>>;
+  imported?: { fileName: string; rows: number };
 }
 
 export interface Portfolio {

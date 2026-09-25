@@ -27,6 +27,8 @@ export const ORIGIN_LABEL: Record<Origin, string> = {
   shadow_it: 'Shadow IT',
 };
 
+export const originLabel = (o: Origin, labels?: Partial<Record<Origin, string>>) => labels?.[o] ?? ORIGIN_LABEL[o];
+
 export const HOSTING_LABEL: Record<Hosting, string> = {
   on_prem_dc: 'On-prem data center',
   private_cloud: 'Private cloud',
