@@ -99,7 +99,7 @@ export function findings(r: PortfolioAssessment, a: Assumptions, meta: Portfolio
     title: 'Cloud and SaaS moves are about risk, not savings',
     body:
       `${notSelfFunding.length} of ${moves.length} migrations have no simple payback within ${c.horizonYears} years on run cost alone. ` +
-      `The ${rp.count} repurchases ${rpDelta >= 0 ? `add ${nokM(rpDelta)}` : `save ${nokM(-rpDelta)}`} a year in run cost, because subscriptions bundle hosting. ` +
+      `The ${rp.count} repurchases ${rpDelta >= 0 ? `add ${nokM(rpDelta)} a year in run cost, because subscriptions bundle hosting` : `save ${nokM(-rpDelta)} a year in run cost`}. ` +
       `They are justified by end-of-life exposure: ${eol.length} systems that stay in use run on platforms out of support within ${window} years (${eolExpired} already expired).`,
   });
 

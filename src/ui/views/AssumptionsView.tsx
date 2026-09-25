@@ -15,7 +15,13 @@ function flatten(node: unknown, path: string[] = []): Row[] {
   return Object.entries(node).flatMap(([k, v]) => flatten(v, [...path, k]));
 }
 
+const LABEL: Record<string, string> = {
+  waves: 'Migration tracks',
+  rehostWaveMaxIntegrations: 'Rehost track max integrations',
+};
+
 const humanize = (k: string) =>
+  LABEL[k] ??
   k
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .replace(/Nok\b/g, 'NOK')
@@ -66,9 +72,9 @@ export function AssumptionsView({ baseAssumptions, overrides, imported }: ViewPr
 
       <div className="callout">
         {imported
-          ? 'The imported inventory is assessed with the demo’s factors, which are illustrative estimates, not benchmarks; the data-center facility cost is set to zero. Change a value'
-          : 'Nordlys Gruppen ASA is a fictional company. All systems, costs and factors are illustrative estimates, not benchmarks. Change a value'}
-        in the file and every view follows; the three business-case sliders override their parameter for this session only.
+          ? 'The imported inventory is assessed with the demo’s factors, which are illustrative estimates, not benchmarks; the data-center facility cost is set to zero.'
+          : 'Nordlys Gruppen ASA is a fictional company. All systems, costs and factors are illustrative estimates, not benchmarks.'}{' '}
+        Change a value in the file and every view follows; the three business-case sliders override their parameter for this session only.
       </div>
 
       {sections.map((sec) => (
