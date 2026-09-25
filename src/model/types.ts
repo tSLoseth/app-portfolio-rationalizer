@@ -165,7 +165,11 @@ export interface Assumptions {
     licenseFactor: Param<PerSixR<number>>;
     repurchaseSubscriptionFactor: Param<number>;
     repurchaseMinSubscriptionNok: Param<number>;
+    cloudRunCostMultiplier: Param<number>;
+    consolidationRunCostFactor: Param<number>;
     migrationCostNok: Param<PerSixR<PerSize<number>>>;
+    migrationCostMultiplier: Param<number>;
+    consolidationCostNok: Param<PerSize<number>>;
     dayRateNok: Param<number>;
     integrationComplexityPerIntegration: Param<number>;
     integrationComplexityMaxMultiplier: Param<number>;
@@ -230,26 +234,86 @@ export interface SixRResult {
   rationale: string[];
 }
 
+/** Target run cost split so the portfolio waterfall can be built from system results. */
+export interface TargetCostBreakdown {
+  licenseAndVendor: number;
+  internalSupport: number;
+  /** Infra that stays where it is (retained systems). */
+  keptInfra: number;
+  /** New cloud infra (rehost/replatform/refactor) or SaaS subscription (repurchase). */
+  cloudRun: number;
+  /** Extra licences/capacity on the primary when a duplicate is consolidated into it. */
+  consolidationUplift: number;
+}
+
 export interface CostResult {
   systemId: string;
+  sixR: SixR;
   baselineAnnual: number;
+  target: TargetCostBreakdown;
   targetAnnual: number;
   annualSaving: number;
+  integrationMultiplier: number;
+  /** One-off cost of the 6R move itself (rate × size × integration multiplier × price multiplier). */
+  migrationCost: number;
+  /** Data/user/interface migration into the primary for consolidation retirements. */
+  consolidationCost: number;
   oneOffMigration: number;
+  /** Effort at base prices; the migration-cost slider changes price, not effort. */
   migrationPersonDays: number;
   /** Years; null when the change never pays back. */
   paybackYears: number | null;
+  /** Standalone NPV over the horizon as if cut over in the first programme quarter. */
   npv: number;
+  rationale: string[];
+}
+
+export type WaterfallKey = 'baseline' | 'retire' | 'rightsizing' | 'infraExit' | 'cloudRun' | 'target';
+
+export interface WaterfallStep {
+  key: WaterfallKey;
+  label: string;
+  /** Absolute level for baseline/target, signed delta for the steps in between. */
+  value: number;
+}
+
+export interface YearCashFlow {
+  year: number;
+  investment: number;
+  saving: number;
+  net: number;
+  discounted: number;
+  cumulative: number;
+}
+
+export interface SensitivityResult {
+  grid: { cloudRunCostFactor: number; migrationCostMultiplier: number; npv: number }[];
+  tornado: { parameter: string; lowInput: number; highInput: number; npvAtLow: number; npvAtHigh: number }[];
+  npvMin: number;
+  npvMax: number;
 }
 
 export interface PortfolioCostSummary {
+  /** Systems + data-center facility. */
   baselineAnnual: number;
+  systemsBaselineAnnual: number;
+  dataCenterFacilityAnnual: number;
+  /** Steady state after the programme (facility removed only if the DC is exited). */
   targetAnnual: number;
   annualSaving: number;
+  /** Systems' one-off cost plus temporary integrations. */
   oneOffMigration: number;
+  temporaryIntegrationCost: number;
   paybackYears: number | null;
+  /** First quarter where cumulative undiscounted cash flow turns non-negative. */
+  paybackQuarter: Quarter | null;
   npv: number;
-  sensitivity: { label: string; npv: number }[];
+  discountRate: number;
+  horizonYears: number;
+  cashFlows: YearCashFlow[];
+  waterfall: WaterfallStep[];
+  bySixR: Record<SixR, { count: number; baselineAnnual: number; targetAnnual: number; oneOffMigration: number }>;
+  sensitivity: SensitivityResult;
 }
 
 export type Wave = 0 | 1 | 2 | 3;

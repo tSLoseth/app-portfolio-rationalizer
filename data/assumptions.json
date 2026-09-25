@@ -217,6 +217,20 @@
       "estimate": true,
       "rationale": "Avoids unrealistically cheap replacements for custom systems with near-zero licence cost today."
     },
+    "cloudRunCostMultiplier": {
+      "value": 1.0,
+      "unit": "× cloud run cost",
+      "description": "Scales all new cloud run cost (cloud infra after rehost/replatform/refactor and SaaS subscriptions after repurchase). Dashboard slider; the sensitivity analysis varies it ±sensitivityRange.",
+      "estimate": true,
+      "rationale": "Neutral default; the per-6R infra factors carry the estimate. Exposed because cloud price and rightsizing discipline are the largest run-cost uncertainty."
+    },
+    "consolidationRunCostFactor": {
+      "value": 0.3,
+      "unit": "× retired duplicate's license + vendor support",
+      "description": "Extra run cost on the primary system when a duplicate is consolidated into it (more users/licences/capacity).",
+      "estimate": true,
+      "rationale": "Users move to the group standard rather than disappearing; enterprise agreements usually price extra seats well below a separate product, so roughly a third of the old licence spend reappears."
+    },
     "migrationCostNok": {
       "value": {
         "rehost": { "S": 150000, "M": 400000, "L": 1000000, "XL": 2500000 },
@@ -230,6 +244,20 @@
       "description": "One-off migration cost per 6R and size class, before the integration-complexity multiplier.",
       "estimate": true,
       "rationale": "Order-of-magnitude project sizes (weeks to years of effort at the day rate below); relative ordering rehost < replatform < repurchase < refactor follows common migration practice."
+    },
+    "migrationCostMultiplier": {
+      "value": 1.0,
+      "unit": "× one-off cost",
+      "description": "Scales the price of all one-off costs (migration, consolidation, temporary integrations). Dashboard slider; effort in person-days and hence the roadmap are unaffected.",
+      "estimate": true,
+      "rationale": "Neutral default; models rate-card and overrun uncertainty separately from the effort estimates so the roadmap stays stable while the business case is stress-tested."
+    },
+    "consolidationCostNok": {
+      "value": { "S": 150000, "M": 500000, "L": 1500000, "XL": 4000000 },
+      "unit": "NOK one-off",
+      "description": "Extra one-off cost when a retirement consolidates a duplicate into the primary: data migration, user onboarding and re-pointing interfaces. Added to the retire cost and scaled by the integration-complexity multiplier.",
+      "estimate": true,
+      "rationale": "Consolidation is a real migration project (e.g. NAV into SAP, BizTalk into Azure Integration Services), so it is costed at roughly half to two-thirds of a replatform of the same size rather than as a free switch-off."
     },
     "dayRateNok": {
       "value": 11000,
