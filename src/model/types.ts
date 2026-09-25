@@ -214,12 +214,19 @@ export interface TimeResult {
   rationale: string[];
 }
 
-export type SixRFlag = 'requires_eu_no_region';
+/**
+ * requires_eu_no_region: residency-bound data moving to cloud/SaaS.
+ * site_bound: plant/OT system kept at site, outside DC-exit scope.
+ * dc_exit_forced: the tree would retain it, but it sits in the closing data center.
+ * consolidation: retirement that migrates data/users into the duplicate-group primary.
+ */
+export type SixRFlag = 'requires_eu_no_region' | 'site_bound' | 'dc_exit_forced' | 'consolidation';
 
 export interface SixRResult {
   systemId: string;
   sixR: SixR;
   flags: SixRFlag[];
+  consolidateInto?: string;
   rationale: string[];
 }
 
