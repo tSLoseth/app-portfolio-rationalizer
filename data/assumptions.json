@@ -332,11 +332,11 @@
       "rationale": "Limited by change-freeze windows, business testing capacity and hypercare."
     },
     "maxPersonDaysPerQuarter": {
-      "value": 1500,
+      "value": 1800,
       "unit": "person-days per quarter",
       "description": "Migration delivery capacity per quarter.",
       "estimate": true,
-      "rationale": "Roughly 25 FTE across internal staff and partners (~60 productive days per quarter each)."
+      "rationale": "Roughly 30 FTE across internal staff and partners (~60 productive days per quarter each). Raised from an initial 1 500 (25 FTE) because the roadmap engine showed that capacity cannot vacate the data center by the 2028Q4 lease expiry; the extra ~5 FTE is a partner ramp-up and is itself a finding for the steering committee."
     },
     "dcExitMilestone": {
       "value": "2028Q4",
@@ -365,6 +365,20 @@
       "description": "Effort to build a temporary bridge when a system moves before a dependency (e.g. to break a cycle).",
       "estimate": true,
       "rationale": "A simple hybrid connection (VPN/API proxy) plus testing; rough estimate."
+    },
+    "retireQuickWinMaxDependants": {
+      "value": 2,
+      "unit": "dependent systems",
+      "description": "A retirement is a wave-0 quick win only if it is not a consolidation and at most this many systems depend on it.",
+      "estimate": true,
+      "rationale": "Switching off a system that few others call needs little re-pointing; beyond two consumers it becomes a coordinated change."
+    },
+    "maxPersonDaysPerSystemPerQuarter": {
+      "value": 400,
+      "unit": "person-days per system per quarter",
+      "description": "Largest effort one migration team can burn on a single system in a quarter; larger migrations span several quarters.",
+      "estimate": true,
+      "rationale": "About 6–7 FTE on one workstream (~60 productive days each per quarter); larger teams on one system hit coordination limits. At 300 (5 FTE) the ERP replacement alone runs four quarters and pushes its dependants past the DC exit."
     }
   }
 }

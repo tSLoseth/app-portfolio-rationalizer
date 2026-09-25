@@ -3,6 +3,7 @@ import type { Assumptions, System, TimeCategory, TimeFlag, TimeOverride, TimeRes
 export const fmt = (x: number, digits = 2) => x.toFixed(digits);
 /** Weighted sums of exact scores can land at 2.9999999…; thresholds are inclusive. */
 export const atLeast = (x: number, threshold: number) => x >= threshold - 1e-9;
+const eolWhen = (years: number) => (years < 0 ? `expired ${-years} year(s) ago` : `${years} year(s) away`);
 
 export function businessValue(s: System, a: Assumptions): number {
   const w = a.time.businessValueWeights;
@@ -98,7 +99,7 @@ export function assessTime(s: System, a: Assumptions, primaries: Map<string, Sys
     if (eolCritical) {
       flags.push('critical_consolidation');
       rationale.push(
-        `EOL override (criticality ${s.businessCriticality} ≥ ${a.time.overrides.eolMigrateMinCriticality.value}, EOL in ${years} year(s) < ${a.time.overrides.eolMigrateMaxYearsToEol.value}) ` +
+        `EOL override (criticality ${s.businessCriticality} ≥ ${a.time.overrides.eolMigrateMinCriticality.value}, EOL ${eolWhen(years!)}, threshold < ${a.time.overrides.eolMigrateMaxYearsToEol.value} years) ` +
           `is superseded by consolidation: migrating a platform that is being consolidated away wastes money. Retirement is a critical ` +
           `consolidation project and must follow ${primary.name} being in place.`,
       );
@@ -107,7 +108,7 @@ export function assessTime(s: System, a: Assumptions, primaries: Map<string, Sys
     category = 'migrate';
     overridesApplied.push('eol_critical');
     rationale.push(
-      `Override: platform EOL ${s.platformEolYear} is ${years} year(s) away (< ${a.time.overrides.eolMigrateMaxYearsToEol.value}) and criticality ` +
+      `Override: platform EOL ${s.platformEolYear} ${eolWhen(years!)} (< ${a.time.overrides.eolMigrateMaxYearsToEol.value} years) and criticality ` +
         `${s.businessCriticality} ≥ ${a.time.overrides.eolMigrateMinCriticality.value} → at least migrate.`,
     );
   }

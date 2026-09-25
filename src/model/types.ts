@@ -187,6 +187,8 @@ export interface Assumptions {
     waves: Param<Record<'0' | '1' | '2' | '3', SixR[]>>;
     rehostWaveMaxIntegrations: Param<number>;
     temporaryIntegrationPersonDays: Param<number>;
+    retireQuickWinMaxDependants: Param<number>;
+    maxPersonDaysPerSystemPerQuarter: Param<number>;
   };
 }
 
@@ -321,19 +323,53 @@ export type Wave = 0 | 1 | 2 | 3;
 export interface RoadmapItem {
   systemId: string;
   wave: Wave;
-  quarter: Quarter;
   sixR: SixR;
+  /** First quarter of migration work. */
+  startQuarter: Quarter;
+  /** Cutover (go-live / switch-off) quarter. */
+  quarter: Quarter;
+  durationQuarters: number;
+  /** Migration effort plus temporary-integration effort. */
   personDays: number;
-  /** Dependencies not yet handled when moved; bridged with a temporary integration. */
+  migrationPersonDays: number;
+  bridgePersonDays: number;
+  /** Dependencies not yet cut over when this system moves; bridged with a temporary integration. */
   temporaryIntegrations: string[];
+  consolidateInto?: string;
+  /** Hosted in the closing data center (and not site-bound). */
+  dcScope: boolean;
+  rationale: string[];
 }
+
+export interface BrokenCycle {
+  /** A dependency cycle through the cut edge, first id repeated at the end. */
+  cycle: string[];
+  cutEdge: { from: string; to: string };
+  rule: string;
+  /** True when the plan actually needs a bridge for the cut edge (both ends move, dependant first). */
+  temporaryIntegration: boolean;
+  personDays: number;
+}
+
+export type DcExitViolationReason = 'retained_in_dc' | 'unscheduled' | 'late';
 
 export interface RoadmapResult {
   items: RoadmapItem[];
-  quarters: { quarter: Quarter; systems: number; personDays: number }[];
-  cyclesBroken: string[][];
-  dcExit: { milestone: Quarter; ok: boolean; lateSystems: string[] };
+  quarters: { quarter: Quarter; cutovers: number; personDays: number; byWave: Record<Wave, number> }[];
+  cyclesBroken: BrokenCycle[];
+  dcExit: {
+    milestone: Quarter;
+    achieved: boolean;
+    /** Quarter in which the last in-scope system leaves; null if some never leave. */
+    exitQuarter: Quarter | null;
+    inScope: number;
+    violations: { systemId: string; reason: DcExitViolationReason; quarter?: Quarter }[];
+  };
+  /** Retain decisions: not scheduled. */
+  retained: string[];
+  /** Did not fit before the end quarter. */
   unscheduled: string[];
+  capacity: { maxCutoversPerQuarter: number; maxPersonDaysPerQuarter: number; maxPersonDaysPerSystemPerQuarter: number };
 }
 
 export interface SystemAssessment {
