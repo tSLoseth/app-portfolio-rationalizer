@@ -24,7 +24,7 @@ BI stacks, which were never integrated.
 2. **Move to cloud selectively.** Rehost, replatform, refactor or repurchase only the 37 systems where
    end-of-life risk or the DC exit requires it; retain 45 as-is.
 3. **Treat the ERP as the critical path.** Replace SAP ECC with a cloud ERP as a dedicated programme;
-   Vestfjord's Dynamics NAV consolidates onto it once it is live.
+   Vestfjord's Dynamics NAV consolidates into the new group ERP after its 2028Q2 go-live, not onto ECC.
 
 ## Business case (estimates)
 
@@ -48,7 +48,7 @@ the economics.
 | Horizon | Scope | Cutovers |
 |---|---|---|
 | **H1 · 2027Q1–Q3** — quick wins | Switch-offs, rehosts, integration middleware consolidated; ERP programme starts | 41 |
-| **H2 · 2027Q4–2028Q4** — transform and exit | Replatform, refactor and repurchase; ERP live 2028Q2; Dynamics NAV consolidated 2028Q3; DC vacated 2028Q4 | 59 |
+| **H2 · 2027Q4–2028Q4** — transform and exit | Replatform, refactor and repurchase; ERP live 2028Q2; Dynamics NAV moved into it 2028Q3; DC vacated 2028Q4 | 59 |
 | **H3 · 2029Q1** — close-out | Last consolidations outside the DC; full run-rate saving | 5 |
 
 ## Risks and mitigations

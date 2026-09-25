@@ -18,7 +18,7 @@ export function Overview({ portfolio, assumptions, result, palette }: ViewProps)
         <h2 className="hero-line">{headline(result)}</h2>
       </section>
 
-      <section className="kpis" aria-label="Key figures">
+      <section className="kpis kpis-8" aria-label="Key figures">
         <Kpi label="Systems assessed" value={String(k.systems)} sub={`${k.duplicateSystems} sit in duplicate groups`} />
         <Kpi label="Annual IT run cost" value={nokM(k.runCost)} sub={k.facilityCost > 0 ? 'incl. data-center facility' : 'listed systems only'} />
         <Kpi label="Hosted on-prem" value={pct(k.onPremShare)} sub="of systems, in the DC or at plants" />

@@ -329,6 +329,11 @@ code {
   overflow: hidden;
 }
 
+/* Eight overview tiles read best as two rows of four; the phone rule below still wins (same specificity, later). */
+.kpis-8 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 /* Each tile draws its right/bottom rule and overhangs by 1px so the outer edge rules get clipped. */
 .kpi {
   padding: 14px 16px;

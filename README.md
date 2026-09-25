@@ -19,6 +19,10 @@ case and a dependency-aware migration roadmap — reproducible, auditable, recom
 |---|---|
 | ![TIME matrix](docs/screenshots/time-matrix.png) | ![Business case](docs/screenshots/business-case.png) |
 
+| Roadmap by calendar horizon | Bring your own inventory (CSV import) |
+|---|---|
+| ![Roadmap](docs/screenshots/roadmap.png) | ![CSV import](docs/screenshots/import.png) |
+
 The demo portfolio is **Nordlys Gruppen ASA — a fictional** Norwegian industrial group (~4 000
 employees) that acquired two companies in 2022 and 2024 and runs a leased data center whose lease
 expires in 2028. 150 systems, generated from a fixed seed with planted patterns: duplicates across
@@ -154,8 +158,11 @@ flowchart LR
     subgraph Data
         GEN[scripts/generate.ts<br/>seeded PRNG] --> PF[(portfolio.json<br/>150 systems)]
         AS[(assumptions.json<br/>every parameter labelled)]
-        CSV[/Your CSV inventory/] -.-> MAP[scripts/map-columns.ts<br/>optional Haiku column mapping]
-        MAP -.-> PF
+    end
+
+    subgraph Import["CSV import (src/import, in the browser)"]
+        CSV[/Your CSV inventory/] --> IMP[csv.ts → mapping.ts → build.ts<br/>rule-based mapping, user confirms]
+        MAP[scripts/map-columns.ts<br/>optional Haiku mapping JSON] -.-> IMP
     end
 
     subgraph Engine["Pure engine (src/engine)"]
@@ -165,9 +172,10 @@ flowchart LR
     end
 
     PF --> A[assess.ts]
+    IMP -- imported portfolio --> A
     AS --> A
     A --> T
-    BC --> UI[React dashboard<br/>6 tabs, live sliders]
+    BC --> UI[React dashboard<br/>7 tabs, live sliders]
     UI -- slider overrides --> A
 
     A -. build time .-> RAT[scripts/rationale.ts<br/>Claude Haiku 4.5] --> RJ[(rationale.json)] --> UI
@@ -180,8 +188,13 @@ flowchart LR
 - **Build-time AI**: `npm run rationale` sends each system's attributes and the engine's decision
   to Haiku and stores a 2–3 sentence explanation in `data/rationale.json`. A test checks that each
   text names the correct TIME category and 6R strategy. No API key ever reaches the frontend.
-- **Bring your own inventory**: a CSV import (in progress) maps a messy export onto the schema — with
-  an optional Haiku-assisted column mapping that the user confirms before the engine runs.
+- **Bring your own inventory**: the *Import CSV* tab reads a messy CMDB or spreadsheet export in the
+  browser (`src/import/csv.ts` detects delimiter and encoding, `normalize.ts` reads Norwegian numbers
+  and scales, `mapping.ts` suggests a header → field mapping by fixed rules, `build.ts` turns rows into
+  systems and logs every assumed value). The user confirms the mapping before the engine runs; nothing
+  leaves the browser. Optionally, `npm run map-columns -- file.csv` asks Haiku offline for a mapping
+  JSON that is loaded and reviewed in the same screen. Demo: open `/?sample#import` to start with
+  the bundled 25-system sample (`public/sample-inventory.csv`).
 - Static site: Vite + React + TypeScript + Recharts. No server, no database.
 
 ## Design principles
@@ -220,6 +233,7 @@ ANTHROPIC_API_KEY=sk-ant-...
 npm run rationale                  # only systems whose inputs changed
 npm run rationale -- --force       # all systems
 npm run rationale -- --only SYS-011
+npm run map-columns -- path/to/inventory.csv   # optional: Haiku-proposed column mapping JSON
 ```
 
 ## Project structure
@@ -228,10 +242,13 @@ npm run rationale -- --only SYS-011
 src/
   model/      types.ts (data contract), data.ts (loads the JSON)
   engine/     time.ts, sixR.ts, cost.ts, roadmap.ts, graph.ts, assess.ts (+ *.test.ts)
+  import/     csv.ts, normalize.ts, mapping.ts, schema.ts, capabilities.ts, build.ts (CSV import)
   ui/         React dashboard: Overview, TIME matrix, Capability map, Business case,
-              Roadmap & systems, Assumptions
+              Roadmap & systems, Assumptions, Import CSV
 data/         portfolio.json, assumptions.json, rationale.json
-scripts/      generate.ts (seeded generator), rationale.ts (Haiku, build time)
+public/       sample-inventory.csv (+ .mapping.json) for the import demo
+scripts/      generate.ts (seeded generator), rationale.ts (Haiku, build time),
+              map-columns.ts (optional Haiku column mapping)
 docs/         executive memo (md + pdf), demo script, screenshots
 ```
 
