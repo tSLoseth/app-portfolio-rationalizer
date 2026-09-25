@@ -9,7 +9,8 @@ import { assessPortfolio } from '../src/engine/assess';
 import { nok } from '../src/engine/cost';
 import { assumptions, portfolio } from '../src/model/data';
 import type { SixR, SystemAssessment, TimeCategory } from '../src/model/types';
-import { checkRationale } from './rationale-terms';
+import { HORIZON_NAME, TRACK_NAME } from '../src/engine/roadmap';
+import { checkFactualSlips, checkRationale } from './rationale-terms';
 
 export const MODEL = 'claude-haiku-4-5-20251001';
 const CONCURRENCY = 5;
@@ -35,12 +36,17 @@ Rules:
 - Use only facts from the JSON. Do not invent numbers, dates, vendors, products, risks or benchmarks. Every number you write must appear in the JSON, in the same unit.
 - Name the TIME category and the 6R strategy explicitly, using those words (for example "Migrate" and "Repurchase").
 - Start with why: the decisive attributes or rule. Then say what it means in practice: cost effect and/or timing.
+- Timing: use the quarters (start, cutover) and, if helpful, the calendar horizon. Never mention waves, tracks or their numbers.
+- Retain: the system is not scheduled and has no one-off cost; do not write about investment, payback, justification or migration timing. Say it is kept as-is and why.
+- Say "justified" only for what the rule trace gives as the reason; if the annual saving is zero or negative, say the move rests on risk or the data-center exit, not on savings.
+- Payback: call it "simple payback" and use simplePaybackYears exactly.
+- Consolidation into a group standard that is itself being replaced or moved: say the data and users move into that future state (named in consolidateInto), not into today's platform.
 - Write exactly 2 or 3 sentences, at most 80 words, in plain English prose. Plain text only: no markdown, no bold, no bullet points, no headings, no field names.
 - Output only the explanation.`;
 
 const r1 = (x: number) => Math.round(x * 100) / 100;
 
-function facts(x: SystemAssessment, nameOf: (id: string) => string) {
+function facts(x: SystemAssessment, byId: Map<string, SystemAssessment>) {
   const { system: s, time, sixR, cost, roadmap } = x;
   return {
     system: {
@@ -74,7 +80,7 @@ function facts(x: SystemAssessment, nameOf: (id: string) => string) {
     sixR: {
       strategy: sixR.sixR,
       flags: sixR.flags,
-      ...(sixR.consolidateInto ? { consolidateInto: nameOf(sixR.consolidateInto) } : {}),
+      ...(sixR.consolidateInto ? { consolidateInto: consolidationTarget(x, byId) } : {}),
       ruleTrace: sixR.rationale,
     },
     cost: {
@@ -82,20 +88,30 @@ function facts(x: SystemAssessment, nameOf: (id: string) => string) {
       targetRunCostPerYear: nok(cost.targetAnnual),
       annualSaving: nok(cost.annualSaving),
       oneOffCost: nok(cost.oneOffMigration),
-      paybackYears: cost.paybackYears === null ? 'does not pay back on run cost' : r1(cost.paybackYears),
+      ...(sixR.sixR === 'retain'
+        ? {}
+        : { simplePaybackYears: cost.paybackYears === null ? 'no simple payback on run cost' : r1(cost.paybackYears) }),
       ruleTrace: cost.rationale,
     },
     roadmap: roadmap
       ? {
-          wave: roadmap.wave,
+          calendarHorizon: `${roadmap.horizon} (${HORIZON_NAME[roadmap.horizon].toLowerCase()})`,
           start: roadmap.startQuarter,
           cutover: roadmap.quarter,
           durationQuarters: roadmap.durationQuarters,
           dataCenterExitScope: roadmap.dcScope,
-          ruleTrace: roadmap.rationale,
+          ruleTrace: roadmap.rationale.map((l) => l.replace(`${TRACK_NAME[roadmap.wave]}: `, '').replace(`${TRACK_NAME[roadmap.wave]}, `, '')),
         }
       : 'not scheduled: the system is retained as it is',
   };
+}
+
+function consolidationTarget(x: SystemAssessment, byId: Map<string, SystemAssessment>): string {
+  const target = byId.get(x.sixR.consolidateInto!)!;
+  const future = x.sixR.consolidationTargetFuture;
+  if (!future) return target.system.name;
+  const goLive = target.roadmap ? `, go-live ${target.roadmap.quarter}` : '';
+  return `the group standard's future state: ${target.system.name} → ${future.futureState}${goLive}`;
 }
 
 const hashOf = (payload: string) => createHash('sha256').update(`${MODEL}\n${SYSTEM_PROMPT}\n${payload}`).digest('hex').slice(0, 16);
@@ -131,7 +147,7 @@ async function explain(client: Anthropic, payload: string, x: SystemAssessment):
       .replace(/\s+/g, ' ')
       .trim();
     lastText = text;
-    lastProblems = checkRationale(text, x.time.category, x.sixR.sixR);
+    lastProblems = [...checkRationale(text, x.time.category, x.sixR.sixR), ...checkFactualSlips(text, x.sixR.sixR)];
     const sentences = text.split(/[.!?](?:\s|$)/).filter((t) => t.trim()).length;
     if (sentences > 3) lastProblems.push(`${sentences} sentences`);
     if (res.stop_reason === 'end_turn' && text && lastProblems.length === 0) return text;
@@ -149,13 +165,13 @@ async function main() {
   if (!process.env.ANTHROPIC_API_KEY) throw new Error('ANTHROPIC_API_KEY missing (see .env.example)');
 
   const { assessments } = assessPortfolio(portfolio, assumptions);
-  const nameOf = (id: string) => assessments.find((a) => a.system.id === id)?.system.name ?? id;
+  const byId = new Map(assessments.map((a) => [a.system.id, a]));
   if (only && !assessments.some((a) => a.system.id === only)) throw new Error(`Unknown system id ${only}`);
 
   const existing: Record<string, RationaleEntry> = existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')) : {};
   const out: Record<string, RationaleEntry> = { ...existing };
   const todo = assessments
-    .map((x) => ({ x, payload: JSON.stringify(facts(x, nameOf), null, 1) }))
+    .map((x) => ({ x, payload: JSON.stringify(facts(x, byId), null, 1) }))
     .map((t) => ({ ...t, hash: hashOf(t.payload) }))
     .filter(({ x, hash }) => (only ? x.system.id === only : true) && (force || existing[x.system.id]?.inputHash !== hash));
   for (const id of Object.keys(out)) if (!assessments.some((a) => a.system.id === id)) delete out[id];

@@ -158,8 +158,9 @@ describe('6R on the real portfolio', () => {
     const nav = results.find((r) => r.systemId === 'SYS-012')!;
     expect(nav.consolidateInto).toBe('SYS-011');
     expect(results.find((r) => r.systemId === 'SYS-011')!.sixR).toBe('repurchase');
-    expect(nav.consolidationTargetFuture).toEqual({ sixR: 'repurchase', futureState: 'SaaS replacement (e.g. SAP S/4HANA Cloud)' });
-    expect(nav.rationale.at(-1)).toMatch(/itself being repurchased; data and users consolidate into its future state/);
+    expect(nav.consolidationTargetFuture).toEqual({ sixR: 'repurchase', futureState: 'SAP S/4HANA Cloud-class SaaS replacement' });
+    expect(nav.rationale.at(-1)).toMatch(/itself being repurchased, so the consolidation lands on its future state/);
+    expect(nav.rationale[0]).toContain('into the future state of SAP ECC 6.0 (Nordlys core) (SAP S/4HANA Cloud-class SaaS replacement)');
     for (const r of results.filter((x) => x.consolidateInto && !x.consolidationTargetFuture)) {
       expect(['retire', 'retain', 'rehost']).toContain(results.find((x) => x.systemId === r.consolidateInto)!.sixR);
     }

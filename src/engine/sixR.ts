@@ -140,9 +140,10 @@ export function assessSixRAll(
     const t = byId.get(target.systemId)!;
     const futureState = futureStateOf(target.sixR, caps.get(capabilityKey(t.capability)));
     r.consolidationTargetFuture = { sixR: target.sixR, futureState };
+    r.rationale = r.rationale.map((l) => l.replace(`into ${t.name};`, `into the future state of ${t.name} (${futureState});`));
     r.rationale.push(
-      `The group standard ${t.name} is itself being ${target.sixR === 'repurchase' ? 'repurchased' : `${target.sixR}ed`}; data and users consolidate into its future state ` +
-        `(${futureState}), not into today's platform.`,
+      `The group standard ${t.name} is itself being ${target.sixR === 'repurchase' ? 'repurchased' : `${target.sixR}ed`}, ` +
+        `so the consolidation lands on its future state, not on today's platform.`,
     );
   }
   return results;
@@ -153,8 +154,8 @@ export const TRANSFORMS_TARGET: SixR[] = ['repurchase', 'replatform', 'refactor'
 
 export function futureStateOf(sixR: SixR, capability: CapabilityDef | undefined): string {
   if (sixR === 'repurchase') {
-    const example = capability?.saasAlternativeExample?.split(',')[0]?.trim();
-    return `SaaS replacement${example ? ` (e.g. ${example})` : ''}`;
+    const example = capability?.saasAlternativeExample?.split(',')[0]?.replace(/\s*\(.*?\)/g, '').trim();
+    return example ? `${example}-class SaaS replacement` : 'SaaS replacement';
   }
   return sixR === 'refactor' ? 'cloud-native rebuild' : 'managed cloud edition';
 }

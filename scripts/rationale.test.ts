@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { assessPortfolio } from '../src/engine/assess';
 import { assumptions, portfolio } from '../src/model/data';
 import type { SixR, TimeCategory } from '../src/model/types';
-import { checkRationale } from './rationale-terms';
+import { checkFactualSlips, checkRationale } from './rationale-terms';
 
 const path = resolve(dirname(fileURLToPath(import.meta.url)), '../data/rationale.json');
 type Entry = { text: string; model: string; time: TimeCategory; sixR: SixR; generatedAt: string };
@@ -15,6 +15,12 @@ describe('checkRationale', () => {
     expect(checkRationale('An Eliminate case: the tool is retired.', 'eliminate', 'retire')).toEqual([]);
     expect(checkRationale('Classed as Migrate; it will be replaced with SaaS.', 'migrate', 'repurchase')).toEqual([]);
     expect(checkRationale('Classed as Migrate and rehosted.', 'migrate', 'refactor')).toHaveLength(1);
+  });
+
+  it('flags wave numbers and a cost case on Retain', () => {
+    expect(checkFactualSlips('Cutover in wave 3, starting 2027Q1.', 'repurchase')).toHaveLength(1);
+    expect(checkFactualSlips('Retain it; the investment is justified by low risk.', 'retain')).toHaveLength(1);
+    expect(checkFactualSlips('Invest and Retain: it stays on SaaS and keeps receiving investment.', 'retain')).toEqual([]);
   });
 });
 
@@ -37,6 +43,13 @@ describe.skipIf(!existsSync(path))('AI rationale texts (data/rationale.json)', (
     for (const x of assessments) {
       const e = texts[x.system.id]!;
       expect(checkRationale(e.text, x.time.category, x.sixR.sixR), `${x.system.id}: ${e.text}`).toEqual([]);
+    }
+  });
+
+  it('avoids track numbers and cost-case language on Retain', () => {
+    for (const x of assessments) {
+      const e = texts[x.system.id]!;
+      expect(checkFactualSlips(e.text, x.sixR.sixR), `${x.system.id}: ${e.text}`).toEqual([]);
     }
   });
 

@@ -24,3 +24,13 @@ export function checkRationale(text: string, time: TimeCategory, sixR: SixR): st
   if (!SIX_R_TERMS[sixR].test(text)) problems.push(`does not mention 6R strategy "${sixR}"`);
   return problems;
 }
+
+/** Factual slips the prompt forbids: engine-internal track numbers, and cost-case language on a Retain. */
+export function checkFactualSlips(text: string, sixR: SixR): string[] {
+  const problems: string[] = [];
+  if (/\bwaves?\b|\btrack \d/i.test(text)) problems.push('mentions a wave or track number; use quarters or the calendar horizon');
+  if (sixR === 'retain' && /investment is justified|justified by|pays back|simple payback|payback of|one-off|migration cost/i.test(text)) {
+    problems.push('describes a cost case (investment, payback, justification) for a Retain decision');
+  }
+  return problems;
+}
