@@ -72,12 +72,12 @@
     "inputHash": "969437b4dcc3e4e9"
   },
   "SYS-010": {
-    "text": "This SFTP server for EDI exchange rates as Migrate and Repurchase because it delivers high business value (4.4 of 5) but runs on unsupported Windows Server 2012 R2 with poor technical health (1.25 of 5). A SaaS alternative exists, making repurchase viable despite a NOK 48k annual cost increase; the move is justified by EOL risk and data center exit. Migration is scheduled for wave 3 in 2028Q1 with a one-off cost of NOK 290k.",
+    "text": "This SFTP server has high business value (4.4 of 5) but critically low technical health (1.25 of 5), driven by Windows Server 2012 R2 platform end-of-support in 2023 and poor security and supportability scores. The Migrate decision with Repurchase strategy means replacing it with a SaaS alternative such as Azure Integration Services. Run costs will increase by NOK 48k annually, but the investment is justified by eliminating EOL risk and supporting data center exit in wave 3 (2028Q1).",
     "model": "claude-haiku-4-5-20251001",
     "time": "migrate",
     "sixR": "repurchase",
-    "generatedAt": "2026-09-25T18:33:02.805Z",
-    "inputHash": "e0e4ba1d5f5bc08d"
+    "generatedAt": "2026-09-25T18:47:05.916Z",
+    "inputHash": "4f3d604407a378d5"
   },
   "SYS-011": {
     "text": "SAP ECC 6.0 is classified as Migrate because business value is high at 3.85 of 5, but technical health is critically low at 1.75 of 5 with platform end of support in 2027. The 6R strategy is Repurchase: a credible SaaS alternative exists for this ERP capability. The one-off cost is NOK 80.00M with annual run cost increasing by NOK 1.10M, justified by eliminating end-of-life risk and enabling data center exit in wave 3 starting 2027Q1.",
@@ -176,12 +176,12 @@
     "inputHash": "150321086a4be808"
   },
   "SYS-023": {
-    "text": "This macro-heavy budget workbook scores low on both business value (2.45 of 5) and technical health (2.05 of 5), placing it in the Eliminate category. The 6R strategy is Retire: archive the data, switch off the system, and cancel licences. Retiring this shadow IT system will save NOK 133k annually against a one-off cost of NOK 50k, paying back in 0.38 years and supporting data centre exit in 2027Q1.",
+    "text": "This macro-heavy budget spreadsheet scores low on both business value (2.45 of 5) and technical health (2.05 of 5), placing it in the Eliminate category with a Retire strategy. The system will be archived and switched off in 2027Q1, eliminating NOK 133k annual run costs at a one-off retirement cost of NOK 50k, paying back in 0.38 years.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:09.387Z",
-    "inputHash": "4d17eafb6c373011"
+    "generatedAt": "2026-09-25T18:47:05.359Z",
+    "inputHash": "7ed311e7216eeb27"
   },
   "SYS-024": {
     "text": "SAP Concur Expense scores low on business value but high on technical health, placing it in Tolerate. Since it is already a SaaS platform with no data centre footprint, the 6R strategy is Retain. The system will continue to run at its current cost of NOK 1.50M per year with no savings or migration investment required.",
@@ -208,28 +208,28 @@
     "inputHash": "3c8a382b0092f35b"
   },
   "SYS-027": {
-    "text": "Visma Lønn scores high on business value (3.7 of 5) but low on technical health (2.8 of 5), placing it in Migrate. The strategy is Repurchase because a credible SaaS alternative exists for Core HR & Payroll and data residency requirements can be met in an EU/EEA region. The move costs NOK 924k upfront and increases annual run costs by NOK 170k, but is justified by technical risk and data center exit; it begins in wave 3 (2028Q2) after Active Directory and SAP ECC dependencies are ready.",
+    "text": "Visma Lønn scores high on business value (3.7 of 5) but low on technical health (2.8 of 5), placing it in Migrate. The Repurchase strategy applies because a credible SaaS alternative exists for Core HR & Payroll and personal data residency requirements can be met in an EU/EEA region. The move costs NOK 924k upfront and increases annual run costs by NOK 170k, but is justified by technical risk and data center exit; migration occurs in wave 3 (2028Q2) after Active Directory and SAP dependencies complete.",
     "model": "claude-haiku-4-5-20251001",
     "time": "migrate",
     "sixR": "repurchase",
-    "generatedAt": "2026-09-25T18:33:11.747Z",
-    "inputHash": "dec4a914260d41b1"
+    "generatedAt": "2026-09-25T18:47:06.141Z",
+    "inputHash": "6e904991ada264b4"
   },
   "SYS-028": {
-    "text": "Huldt & Lillevik Lønn (Vestfjord) is a non-primary duplicate in the payroll consolidation group, so it must be Eliminated and Retired by consolidating into Visma Lønn (Nordlys). The platform reached end-of-support in 2022, but retiring it through consolidation is more cost-effective than migrating an obsolete system that will be decommissioned anyway. Retirement delivers NOK 2.40M annual savings with payback in 0.34 years, scheduled for wave 3 in 2028Q3 after the primary system is operational.",
+    "text": "Huldt & Lillevik Lønn (Vestfjord) is classified as Eliminate with a Retire strategy. The system runs on unsupported platforms (Windows Server 2012 R2 and SQL Server 2012, both expired) and is a non-primary duplicate in the payroll group, so it will be consolidated into Visma Lønn (Nordlys) rather than migrated independently. This consolidation delivers NOK 2.40M annual savings against a one-off cost of NOK 806k, paying back in 0.34 years, and supports data center exit in wave 3 (2028Q3).",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:13.035Z",
-    "inputHash": "5744ebc19aff501d"
+    "generatedAt": "2026-09-25T18:47:06.337Z",
+    "inputHash": "aea26e9f6e34862b"
   },
   "SYS-029": {
-    "text": "This Swedish payroll system scores high on both business value and technical health, with platform support extending to 2029, placing it in the Invest category. The 6R strategy is Retain: the system will remain on its current private cloud hosting with continued investment rather than migration. There is no cost saving or migration expense, as the system operates effectively in its present state and meets regulatory residency requirements.",
+    "text": "Hogia Lön scores high on both business value and technical health, with platform support extending to 2029, placing it in the Invest category. The 6R strategy is Retain: the system will remain on private cloud with continued investment rather than migration. There is no cost saving or migration expense, as the system operates stably at NOK 565k annually and requires no change.",
     "model": "claude-haiku-4-5-20251001",
     "time": "invest",
     "sixR": "retain",
-    "generatedAt": "2026-09-25T18:33:12.611Z",
-    "inputHash": "817ed7095f71f7e1"
+    "generatedAt": "2026-09-25T18:47:05.371Z",
+    "inputHash": "979b1899eff9ec6a"
   },
   "SYS-030": {
     "text": "BHT-journal scores low on both business value (2.85 of 5) and technical health (1.65 of 5), with its platform already past end of support in 2023, triggering an Eliminate decision and Retire strategy. Retiring the system will save NOK 273k annually against a one-off cost of NOK 54k, paying back in 0.2 years. The retirement is scheduled for 2027Q1 as a quick win with minimal dependencies, supporting data center exit.",
@@ -336,12 +336,12 @@
     "inputHash": "5e737f7210b03ad9"
   },
   "SYS-043": {
-    "text": "This shadow IT system scores low on both business value (2.25 of 5) and technical health (2.9 of 5), placing it in the Eliminate category. The Retire strategy will archive data and cancel the NOK 137k annual licence, delivering payback in 0.36 years with a one-off retirement cost of NOK 50k. Retirement is scheduled as a quick win in 2027Q1 with no integration dependencies.",
+    "text": "This shadow IT system scores low on both business value (2.25 of 5) and technical health (2.9 of 5), placing it in the Eliminate category. The Retire strategy will archive data and cancel the NOK 137k annual licence, delivering payback in 0.36 years with a one-off cost of NOK 50k. Retirement is scheduled as a quick win in 2027Q1 with no integration dependencies.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:19.306Z",
-    "inputHash": "54c087576432891c"
+    "generatedAt": "2026-09-25T18:47:07.143Z",
+    "inputHash": "d2a40f1c51709d5c"
   },
   "SYS-044": {
     "text": "HubSpot Marketing Hub scores low on both business value and technical health, falling well below the thresholds needed to justify continued investment. The TIME category is Eliminate and the 6R strategy is Retire: the system will be archived, switched off and licences cancelled in 2027Q1, delivering NOK 146k annual savings against a one-off retirement cost of NOK 50k. As shadow IT, it must first be assigned a business owner and brought under IT governance.",
@@ -480,12 +480,12 @@
     "inputHash": "feeb89c3835a8489"
   },
   "SYS-061": {
-    "text": "Supplier audit questionnaires scores low on business value (1.85 of 5) and technical health (1.15 of 5), with platforms already past end of support. The TIME category is Eliminate and the 6R strategy is Retire: archive data and switch off. This delivers NOK 121k annual savings with a one-off cost of NOK 66k, paying back in 0.55 years, scheduled for 2027Q1 as a quick win supporting data center exit.",
+    "text": "Leverandørkvalifisering scores low on both business value (1.85) and technical health (1.15), with its platform already past end of support in 2023. The TIME category is Eliminate and the 6R strategy is Retire: the system will be archived and switched off. This delivers NOK 121k annual savings against a one-off retirement cost of NOK 66k, paying back in 0.55 years, and is scheduled for 2027Q1 as a quick-win data center exit.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:25.942Z",
-    "inputHash": "5d3507638dfcd411"
+    "generatedAt": "2026-09-25T18:47:07.346Z",
+    "inputHash": "f8212a02f739ed4c"
   },
   "SYS-062": {
     "text": "Manhattan WMS is classified as Migrate with a Repurchase strategy because technical health is critically low—the platform reaches end of support in 2024 and is already expired—while business value remains high at 3.3 of 5 due to its criticality to central warehouse operations. A credible SaaS alternative exists, making repurchase the appropriate path. The move will increase annual run costs by NOK 499k but does not require payback justification given the EOL risk and data center exit imperative; migration is scheduled for wave 3 in 2028Q2 with one-off costs of NOK 3.44M.",
@@ -496,12 +496,12 @@
     "inputHash": "c777ee8e5f848e21"
   },
   "SYS-063": {
-    "text": "Lagerstyring LX is classified as Eliminate with a Retire strategy. Although business value is adequate at 3.55 of 5, technical health is critically low at 0.75 of 5, with the platform already three years past end of support. As a non-primary duplicate in the warehouse management group, it will be consolidated into Manhattan WMS (sentrallager Moss) in wave 3, delivering NOK 2.43M annual savings and payback in 0.33 years despite NOK 806k one-off costs.",
+    "text": "Lagerstyring LX is classified as Eliminate with a Retire strategy. As a non-primary duplicate in the warehouse management group, it will be consolidated into Manhattan WMS (sentrallager Moss), delivering NOK 2.43M in annual savings with payback in 0.33 years. Retirement is scheduled for wave 3 (2028Q3), following the primary system's deployment.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:26.810Z",
-    "inputHash": "1a6ad6b26ea63038"
+    "generatedAt": "2026-09-25T18:47:09.703Z",
+    "inputHash": "74291937efc71662"
   },
   "SYS-064": {
     "text": "Astro WMS is a non-primary duplicate in the warehouse management group and must be Eliminated and Retired by consolidating into Manhattan WMS. Although the system scores well on business value and technical health, the duplicate override takes precedence, making consolidation the only viable path. This will save NOK 2.21M annually with a one-off cost of NOK 754k, paying back in 0.34 years, and is scheduled for 2029Q1 after the primary system is operational.",
@@ -512,12 +512,12 @@
     "inputHash": "f6ef33a1160f785d"
   },
   "SYS-065": {
-    "text": "This warehouse management scanner app must Migrate via Repurchase. The platform reached end of support in 2021 and technical health is critically low at 1.4 of 5, while business criticality remains high at 4 of 5. A credible SaaS alternative exists, delivering NOK 78k annual savings and payback in 4.0 years, with migration scheduled for wave 3 in 2028Q2 as part of data center exit.",
+    "text": "This system is classified as Migrate with a Repurchase strategy. The platform ended support in 2021 and technical health is critically low at 1.4 of 5, while business value remains high at 4 of 5, making modernisation essential. A credible SaaS alternative exists for warehouse management, delivering NOK 78k annual savings with payback in 4 years.",
     "model": "claude-haiku-4-5-20251001",
     "time": "migrate",
     "sixR": "repurchase",
-    "generatedAt": "2026-09-25T18:33:27.374Z",
-    "inputHash": "be09ef1052a337f7"
+    "generatedAt": "2026-09-25T18:47:09.368Z",
+    "inputHash": "17274b8e9d129074"
   },
   "SYS-066": {
     "text": "nShift Delivery scores low on business value at 2.7 of 5 but maintains adequate technical health at 3.75 of 5, placing it in Tolerate. Since it is already a SaaS platform, the 6R strategy is Retain, requiring no migration effort or cost. The system will continue to run at NOK 722k per year with no savings or investment needed.",
@@ -544,12 +544,12 @@
     "inputHash": "8021e1f2aafae5e8"
   },
   "SYS-069": {
-    "text": "This system has high business value (4.55 of 5) but critically poor technical health (1.4 of 5), with platforms already past end of support, triggering a Migrate decision. The 6R strategy is Repurchase: credible SaaS alternatives exist for customs logistics. Although the target run cost rises by NOK 39k annually and does not pay back on operating expense alone, the business case is justified by elimination of EOL risk and alignment with the data center exit in wave 3, scheduled for 2028Q2.",
+    "text": "Tolldeklarasjon scores high on business value (4.55 of 5) but critically low on technical health (1.4 of 5), with its platform already past end-of-support in 2023, triggering a Migrate decision. The Repurchase strategy applies because credible SaaS alternatives exist for customs logistics. Although the target run cost rises to NOK 195k annually (NOK 39k higher than today), the one-off investment of NOK 330k is justified by eliminating technical risk and supporting data center exit in wave 3, starting 2028Q2.",
     "model": "claude-haiku-4-5-20251001",
     "time": "migrate",
     "sixR": "repurchase",
-    "generatedAt": "2026-09-25T18:33:31.033Z",
-    "inputHash": "1b9090f2b130021c"
+    "generatedAt": "2026-09-25T18:47:08.770Z",
+    "inputHash": "1b092580673e9572"
   },
   "SYS-070": {
     "text": "Kinaxis RapidResponse scores high on both business value (4.05 of 5) and technical health (4.5 of 5), placing it in the Invest category. The 6R strategy is Retain: since the system is already a SaaS platform, it will be kept as-is with continued investment. No migration or refactoring is needed, and run costs remain stable at NOK 5.99M per year with no savings expected.",
@@ -576,12 +576,12 @@
     "inputHash": "b034cee460eef9ec"
   },
   "SYS-073": {
-    "text": "Siemens Opcenter Execution scores high on both business value (4.6 of 5) and technical health (4 of 5), placing it in the Invest category. The 6R strategy is Replatform: the system will move from on-premises to the vendor's cloud or managed edition, delivering NOK 1.80M annual savings and paying back the NOK 9.40M one-off cost in 5.2 years. Migration is scheduled for wave 2, starting 2027Q2 with cutover in 2027Q4, aligned with data center exit.",
+    "text": "Siemens Opcenter Execution scores high on both business value (4.6 of 5) and technical health (4 of 5), placing it in the Invest category. The system will be Replatformed onto the vendor's cloud edition, reducing annual run costs from NOK 9.40M to NOK 7.60M (NOK 1.80M saving) with a one-off cost of NOK 9.40M and payback in 5.2 years. Migration begins 2027Q2 and completes 2027Q4 as part of the data center exit.",
     "model": "claude-haiku-4-5-20251001",
     "time": "invest",
     "sixR": "replatform",
-    "generatedAt": "2026-09-25T18:33:30.771Z",
-    "inputHash": "0bb116269cb80b2d"
+    "generatedAt": "2026-09-25T18:47:09.193Z",
+    "inputHash": "f10ab1d61459ce2e"
   },
   "SYS-074": {
     "text": "Ordremottak produksjon scores high business value (4 of 5) but critically low technical health (1.15 of 5), driven by platform end-of-support in 2021 and poor documentation and supportability. The TIME category is Migrate with a Refactor strategy: the custom-built system's strategic importance justifies rebuilding rather than replacing. Refactoring will reduce annual run costs by NOK 2.44M, paying back the NOK 8.20M investment in 3.4 years, and the system will exit the data center in wave 3 (2028Q2).",
@@ -592,36 +592,36 @@
     "inputHash": "6e95818a74f73060"
   },
   "SYS-075": {
-    "text": "MES Florø is a custom-built system with high business value but critically poor technical health: its platform reached end of support three years ago and scores only 1.25 of 5. The Eliminate category with Retire strategy reflects a consolidation decision—this system is a non-primary duplicate in the manufacturing execution group and will be retired into Siemens Opcenter Execution at Gjøvik, eliminating NOK 2.95M in annual run costs. Retirement begins in 2028Q1 after the primary system is operational, delivering payback in just 0.33 years.",
+    "text": "This custom MES has critical business value but severely degraded technical health: its platform reached end of support three years ago and scores only 1.25 of 5 overall. Rather than migrate this aging system independently, the Eliminate decision consolidates it into the group standard Siemens Opcenter Execution at Gjøvik and Sunndal, retiring the Florø instance as a non-primary duplicate. This Retire strategy saves NOK 2.95M annually against a one-off cost of NOK 962k, paying back in 0.33 years, and executes in wave 2 (2028Q1) after the primary system is operational.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:32.183Z",
-    "inputHash": "96f5d0075d6aba5f"
+    "generatedAt": "2026-09-25T18:47:10.089Z",
+    "inputHash": "3e5f53084dd8164f"
   },
   "SYS-076": {
-    "text": "AVEVA MES at Kalmar is classified as Eliminate with a Retain strategy. As a site-bound manufacturing system, it remains at the plant rather than migrating to the data center exit program. However, the engine flags this for follow-up action on the plant OT roadmap: with technical health of 2 of 5, business value of 2.85 of 5, and platform end-of-support in 2027, consolidation into the Siemens Opcenter Execution standard (deployed at Gløvik and Sunndal) should be planned once that primary instance is operational.",
+    "text": "AVEVA MES is marked for Eliminate but will Retain in place because it is site-bound to the Kalmar plant and outside the data-center exit programme. As a non-primary duplicate in the Manufacturing Execution group, it must be consolidated into Siemens Opcenter Execution at Gjøvik and Sunndal once that system is operational; retirement is a follow-up action for the plant OT roadmap. No migration cost or run-cost saving applies now.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retain",
-    "generatedAt": "2026-09-25T18:33:32.254Z",
-    "inputHash": "75291f3b789dd0f9"
+    "generatedAt": "2026-09-25T18:47:11.078Z",
+    "inputHash": "bd3d5e5b7e9789ca"
   },
   "SYS-077": {
-    "text": "Skiftplan-app scores low on both business value (2.4 of 5) and technical health (2.15 of 5), placing it in the Eliminate category with a Retire strategy. The system will be archived and switched off, delivering NOK 190k annual savings against a one-off cost of NOK 54k, with payback in 0.28 years. Retirement is scheduled for 2028Q1 as a quick win after higher-priority data centre exit work.",
+    "text": "Skiftplan-app scores low on both business value (2.4 of 5) and technical health (2.15 of 5), placing it in the Eliminate category. The Retire strategy will archive data, switch off the system and cancel licences, delivering NOK 190k annual savings against a one-off cost of NOK 54k, payback in 0.28 years. Retirement is scheduled for 2028Q1 as a quick win after higher-priority data centre exit work.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:32.471Z",
-    "inputHash": "011b9b72c257fa51"
+    "generatedAt": "2026-09-25T18:47:10.751Z",
+    "inputHash": "40c753542d0beda4"
   },
   "SYS-078": {
-    "text": "NiceLabel etikettprinting scores high on business value at 3.2 of 5 but low on technical health at 2.85 of 5, with platform end-of-support in 2027 driving the Migrate decision. The Replatform strategy will move it to cloud, reducing annual run costs from NOK 491k to NOK 404k, saving NOK 87k yearly, though the NOK 420k one-off investment requires 4.8 years to recover. Execution is scheduled for wave 2 in 2027Q4 as part of the data center exit.",
+    "text": "NiceLabel etikettprinting scores high on business value (3.2 of 5) but low on technical health (2.85 of 5), placing it in Migrate. The Replatform strategy applies because no SaaS alternative exists for this COTS product. Moving to cloud will save NOK 87k annually after a NOK 420k one-off investment, with payback in 4.8 years, and supports the data center exit scheduled for wave 2 in 2027Q4.",
     "model": "claude-haiku-4-5-20251001",
     "time": "migrate",
     "sixR": "replatform",
-    "generatedAt": "2026-09-25T18:33:33.367Z",
-    "inputHash": "02021f2ada6b44b4"
+    "generatedAt": "2026-09-25T18:47:11.101Z",
+    "inputHash": "fcc3442c044a3ac1"
   },
   "SYS-079": {
     "text": "This system merits Migrate with a Refactor strategy. Although the platform reaches end of support in 2027, the system delivers high business value to offshore customers and justifies modernization rather than replacement. Refactoring will reduce annual run costs by NOK 1.13M, recovering the NOK 2.48M investment in 2.2 years, while supporting the data center exit scheduled for 2028Q2.",
@@ -640,20 +640,20 @@
     "inputHash": "ba839870fd6a450a"
   },
   "SYS-081": {
-    "text": "IFS Applications 9 is rated Eliminate and will be Retired by consolidating into IBM Maximo 7.6. Business value is low at 2 of 5, and technical health is critically weak at 1.6 of 5 due to platform end-of-support in 2020 and non-primary duplicate status. Consolidation will cut annual run costs from NOK 1.53M to NOK 234k, saving NOK 1.30M yearly with payback in 0.62 years, executing in wave 3 during 2028Q4.",
+    "text": "IFS Applications 9 is classified as Eliminate with a Retire strategy. Business value is low at 2 of 5, and technical health is critically weak at 1.6 of 5, worsened by platform end-of-support in 2020. As a non-primary duplicate in the Asset & Maintenance Management group, it will consolidate into IBM Maximo 7.6, eliminating NOK 1.30M in annual run costs and achieving payback in 0.62 years despite NOK 806k one-off consolidation effort in wave 3 during 2028Q4.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:36.772Z",
-    "inputHash": "f2377538a4204571"
+    "generatedAt": "2026-09-25T18:47:11.893Z",
+    "inputHash": "bf2fa27dc200079c"
   },
   "SYS-082": {
-    "text": "Smøreplan scores low on both business value (2.3 of 5) and technical health (0.9 of 5), with the platform already end-of-support since 2020, triggering an Eliminate decision and Retire strategy. Retiring this shadow IT system will save NOK 170k annually against a one-off cost of NOK 58k, paying back in 0.34 years, and is scheduled as a quick win in 2027Q1 to support data center exit.",
+    "text": "Smøreplan scores low on both business value (2.3 of 5) and technical health (0.9 of 5), with the platform already end-of-support since 2020, placing it in Eliminate with a Retire strategy. Retiring this shadow IT system will save NOK 170k annually against a one-off cost of NOK 58k, paying back in 0.34 years, and is scheduled as a quick win in 2027Q1 to support data center exit.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:34.372Z",
-    "inputHash": "3e9c7316580bec16"
+    "generatedAt": "2026-09-25T18:47:12.054Z",
+    "inputHash": "6b46f755de3e5255"
   },
   "SYS-083": {
     "text": "LabWare LIMS scores high on business value but low on technical health, primarily due to platform end-of-support in 2027 leaving only one year of runway. The Migrate category and Repurchase strategy reflect that a credible SaaS alternative exists for this quality and laboratory capability. The move incurs NOK 924k upfront and increases annual run costs by NOK 183k, but is justified by end-of-life risk and data center exit requirements, scheduled for wave 3 in 2028Q1.",
@@ -664,20 +664,20 @@
     "inputHash": "620946bac39c8835"
   },
   "SYS-084": {
-    "text": "Q-Pulse avvik scores low on both business value (2 of 5) and technical health (1.65 of 5), with its Windows Server 2012 R2 and SQL Server 2012 platforms already past end of support, triggering an Eliminate decision. The 6R strategy is Retire: archive data, switch off and cancel licences. This delivers NOK 580k annual savings with only NOK 58k one-off cost, paying back in 0.1 years, and executes as a quick win in 2027Q2 to support data center exit.",
+    "text": "Q-Pulse avvik scores low on both business value (2 of 5) and technical health (1.65 of 5), with Windows Server 2012 R2 and SQL Server 2012 already past end of support, triggering an Eliminate decision and Retire strategy. Retiring this 154-user quality log will save NOK 580k annually with only NOK 58k in one-off decommissioning costs, paying back in 0.1 years and supporting data center exit in 2027Q2.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:36.464Z",
-    "inputHash": "60353d754837d158"
+    "generatedAt": "2026-09-25T18:47:12.759Z",
+    "inputHash": "4b1134a4332ef64b"
   },
   "SYS-085": {
-    "text": "SPC-analyse scores low on both business value (2.55 of 5) and technical health (2.25 of 5), driven by modest user satisfaction and an approaching platform end-of-support in 2027. The Eliminate category and Retire strategy mean the system will be archived and switched off, eliminating its NOK 379k annual run cost against a one-off retirement cost of NOK 66k, achieving payback in 0.17 years. Retirement is scheduled for 2027Q2 as a quick win supporting data center exit.",
+    "text": "SPC-analyse scores low on both business value (2.55 of 5) and technical health (2.25 of 5), placing it in the Eliminate category for Retire. The system will be archived and switched off, eliminating NOK 379k in annual run costs against a one-off retirement cost of NOK 66k, achieving payback in 0.17 years. Retirement is scheduled for 2027Q2 as part of the data center exit programme.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:36.353Z",
-    "inputHash": "3ee19048fa7396b4"
+    "generatedAt": "2026-09-25T18:47:12.883Z",
+    "inputHash": "5cfdbe916ffa6097"
   },
   "SYS-086": {
     "text": "Sertifikatgenerator 3.1 scores high on business value (3.95 of 5) but critically low on technical health (1.1 of 5), with platforms already past end of support since 2020, placing it in the Migrate category. The Repurchase strategy applies because credible SaaS alternatives exist for Quality & Laboratory functions. Migration to a cloud-based solution will reduce annual run costs from NOK 333k to NOK 270k, saving NOK 63k yearly, though the one-off investment of NOK 330k requires 5.2 years to recover; the system is scheduled for Wave 3 in 2028Q3 to align with data center exit.",
@@ -704,12 +704,12 @@
     "inputHash": "8f6333828ab70ecf"
   },
   "SYS-089": {
-    "text": "This foundry process control system scores high on both business value and technical health, warranting an Invest category. However, because it is site-bound to the Gjøvik plant, the strategy is Retain rather than migrate it away. The system will remain on-premises with no change to its NOK 2.98M annual run cost, with investment decisions delegated to the plant's operational technology roadmap.",
+    "text": "WinCC SCADA Gjøvik is classified as Invest and Retain. High business value (3.55 of 5) and technical health (3.75 of 5) support continued operation, with platform end of support in 2029 posing acceptable risk. As a site-bound plant system, it remains at the Gjøvik foundry outside the data-center exit programme, incurring no migration cost or run-cost savings.",
     "model": "claude-haiku-4-5-20251001",
     "time": "invest",
     "sixR": "retain",
-    "generatedAt": "2026-09-25T18:33:38.262Z",
-    "inputHash": "2d748e96f2a49b60"
+    "generatedAt": "2026-09-25T18:47:12.927Z",
+    "inputHash": "506ffbaafb438934"
   },
   "SYS-090": {
     "text": "WinCC SCADA Sunndal scores high on business value (4.25 of 5) but critically low on technical health (0.75 of 5), primarily due to platform end-of-support in 2020 and poor supportability and security ratings, placing it in the Migrate category. However, as a site-bound operational technology system, the 6R strategy is Retain: it remains at the plant and is not part of the data-center exit, with migration responsibility handed to the plant OT roadmap. No cost savings are expected, as the system stays in place.",
@@ -752,12 +752,12 @@
     "inputHash": "b232022016c612d8"
   },
   "SYS-095": {
-    "text": "SolidWorks PDM scores low on both business value (2.25 of 5) and technical health (2.4 of 5), and is a non-primary duplicate in the Product Lifecycle & Engineering group, triggering Eliminate and Retire. Data, users and interfaces will consolidate into Siemens Teamcenter in wave 2, delivering NOK 152k annual savings after a one-off cost of NOK 232k with 1.52-year payback, while exiting the data center by 2028Q1.",
+    "text": "SolidWorks PDM scores low on both business value (2.25 of 5) and technical health (2.4 of 5), and is a non-primary duplicate in the Product Lifecycle & Engineering group. The TIME category is Eliminate and the 6R strategy is Retire through consolidation into Siemens Teamcenter. This will save NOK 152k annually with a one-off cost of NOK 232k, paying back in 1.52 years, and removes the system from the data center in wave 2 (2028Q1).",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:40.654Z",
-    "inputHash": "7a2ce28fc5f1759c"
+    "generatedAt": "2026-09-25T18:47:13.746Z",
+    "inputHash": "17412ad1cc594a0f"
   },
   "SYS-096": {
     "text": "Tegningsarkiv scores low on both business value (1.85) and technical health (1.40), with platforms already past end-of-support since 2020, triggering an Eliminate decision. The 6R strategy is Retire: archive the data and switch off the system, eliminating NOK 525k annual run costs with a one-off retirement cost of NOK 58k, paying back in 0.11 years. Retirement is scheduled for 2027Q2 as a quick win supporting data center exit.",
@@ -880,12 +880,12 @@
     "inputHash": "d74737f204e27512"
   },
   "SYS-111": {
-    "text": "This Excel-based monthly reporting pack scores low on both business value (2.15) and technical health (2.15), placing it in the Eliminate category. The Retire strategy will archive its data and cancel licenses, saving NOK 146k annually with a one-off cost of NOK 54k, paying back in 0.37 years. Retirement is scheduled for 2027Q2 as a quick win with no dependencies, supporting the data center exit.",
+    "text": "This Excel-based monthly reporting pack scores low on both business value (2.15) and technical health (2.15), placing it in the Eliminate category. The Retire strategy will archive its data and cancel licences, saving NOK 146k annually with a one-off cost of NOK 54k, paying back in 0.37 years. Retirement is scheduled for 2027Q2 as a quick win with no dependencies, supporting the data center exit.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:47.164Z",
-    "inputHash": "51ed3449a780144b"
+    "generatedAt": "2026-09-25T18:47:13.784Z",
+    "inputHash": "71146aa7d65860e6"
   },
   "SYS-112": {
     "text": "Prediktivt vedlikehold scores high on both business value (3.7 of 5) and technical health (4.1 of 5), placing it in the Invest category. The 6R strategy is Retain: since the system already runs on public cloud, it will be kept in place with continued investment rather than migrated. Run costs remain stable at NOK 2.05M per year with no savings expected, as the business and technical case justify retention on grounds other than cost reduction.",
@@ -1000,28 +1000,28 @@
     "inputHash": "aa1cb4d1a6a0e049"
   },
   "SYS-126": {
-    "text": "Intranett «Nordlyset» is classified as Tolerate and will be Retained. Business value is low at 2.4 of 5, but technical health is adequate at 3.6 of 5 and the system is already cloud-hosted, eliminating data centre exit pressure. No migration investment or cost savings are expected; the system remains in place at NOK 225k annually.",
+    "text": "Nordlyset scores low on business value (2.4 of 5) but adequate technical health (3.6 of 5), placing it in Tolerate. Since it is already a SaaS system, the 6R strategy is Retain: keep it running as-is with no migration activity. Annual run cost remains NOK 225k with no savings, and the system is not scheduled for change.",
     "model": "claude-haiku-4-5-20251001",
     "time": "tolerate",
     "sixR": "retain",
-    "generatedAt": "2026-09-25T18:33:56.041Z",
-    "inputHash": "baa4450426c34c75"
+    "generatedAt": "2026-09-25T18:47:14.675Z",
+    "inputHash": "94922e34a4289ed2"
   },
   "SYS-127": {
-    "text": "Vestfjord intranett scores low on both business value (1.95) and technical health (1.05), with its platform already end-of-support since 2023, triggering an Eliminate decision. The 6R strategy is Retire through consolidation into the primary Intranett «Nordlyset» on SharePoint Online, delivering NOK 532k annual savings with payback in 0.44 years and execution in wave 1 during 2027Q3.",
+    "text": "Vestfjord intranett scores low on both business value (1.95 of 5) and technical health (1.05 of 5), with its platform already past end of support in 2023. The TIME category is Eliminate, and the 6R strategy is Retire by consolidating into Intranett Nordlyset (SharePoint Online). This delivers NOK 532k annual savings against a one-off cost of NOK 232k, paying back in 0.44 years, and exits the data center in wave 1 during 2027Q3.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:54.340Z",
-    "inputHash": "837e2b658fc73927"
+    "generatedAt": "2026-09-25T18:47:14.776Z",
+    "inputHash": "0896dcbed1317639"
   },
   "SYS-128": {
-    "text": "Staffbase is a non-primary duplicate in the intranet capability group, triggering an Eliminate decision and Retire strategy by consolidating into the primary platform, Intranett «Nordlyset» (SharePoint Online). This consolidation will reduce annual run costs from NOK 269k to NOK 68k, saving NOK 201k yearly after a one-off investment of NOK 216k, with payback in 1.08 years. The retirement is scheduled for wave 1 in 2028Q4.",
+    "text": "Staffbase is a non-primary duplicate in the intranet capability group, triggering an Eliminate decision and Retire strategy by consolidating into Intranett Nordlyset. Consolidation will reduce annual run costs from NOK 269k to NOK 68k, saving NOK 201k yearly after a one-off investment of NOK 216k, with payback in 1.08 years. The migration is scheduled for 2028Q4 once capacity becomes available after higher-priority data centre exit work.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:55.168Z",
-    "inputHash": "a4ea1402dab95f96"
+    "generatedAt": "2026-09-25T18:47:14.967Z",
+    "inputHash": "d763df18f0aa6bbf"
   },
   "SYS-129": {
     "text": "Kantinebestilling scores low on both business value (2 of 5) and technical health (1.3 of 5), with platforms already past end of support. The Eliminate category and Retire strategy mean the system will be switched off, data archived, and NOK 193k annual operating costs eliminated. A one-off NOK 50k retirement effort in 2027Q2 pays back in under four months.",
@@ -1048,12 +1048,12 @@
     "inputHash": "fc77e2540f724acc"
   },
   "SYS-132": {
-    "text": "Trello Gjøvik is a shadow IT system with low business value (1.55 of 5) and weak technical health (2.55 of 5), placing it in the Eliminate category with a Retire strategy. It will be consolidated into Jira Software Cloud, reducing annual run costs from NOK 42k to NOK 11k and saving NOK 31k yearly, though the one-off consolidation cost of NOK 200k means payback takes 6.4 years. The retirement is scheduled for wave 1 in 2028Q4 after higher-priority data center exit work.",
+    "text": "Trello Gjøvik scores low on business value (1.55 of 5) and technical health (2.55 of 5), placing it in the Eliminate category. As a non-primary duplicate in the Project & Work Management group, the Retire strategy consolidates its 39 users and data into Jira Software Cloud, reducing annual run costs from NOK 42k to NOK 11k. The one-off consolidation cost of NOK 200k pays back in 6.4 years, with execution scheduled for 2028Q4.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:33:56.710Z",
-    "inputHash": "422481d4bc7815ca"
+    "generatedAt": "2026-09-25T18:47:15.770Z",
+    "inputHash": "662d9eba20157bcd"
   },
   "SYS-133": {
     "text": "Asana is categorized for Eliminate with a Retire strategy. Business value and technical health both score low at 2.05 and 2.55 respectively, well below the 3.0 threshold, and it is a non-primary duplicate in the Project & Work Management group. Users and data will consolidate into Jira Software Cloud, reducing annual run costs from NOK 112k to NOK 29k and saving NOK 83k yearly, with a one-off consolidation cost of NOK 200k recovered in 2.4 years.",
@@ -1128,12 +1128,12 @@
     "inputHash": "26d35f7681b8f860"
   },
   "SYS-142": {
-    "text": "KnowBe4 is rated Tolerate and will be Retained because it scores low on business value (2.45 of 5) but high on technical health (4.35 of 5), and it is already a vendor-managed SaaS platform with no data center costs. There is no financial case for change: run costs remain at NOK 274k per year with no savings. The system requires no action and stays in place.",
+    "text": "KnowBe4 has low business value at 2.45 of 5 but strong technical health at 4.35 of 5, placing it in Tolerate. The 6R strategy is Retain because it is already a SaaS platform with no data centre exit needed. There is no cost saving or migration effort required; the system continues at its current run cost of NOK 274k per year.",
     "model": "claude-haiku-4-5-20251001",
     "time": "tolerate",
     "sixR": "retain",
-    "generatedAt": "2026-09-25T18:34:01.839Z",
-    "inputHash": "d0e1b1c820ce118f"
+    "generatedAt": "2026-09-25T18:47:15.261Z",
+    "inputHash": "15ee73ab885b10dc"
   },
   "SYS-143": {
     "text": "This system must Migrate via Repurchase because it runs on platforms already past end of support (Windows Server 2012 R2, SQL Server 2012) and has critically low technical health at 1.15 of 5, despite high business value of 4.25 of 5. A credible SaaS alternative exists for access control. The migration incurs a one-off cost of NOK 270k and increases annual run costs by NOK 25k, but is justified by eliminating EOL risk and supporting the data center exit in wave 3 during 2028Q1.",
@@ -1160,12 +1160,12 @@
     "inputHash": "30281d18363a284f"
   },
   "SYS-146": {
-    "text": "This monitoring system scores low on both business value (2.15 of 5) and technical health (1.4 of 5), with its platform already past end of support in 2024, triggering an Eliminate decision and Retire strategy. Retiring the system will save NOK 561k annually against a one-off cost of NOK 66k, paying back in 0.12 years. The retirement is scheduled for 2027Q2 as a quick win with minimal dependencies, supporting the data center exit.",
+    "text": "Nagios XI monitoring has low business value (2.15 of 5) and poor technical health (1.4 of 5), with its RHEL 7 platform already past end of support in 2024. The TIME category is Eliminate and the 6R strategy is Retire: archive data, switch off and cancel licences in 2027Q2. This delivers NOK 561k annual savings at a one-off cost of NOK 66k, paying back in 0.12 years.",
     "model": "claude-haiku-4-5-20251001",
     "time": "eliminate",
     "sixR": "retire",
-    "generatedAt": "2026-09-25T18:34:03.263Z",
-    "inputHash": "51cc8bfb995aeec7"
+    "generatedAt": "2026-09-25T18:47:16.249Z",
+    "inputHash": "e45641e8e189fe31"
   },
   "SYS-147": {
     "text": "Microsoft Intune scores high on both business value (4 of 5) and technical health (4.55 of 5), well above investment thresholds. The TIME category is Invest and the 6R strategy is Retain: keep the system as-is and continue investing in it. Run costs remain stable at NOK 1.75M per year with no savings expected, but the decision is justified by the system's strategic importance and strong technical foundation rather than cost reduction.",

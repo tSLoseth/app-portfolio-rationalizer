@@ -170,7 +170,7 @@ r('po', 'SAP PI/PO 7.5', 'SAP', 'IT-INT', 'C', 'co', 'dc', 'sapecc', 'L', 5, 6, 
 r('biztalk', 'Microsoft BizTalk Server 2013 R2', 'Microsoft', 'IT-INT', 'C', 'co', 'dc', 'biztalk13', 'L', 5, 8, 'int', 'legacy', 'Integration hub for non-SAP systems; ~140 orchestrations, few people left who know them.', { dup: 'dup-int' });
 r('ais', 'Azure Integration Services (Logic Apps, Service Bus)', 'Microsoft', 'IT-INT', 'C', 'co', 'pu', 'azpaas', 'M', 4, 6, 'int', 'invest', 'Target integration platform; first flows live since 2024.', { dup: 'dup-int', primary: true });
 r('lobster', 'Lobster_data EDI (Polarkomponent)', 'Lobster', 'IT-INT', 'B', 'co', 'pc', 'ws19cots', 'S', 3, 4, 'int', 'duplicate', 'EDI translation for Swedish customers and carriers.', { dup: 'dup-int' });
-r('sftp','SFTP-server for EDI (filoverfÃ¸ring)', 'In-house (OpenSSH on Windows)', 'IT-INT', 'C', 'co', 'dc', 'ws12', 'S', 4, 5, 'int', 'legacy', 'File-based EDI exchange with banks, carriers and key suppliers.');
+r('sftp','SFTP-server for EDI (filoverføring)', 'In-house (OpenSSH on Windows)', 'IT-INT', 'C', 'co', 'dc', 'ws12', 'S', 4, 5, 'int', 'legacy', 'File-based EDI exchange with banks, carriers and key suppliers.');
 r('erp', 'SAP ECC 6.0 (Nordlys core)', 'SAP', 'FIN-ERP', 'C', 'co', 'dc', 'sapecc', 'XL', 5, 1400, 'per', 'legacy', 'Group ERP: finance, logistics, sales order management and production planning for core and Polarkomponent.', { dup: 'dup-erp', primary: true, cost: 15_200_000 });
 r('nav', 'Microsoft Dynamics NAV 2016 (Vestfjord)', 'Microsoft', 'FIN-ERP', 'A', 'co', 'dc', 'ws12sql12', 'L', 4, 260, 'per', 'duplicate', 'Vestfjord ERP kept after acquisition; monthly consolidation into SAP via file export.', { dup: 'dup-erp' });
 
@@ -185,15 +185,15 @@ r('kyriba', 'Kyriba Treasury', 'Kyriba', 'FIN-TRE', 'C', 'sa', 'sa', 'saas', 'M'
 r('bank', 'Bankintegrasjon ISO 20022 (egenutviklet)', 'In-house', 'FIN-TRE', 'C', 'cu', 'dc', 'ws16net48', 'S', 5, 10, 'int', 'mixed', 'Converts SAP payment runs to ISO 20022 pain.001 and reads camt.053 statements.');
 r('bpc', 'SAP BPC 10.1 (konsolidering)', 'SAP', 'FIN-FPA', 'C', 'co', 'dc', 'ws16cots', 'L', 4, 60, 'int', 'legacy', 'Group budgeting and statutory consolidation.');
 r('board', 'Board Planning (Vestfjord)', 'Board International', 'FIN-FPA', 'A', 'sa', 'sa', 'saas', 'S', 3, 30, 'int', 'tolerate', 'Rolling forecast for the Vestfjord business unit.');
-r('budget-xl', 'Budsjettmodell Â«Budsjett2019.xlsmÂ»', 'Microsoft (Excel/VBA)', 'FIN-FPA', 'S', 'cu', 'dc', 'excel', 'S', 3, 40, 'int', 'shadow', 'Macro-heavy budget workbook on a file share; the real source for plant budgets.');
+r('budget-xl', 'Budsjettmodell «Budsjett2019.xlsm»', 'Microsoft (Excel/VBA)', 'FIN-FPA', 'S', 'cu', 'dc', 'excel', 'S', 3, 40, 'int', 'shadow', 'Macro-heavy budget workbook on a file share; the real source for plant budgets.');
 r('concur', 'SAP Concur Expense', 'SAP Concur', 'FIN-EXP', 'C', 'sa', 'sa', 'saas', 'M', 2, 3800, 'per', 'tolerate', 'Travel booking and expense claims.', { dup: 'dup-exp', primary: true });
 r('vexpense', 'Visma Expense (Polarkomponent)', 'Visma', 'FIN-EXP', 'B', 'sa', 'sa', 'saas', 'S', 2, 450, 'per', 'duplicate', 'Expense claims for Polarkomponent employees.', { dup: 'dup-exp' });
 
 // HR
 r('sf', 'SAP SuccessFactors Employee Central', 'SAP', 'HR-CORE', 'C', 'sa', 'sa', 'saas', 'L', 4, 4200, 'spc', 'invest', 'Group HR master data, org structure, absence and performance.');
-r('payroll', 'Visma LÃ¸nn (Nordlys)', 'Visma', 'HR-CORE', 'C', 'co', 'dc', 'ws19cots', 'M', 5, 20, 'per', 'mixed', 'Norwegian payroll for the core business; Vestfjord still runs its own.', { dup: 'dup-payroll', primary: true });
-r('hl', 'Huldt & Lillevik LÃ¸nn (Vestfjord)', 'Visma (Huldt & Lillevik)', 'HR-CORE', 'A', 'co', 'dc', 'ws12sql12', 'M', 4, 12, 'per', 'duplicate', 'Vestfjord payroll, never migrated.', { dup: 'dup-payroll' });
-r('hogia', 'Hogia LÃ¶n (Polarkomponent, SE)', 'Hogia', 'HR-CORE', 'B', 'co', 'pc', 'ws19cots', 'S', 4, 6, 'per', 'tolerate', 'Swedish payroll; different jurisdiction, so not a true duplicate.');
+r('payroll', 'Visma Lønn (Nordlys)', 'Visma', 'HR-CORE', 'C', 'co', 'dc', 'ws19cots', 'M', 5, 20, 'per', 'mixed', 'Norwegian payroll for the core business; Vestfjord still runs its own.', { dup: 'dup-payroll', primary: true });
+r('hl', 'Huldt & Lillevik Lønn (Vestfjord)', 'Visma (Huldt & Lillevik)', 'HR-CORE', 'A', 'co', 'dc', 'ws12sql12', 'M', 4, 12, 'per', 'duplicate', 'Vestfjord payroll, never migrated.', { dup: 'dup-payroll' });
+r('hogia', 'Hogia Lön (Polarkomponent, SE)', 'Hogia', 'HR-CORE', 'B', 'co', 'pc', 'ws19cots', 'S', 4, 6, 'per', 'tolerate', 'Swedish payroll; different jurisdiction, so not a true duplicate.');
 r('bht', 'BHT-journal (bedriftshelsetjeneste)', 'In-house', 'HR-CORE', 'C', 'cu', 'dc', 'ws12net35', 'S', 3, 8, 'spc', 'mixed', 'Occupational health records, including health assessments for shift workers.');
 r('webcruiter', 'Webcruiter', 'Webcruiter', 'HR-REC', 'C', 'sa', 'sa', 'saas', 'S', 2, 120, 'per', 'tolerate', 'Recruitment and applicant tracking.', { dup: 'dup-rec', primary: true });
 r('teamtailor', 'Teamtailor (Polarkomponent)', 'Teamtailor', 'HR-REC', 'B', 'sa', 'sa', 'saas', 'S', 2, 25, 'per', 'duplicate', 'Swedish recruitment site and applicant tracking.', { dup: 'dup-rec' });
@@ -209,7 +209,7 @@ r('tripletex', 'Tripletex Timer (Vestfjord)', 'Tripletex (Visma)', 'HR-TIME', 'A
 r('sfdc', 'Salesforce Sales Cloud', 'Salesforce', 'SAL-CRM', 'C', 'sa', 'sa', 'saas', 'L', 4, 420, 'per', 'invest', 'Group CRM for accounts, opportunities and key-account plans.', { dup: 'dup-crm', primary: true });
 r('d365', 'Microsoft Dynamics 365 Sales (Vestfjord)', 'Microsoft', 'SAL-CRM', 'A', 'sa', 'sa', 'saas', 'M', 3, 110, 'per', 'duplicate', 'Vestfjord CRM; customers overlap ~30 % with Salesforce.', { dup: 'dup-crm' });
 r('superoffice', 'SuperOffice CRM (Polarkomponent)', 'SuperOffice', 'SAL-CRM', 'B', 'co', 'pc', 'ws16cots', 'M', 3, 70, 'per', 'duplicate', 'Polarkomponent CRM hosted by a Swedish MSP.', { dup: 'dup-crm' });
-r('airtable', 'Airtable Â«NÃ¸kkelkunder VestÂ»', 'Airtable', 'SAL-CRM', 'S', 'sa', 'sa', 'saas', 'S', 2, 12, 'per', 'shadow', 'Key-account tracker built by a regional sales team; contains customer contact data.');
+r('airtable', 'Airtable «Nøkkelkunder Vest»', 'Airtable', 'SAL-CRM', 'S', 'sa', 'sa', 'saas', 'S', 2, 12, 'per', 'shadow', 'Key-account tracker built by a regional sales team; contains customer contact data.');
 r('hubspot', 'HubSpot Marketing Hub', 'HubSpot', 'SAL-CRM', 'S', 'sa', 'sa', 'saas', 'S', 2, 12, 'per', 'shadow', 'Newsletter and campaign tool bought on a marketing credit card.');
 r('konfig', 'KONFIG produktkonfigurator (egenutviklet)', 'In-house', 'SAL-CPQ', 'C', 'cu', 'dc', 'ws12ora11', 'L', 5, 380, 'int', 'legacy', 'Rules engine for configuring hydraulic systems; every order passes through it. Two developers know the Delphi code.');
 r('cpq', 'Salesforce CPQ', 'Salesforce', 'SAL-CPQ', 'C', 'sa', 'sa', 'saas', 'M', 3, 150, 'int', 'mixed', 'Quote documents and discount approval on top of Sales Cloud; configuration still done in KONFIG.');
@@ -229,11 +229,11 @@ r('wp', 'Kampanjesider (WordPress)', 'WordPress (self-hosted)', 'SAL-WEB', 'S', 
 r('ariba', 'SAP Ariba Sourcing', 'SAP', 'SCM-PRO', 'C', 'sa', 'sa', 'saas', 'M', 3, 140, 'int', 'invest', 'Sourcing events, contracts and supplier onboarding.');
 r('mercell', 'Mercell TendSign', 'Mercell', 'SCM-PRO', 'C', 'sa', 'sa', 'saas', 'S', 2, 25, 'int', 'tolerate', 'Public-sector tenders the group responds to.');
 r('contracts', 'Kontraktsdatabase (SharePoint 2013)', 'Microsoft', 'SCM-PRO', 'C', 'co', 'dc', 'sp2013', 'S', 2, 60, 'int', 'eliminate', 'Supplier contract repository, duplicated in Ariba since 2023.');
-r('supqual', 'LeverandÃ¸rkvalifisering (egenutviklet)', 'In-house', 'SCM-PRO', 'C', 'cu', 'dc', 'ws12net35', 'S', 2, 30, 'int', 'eliminate', 'Supplier audit questionnaires and scores.');
+r('supqual', 'Leverandørkvalifisering (egenutviklet)', 'In-house', 'SCM-PRO', 'C', 'cu', 'dc', 'ws12net35', 'S', 2, 30, 'int', 'eliminate', 'Supplier audit questionnaires and scores.');
 r('wms', 'Manhattan WMS (sentrallager Moss)', 'Manhattan Associates', 'SCM-WMS', 'C', 'co', 'dc', 'rhel7java8', 'L', 5, 260, 'int', 'mixed', 'Central warehouse management for finished goods and spare parts.', { dup: 'dup-wms', primary: true });
-r('lx', 'Lagerstyring LX (Vestfjord, egenutviklet)', 'In-house (Vestfjord)', 'SCM-WMS', 'A', 'cu', 'dc', 'ws12net35', 'M', 4, 70, 'int', 'legacy', 'Warehouse system at the FlorÃ¸ plant; tightly coupled to NAV.', { dup: 'dup-wms' });
+r('lx', 'Lagerstyring LX (Vestfjord, egenutviklet)', 'In-house (Vestfjord)', 'SCM-WMS', 'A', 'cu', 'dc', 'ws12net35', 'M', 4, 70, 'int', 'legacy', 'Warehouse system at the Florø plant; tightly coupled to NAV.', { dup: 'dup-wms' });
 r('astro', 'Astro WMS (Polarkomponent)', 'Consafe Logistics', 'SCM-WMS', 'B', 'co', 'pc', 'ws19cots', 'M', 4, 45, 'int', 'duplicate', 'Warehouse management at the Kalmar site.', { dup: 'dup-wms' });
-r('handheld', 'HÃ¥ndterminal-app lager (Windows CE)', 'In-house', 'SCM-WMS', 'C', 'cu', 'dc', 'wince', 'S', 4, 120, 'int', 'legacy', 'Scanner app for picking and goods receipt; devices no longer sold.');
+r('handheld', 'Håndterminal-app lager (Windows CE)', 'In-house', 'SCM-WMS', 'C', 'cu', 'dc', 'wince', 'S', 4, 120, 'int', 'legacy', 'Scanner app for picking and goods receipt; devices no longer sold.');
 r('nshift', 'nShift Delivery (Consignor)', 'nShift', 'SCM-TMS', 'C', 'sa', 'sa', 'saas', 'S', 3, 110, 'per', 'tolerate', 'Carrier booking and shipping labels.');
 r('freight', 'Fraktberegning (AS/400)', 'In-house', 'SCM-TMS', 'C', 'cu', 'dc', 'as400', 'S', 3, 30, 'int', 'eliminate', 'Freight cost estimation, partly replaced by nShift.');
 r('transporeon', 'Transporeon transportplanlegging', 'Transporeon', 'SCM-TMS', 'C', 'sa', 'sa', 'saas', 'M', 3, 55, 'int', 'invest', 'Full-truckload tendering and dock scheduling.');
@@ -243,29 +243,29 @@ r('nordplan', 'NORD-PLAN produksjonsplanlegging (egenutviklet)', 'In-house', 'SC
 r('forecast-xl', 'Prognose-Excel (Polarkomponent)', 'Microsoft (Excel/VBA)', 'SCM-DP', 'S', 'cu', 'sa', 'excel', 'S', 2, 6, 'int', 'shadow', 'Demand forecast workbook on OneDrive.');
 
 // Production / OT
-r('opcenter', 'Siemens Opcenter Execution (GjÃ¸vik, Sunndal)', 'Siemens', 'OT-MES', 'C', 'co', 'dc', 'ws19cots', 'XL', 5, 650, 'int', 'invest', 'MES for the two largest Norwegian plants.', { dup: 'dup-mes', primary: true, cost: 9_400_000 });
+r('opcenter', 'Siemens Opcenter Execution (Gjøvik, Sunndal)', 'Siemens', 'OT-MES', 'C', 'co', 'dc', 'ws19cots', 'XL', 5, 650, 'int', 'invest', 'MES for the two largest Norwegian plants.', { dup: 'dup-mes', primary: true, cost: 9_400_000 });
 r('as400', 'Ordremottak produksjon (AS/400)', 'In-house', 'OT-MES', 'C', 'cu', 'dc', 'as400', 'L', 5, 300, 'int', 'legacy', 'Releases production orders to the shop floor and prints routing cards; RPG/COBOL from the 1990s.');
-r('mesflo', 'MES FlorÃ¸ (Vestfjord, egenutviklet)', 'In-house (Vestfjord)', 'OT-MES', 'A', 'cu', 'dc', 'ws12net35', 'M', 4, 120, 'int', 'legacy', 'Home-grown MES at the FlorÃ¸ plant.', { dup: 'dup-mes' });
+r('mesflo', 'MES Florø (Vestfjord, egenutviklet)', 'In-house (Vestfjord)', 'OT-MES', 'A', 'cu', 'dc', 'ws12net35', 'M', 4, 120, 'int', 'legacy', 'Home-grown MES at the Florø plant.', { dup: 'dup-mes' });
 r('aveva-mes', 'AVEVA MES (Polarkomponent Kalmar)', 'AVEVA', 'OT-MES', 'B', 'co', 'dc', 'ws16cots', 'M', 4, 90, 'int', 'duplicate', 'MES at the Kalmar plant; runs in the plant server room.', { dup: 'dup-mes', site: true });
-r('shiftapp', 'Skiftplan-app (Power Apps, GjÃ¸vik)', 'Microsoft Power Apps', 'OT-MES', 'S', 'cu', 'sa', 'powerplatform', 'S', 2, 60, 'per', 'shadow', 'Shift swap app built by a production supervisor.');
+r('shiftapp', 'Skiftplan-app (Power Apps, Gjøvik)', 'Microsoft Power Apps', 'OT-MES', 'S', 'cu', 'sa', 'powerplatform', 'S', 2, 60, 'per', 'shadow', 'Shift swap app built by a production supervisor.');
 r('labels', 'NiceLabel etikettprinting', 'Loftware (NiceLabel)', 'OT-MES', 'C', 'co', 'dc', 'ws16cots', 'S', 4, 90, 'int', 'tolerate', 'Product and pallet labels printed from MES and WMS.');
 r('trace', 'Sporbarhet og serienummer (egenutviklet)', 'In-house', 'OT-MES', 'C', 'cu', 'dc', 'ws16net48', 'M', 4, 200, 'int', 'mixed', 'Serial-number genealogy required by offshore customers.');
 r('maximo', 'IBM Maximo 7.6', 'IBM', 'OT-EAM', 'C', 'co', 'dc', 'rhel7java8', 'L', 4, 350, 'int', 'mixed', 'Maintenance work orders and spare parts for Norwegian plants.', { dup: 'dup-eam', primary: true });
-r('ifs', 'IFS Applications 9 vedlikehold (Vestfjord)', 'IFS', 'OT-EAM', 'A', 'co', 'dc', 'ws12ora11cots', 'M', 3, 80, 'int', 'duplicate', 'Maintenance module at FlorÃ¸.', { dup: 'dup-eam' });
-r('lube', 'SmÃ¸replan (Access, Sunndal)', 'Microsoft Access', 'OT-EAM', 'S', 'cu', 'dc', 'access', 'S', 2, 8, 'int', 'shadow', 'Lubrication schedule outside Maximo.');
+r('ifs', 'IFS Applications 9 vedlikehold (Vestfjord)', 'IFS', 'OT-EAM', 'A', 'co', 'dc', 'ws12ora11cots', 'M', 3, 80, 'int', 'duplicate', 'Maintenance module at Florø.', { dup: 'dup-eam' });
+r('lube', 'Smøreplan (Access, Sunndal)', 'Microsoft Access', 'OT-EAM', 'S', 'cu', 'dc', 'access', 'S', 2, 8, 'int', 'shadow', 'Lubrication schedule outside Maximo.');
 r('lims', 'LabWare LIMS', 'LabWare', 'OT-QMS', 'C', 'co', 'dc', 'ws16cots', 'M', 4, 70, 'int', 'mixed', 'Material testing and lab results.');
-r('qpulse', 'Q-Pulse avvik (Vestfjord)', 'Ideagen', 'OT-QMS', 'A', 'co', 'dc', 'ws12sql12', 'S', 2, 150, 'int', 'eliminate', 'Quality non-conformance log at FlorÃ¸.');
-r('spc', 'SPC-analyse (egenutviklet, GjÃ¸vik)', 'In-house', 'OT-QMS', 'C', 'cu', 'dc', 'ws16net48', 'S', 3, 40, 'int', 'mixed', 'Statistical process control charts from machine data.');
+r('qpulse', 'Q-Pulse avvik (Vestfjord)', 'Ideagen', 'OT-QMS', 'A', 'co', 'dc', 'ws12sql12', 'S', 2, 150, 'int', 'eliminate', 'Quality non-conformance log at Florø.');
+r('spc', 'SPC-analyse (egenutviklet, Gjøvik)', 'In-house', 'OT-QMS', 'C', 'cu', 'dc', 'ws16net48', 'S', 3, 40, 'int', 'mixed', 'Statistical process control charts from machine data.');
 r('cert31', 'Sertifikatgenerator 3.1 (egenutviklet)', 'In-house', 'OT-QMS', 'C', 'cu', 'dc', 'ws08vb6', 'S', 4, 50, 'int', 'legacy', 'Generates EN 10204 3.1 material certificates shipped with every order.');
 r('beamex', 'Beamex CMX kalibrering', 'Beamex', 'OT-QMS', 'C', 'co', 'dc', 'ws16cots', 'S', 3, 40, 'int', 'tolerate', 'Calibration register for measuring instruments.');
 r('pi', 'AVEVA PI System (historian)', 'AVEVA', 'OT-SCADA', 'C', 'co', 'dc', 'ws19cots', 'L', 5, 200, 'int', 'invest', 'Process data historian for all plants.');
-r('wincc-g', 'WinCC SCADA GjÃ¸vik', 'Siemens', 'OT-SCADA', 'C', 'co', 'dc', 'win10ltsc', 'M', 5, 40, 'int', 'tolerate', 'Process control for the GjÃ¸vik foundry.', { site: true });
+r('wincc-g', 'WinCC SCADA Gjøvik', 'Siemens', 'OT-SCADA', 'C', 'co', 'dc', 'win10ltsc', 'M', 5, 40, 'int', 'tolerate', 'Process control for the Gjøvik foundry.', { site: true });
 r('wincc-s', 'WinCC SCADA Sunndal', 'Siemens', 'OT-SCADA', 'C', 'co', 'dc', 'win7emb', 'M', 5, 30, 'int', 'legacy', 'Process control for Sunndal; operator stations on Windows 7 Embedded.', { site: true });
 r('citect', 'Citect SCADA (Polarkomponent)', 'AVEVA (Schneider Electric)', 'OT-SCADA', 'B', 'co', 'dc', 'win10ltsc', 'M', 4, 20, 'int', 'tolerate', 'Process control at Kalmar.', { site: true });
 r('pyexport', 'Prosessdata-eksport (Python-skript)', 'In-house', 'OT-SCADA', 'S', 'cu', 'dc', 'py27', 'S', 3, 10, 'int', 'shadow', 'Nightly scripts copying historian data to Excel reports; written by a summer intern.');
 r('teamcenter', 'Siemens Teamcenter', 'Siemens', 'OT-PLM', 'C', 'co', 'dc', 'ws19cots', 'L', 4, 420, 'int', 'invest', 'CAD data, BOMs and engineering change management.', { dup: 'dup-plm', primary: true });
 r('vault', 'Autodesk Vault (Vestfjord)', 'Autodesk', 'OT-PLM', 'A', 'co', 'dc', 'ws16cots', 'M', 3, 90, 'int', 'duplicate', 'Inventor CAD vault at Vestfjord.', { dup: 'dup-plm' });
-r('swpdm', 'SolidWorks PDM (Polarkomponent)', 'Dassault SystÃ¨mes', 'OT-PLM', 'B', 'co', 'dc', 'ws16cots', 'S', 3, 45, 'int', 'duplicate', 'SolidWorks vault at Kalmar.', { dup: 'dup-plm' });
+r('swpdm', 'SolidWorks PDM (Polarkomponent)', 'Dassault Systèmes', 'OT-PLM', 'B', 'co', 'dc', 'ws16cots', 'S', 3, 45, 'int', 'duplicate', 'SolidWorks vault at Kalmar.', { dup: 'dup-plm' });
 r('drawings', 'Tegningsarkiv (egenutviklet)', 'In-house', 'OT-PLM', 'C', 'cu', 'dc', 'ws08vb6', 'S', 2, 150, 'int', 'eliminate', 'Scanned legacy drawings; lookup UI in VB6.');
 r('synergi', 'DNV Synergi Life', 'DNV', 'OT-HSE', 'C', 'sa', 'sa', 'saas', 'M', 4, 4000, 'per', 'invest', 'HSE incidents, risk assessments and audits.', { dup: 'dup-hse', primary: true });
 r('landax', 'Landax HMS (Vestfjord)', 'Landax', 'OT-HSE', 'A', 'sa', 'sa', 'saas', 'S', 3, 800, 'per', 'duplicate', 'HSE non-conformances at Vestfjord.', { dup: 'dup-hse' });
@@ -283,7 +283,7 @@ r('powerbi', 'Microsoft Power BI', 'Microsoft', 'DA-BI', 'C', 'sa', 'sa', 'saas'
 r('qlik', 'Qlik Sense Enterprise (Vestfjord)', 'Qlik', 'DA-BI', 'A', 'co', 'dc', 'qlikwin', 'M', 3, 220, 'int', 'duplicate', 'Vestfjord dashboards; loved by its users.', { dup: 'dup-bi' });
 r('tableau', 'Tableau Server (Polarkomponent)', 'Salesforce (Tableau)', 'DA-BI', 'B', 'co', 'pc', 'ws19cots', 'M', 3, 90, 'int', 'duplicate', 'Polarkomponent sales and production dashboards.', { dup: 'dup-bi' });
 r('bo', 'SAP BusinessObjects BI 4.2', 'SAP', 'DA-BI', 'C', 'co', 'dc', 'sapbo42', 'M', 3, 500, 'int', 'legacy', 'Legacy statutory and operational reports on BW.', { dup: 'dup-bi' });
-r('reports-xl', 'Rapportpakke Â«MÃ¥nedstallÂ» (Excel)', 'Microsoft (Excel/VBA)', 'DA-BI', 'S', 'cu', 'dc', 'excel', 'S', 3, 25, 'int', 'shadow', 'Monthly management pack assembled by controlling from BW extracts.');
+r('reports-xl', 'Rapportpakke «Månedstall» (Excel)', 'Microsoft (Excel/VBA)', 'DA-BI', 'S', 'cu', 'dc', 'excel', 'S', 3, 25, 'int', 'shadow', 'Monthly management pack assembled by controlling from BW extracts.');
 r('pdm-ml', 'Prediktivt vedlikehold (Azure ML)', 'In-house', 'DA-ADV', 'C', 'cu', 'pu', 'aks', 'M', 3, 25, 'int', 'invest', 'Failure prediction for critical pumps from PI data.');
 r('elasticity', 'Priselastisitetsmodell (R)', 'In-house', 'DA-ADV', 'S', 'cu', 'dc', 'rserver', 'S', 2, 4, 'int', 'shadow', 'Pricing model maintained by one analyst.');
 r('sas', 'SAS 9.4 (Vestfjord analyse)', 'SAS Institute', 'DA-ADV', 'A', 'co', 'dc', 'ws16cots', 'M', 2, 15, 'int', 'eliminate', 'Statistical analysis licences, mostly unused since 2023.');
@@ -300,13 +300,13 @@ r('dropbox', 'Dropbox Business (prosjektavdelingen)', 'Dropbox', 'COL-DMS', 'S',
 r('fileserver', 'Filserver nordlys-fs01', 'Microsoft (Windows file services)', 'COL-DMS', 'C', 'co', 'dc', 'ws12', 'M', 4, 3500, 'per', 'mixed', 'Departmental file shares, 38 TB, many with open permissions.');
 r('documentum', 'Documentum sertifikatarkiv', 'OpenText', 'COL-DMS', 'C', 'co', 'dc', 'rhel7java8', 'M', 3, 200, 'int', 'mixed', 'Archive of quality certificates and as-built documentation.');
 r('penneo', 'Penneo e-signering', 'Penneo', 'COL-DMS', 'C', 'sa', 'sa', 'saas', 'S', 2, 150, 'per', 'tolerate', 'Electronic signing of contracts.');
-r('intranet', 'Intranett Â«NordlysetÂ» (SharePoint Online)', 'Microsoft', 'COL-INTRA', 'C', 'sa', 'sa', 'saas', 'S', 2, 4200, 'int', 'tolerate', 'Group intranet and news.', { dup: 'dup-intra', primary: true });
-r('episerver', 'Vestfjord intranett (Episerver CMS 7)', 'Optimizely (Episerver)', 'COL-INTRA', 'A', 'co', 'dc', 'ws12net35', 'S', 1, 900, 'int', 'eliminate', 'Old Vestfjord intranet, still the home page on FlorÃ¸ PCs.', { dup: 'dup-intra' });
+r('intranet', 'Intranett «Nordlyset» (SharePoint Online)', 'Microsoft', 'COL-INTRA', 'C', 'sa', 'sa', 'saas', 'S', 2, 4200, 'int', 'tolerate', 'Group intranet and news.', { dup: 'dup-intra', primary: true });
+r('episerver', 'Vestfjord intranett (Episerver CMS 7)', 'Optimizely (Episerver)', 'COL-INTRA', 'A', 'co', 'dc', 'ws12net35', 'S', 1, 900, 'int', 'eliminate', 'Old Vestfjord intranet, still the home page on Florø PCs.', { dup: 'dup-intra' });
 r('staffbase', 'Staffbase (Polarkomponent)', 'Staffbase', 'COL-INTRA', 'B', 'sa', 'sa', 'saas', 'S', 1, 480, 'int', 'duplicate', 'Employee app for Kalmar shop-floor workers.', { dup: 'dup-intra' });
 r('canteen', 'Kantinebestilling (egenutviklet)', 'In-house', 'COL-INTRA', 'S', 'cu', 'dc', 'php74', 'S', 1, 700, 'int', 'shadow', 'Lunch ordering page built by a facilities employee.');
 r('jira', 'Jira Software Cloud', 'Atlassian', 'COL-PM', 'C', 'sa', 'sa', 'saas', 'S', 3, 260, 'int', 'invest', 'Work management for IT, engineering and projects.', { dup: 'dup-pm', primary: true });
 r('projectserver', 'Microsoft Project Server 2013', 'Microsoft', 'COL-PM', 'C', 'co', 'dc', 'sp2013', 'M', 3, 150, 'int', 'eliminate', 'Capital project portfolio and resource plans.', { dup: 'dup-pm' });
-r('trello', 'Trello (engineering GjÃ¸vik)', 'Atlassian', 'COL-PM', 'S', 'sa', 'sa', 'saas', 'S', 1, 40, 'int', 'shadow', 'Engineering task boards.', { dup: 'dup-pm' });
+r('trello', 'Trello (engineering Gjøvik)', 'Atlassian', 'COL-PM', 'S', 'sa', 'sa', 'saas', 'S', 1, 40, 'int', 'shadow', 'Engineering task boards.', { dup: 'dup-pm' });
 r('asana', 'Asana (markedsavdelingen)', 'Asana', 'COL-PM', 'S', 'sa', 'sa', 'saas', 'S', 1, 25, 'int', 'shadow', 'Campaign planning.', { dup: 'dup-pm' });
 r('monday', 'monday.com (Polarkomponent)', 'monday.com', 'COL-PM', 'S', 'sa', 'sa', 'saas', 'S', 2, 35, 'int', 'shadow', 'Customer project tracking at Kalmar.', { dup: 'dup-pm' });
 
@@ -318,11 +318,11 @@ r('confluence', 'Confluence Data Center', 'Atlassian', 'IT-ITSM', 'C', 'co', 'dc
 r('defender', 'Microsoft Defender for Endpoint', 'Microsoft', 'IT-SEC', 'C', 'sa', 'sa', 'saas', 'M', 5, 4400, 'int', 'invest', 'Endpoint detection and response.', { dup: 'dup-sec', primary: true });
 r('symantec', 'Symantec Endpoint Protection (Vestfjord)', 'Broadcom', 'IT-SEC', 'A', 'co', 'dc', 'ws12sql12', 'S', 3, 950, 'int', 'duplicate', 'Antivirus on Vestfjord clients and servers.', { dup: 'dup-sec' });
 r('splunk', 'Splunk Enterprise (SIEM)', 'Splunk (Cisco)', 'IT-SEC', 'C', 'co', 'dc', 'rhel8cots', 'L', 4, 15, 'int', 'invest', 'Security log collection and SOC use cases.');
-r('knowbe4', 'KnowBe4 sikkerhetsopplÃ¦ring', 'KnowBe4', 'IT-SEC', 'C', 'sa', 'sa', 'saas', 'S', 2, 4400, 'int', 'tolerate', 'Phishing simulation and awareness training.');
+r('knowbe4', 'KnowBe4 sikkerhetsopplæring', 'KnowBe4', 'IT-SEC', 'C', 'sa', 'sa', 'saas', 'S', 2, 4400, 'int', 'tolerate', 'Phishing simulation and awareness training.');
 r('access', 'Adgangskontroll ASSA ARX', 'ASSA ABLOY', 'IT-SEC', 'C', 'co', 'dc', 'ws12sql12', 'S', 4, 4000, 'per', 'legacy', 'Physical access cards for all sites.');
 r('vmware', 'VMware vSphere 6.7 (datasenter Nordlys)', 'Broadcom (VMware)', 'IT-INFRA', 'C', 'co', 'dc', 'vsphere67', 'L', 5, 10, 'int', 'legacy', 'Virtualisation platform hosting ~420 VMs in the leased data center.');
 r('veeam', 'Veeam Backup & Replication', 'Veeam', 'IT-INFRA', 'C', 'co', 'dc', 'ws19cots', 'M', 5, 8, 'int', 'tolerate', 'Backup of all VMs to on-site disk and tape.');
-r('nagios', 'Nagios XI overvÃ¥kning', 'Nagios Enterprises', 'IT-INFRA', 'C', 'co', 'dc', 'rhel7', 'S', 3, 10, 'int', 'eliminate', 'Infrastructure monitoring; alerts mostly ignored.');
+r('nagios', 'Nagios XI overvåkning', 'Nagios Enterprises', 'IT-INFRA', 'C', 'co', 'dc', 'rhel7', 'S', 3, 10, 'int', 'eliminate', 'Infrastructure monitoring; alerts mostly ignored.');
 r('intune', 'Microsoft Intune', 'Microsoft', 'IT-INFRA', 'C', 'sa', 'sa', 'saas', 'M', 4, 4400, 'int', 'invest', 'Device and app management for laptops and phones.');
 r('papercut', 'PaperCut utskrift', 'PaperCut', 'IT-INFRA', 'C', 'co', 'dc', 'ws16cots', 'S', 2, 3800, 'int', 'tolerate', 'Follow-me printing.');
 r('citrix', 'Citrix Virtual Apps 7.15 (fjerntilgang)', 'Cloud Software Group (Citrix)', 'IT-INFRA', 'C', 'co', 'dc', 'citrix715', 'M', 4, 600, 'int', 'legacy', 'Publishes KONFIG, NORD-PLAN and other fat clients to remote users.');
@@ -332,7 +332,7 @@ r('panorama', 'Palo Alto Panorama (brannmurer)', 'Palo Alto Networks', 'IT-INFRA
 
 const plantedEdges: [string, string][] = [
   ['entra', 'ad'], ['ad-a', 'ad'], ['ad-b', 'ad'],
-  ['erp', 'po'], ['po', 'erp'], // SAP â†” PI/PO: classic bidirectional IDoc flow (cycle)
+  ['erp', 'po'], ['po', 'erp'], // SAP ↔ PI/PO: classic bidirectional IDoc flow (cycle)
   ['erp', 'opcenter'], ['opcenter', 'erp'], // production confirmations back to ERP (cycle)
   ['sfdc', 'konfig'], ['konfig', 'sfdc'], ['cpq', 'sfdc'], ['cpq', 'konfig'], // configurator loop (cycle)
   ['wms', 'transporeon'], ['transporeon', 'wms'], // dock scheduling loop (cycle)
@@ -577,15 +577,15 @@ writeFileSync(out, JSON.stringify(portfolio, null, 2) + '\n');
 const total = (s: System) => s.annualCost.license + s.annualCost.infra + s.annualCost.supportFte + s.annualCost.vendorSupport;
 const countBy = <K extends string>(f: (s: System) => K) =>
   systems.reduce<Record<string, number>>((acc, s) => ((acc[f(s)] = (acc[f(s)] ?? 0) + 1), acc), {});
-const groups = countBy((s) => s.duplicateGroup ?? 'â€”');
-delete groups['â€”'];
+const groups = countBy((s) => s.duplicateGroup ?? '—');
+delete groups['—'];
 console.log(`Wrote ${systems.length} systems to ${out}`);
 console.log(`Total annual cost: NOK ${(systems.reduce((a, s) => a + total(s), 0) / 1e6).toFixed(1)}M`);
 console.log('Hosting:', countBy((s) => s.hosting));
 console.log('Type:', countBy((s) => s.type));
 console.log('Origin:', countBy((s) => s.origin));
 console.log('Size:', countBy((s) => s.sizeClass));
-console.log('EOL passed or â‰¤2027:', systems.filter((s) => s.platformEolYear !== null && s.platformEolYear <= 2027).length);
+console.log('EOL passed or ≤2027:', systems.filter((s) => s.platformEolYear !== null && s.platformEolYear <= 2027).length);
 console.log('Duplicate groups:', Object.keys(groups).length, groups);
 console.log('Integration edges:', systems.reduce((a, s) => a + s.integrations.length, 0));
 const inDegree = countBy((s) => s.id);

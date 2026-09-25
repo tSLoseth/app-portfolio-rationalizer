@@ -702,7 +702,7 @@
     },
     {
       "id": "SYS-010",
-      "name": "SFTP-server for EDI (filoverfÃ¸ring)",
+      "name": "SFTP-server for EDI (filoverføring)",
       "vendor": "In-house (OpenSSH on Windows)",
       "description": "File-based EDI exchange with banks, carriers and key suppliers.",
       "capability": {
@@ -1325,7 +1325,7 @@
     },
     {
       "id": "SYS-023",
-      "name": "Budsjettmodell Â«Budsjett2019.xlsmÂ»",
+      "name": "Budsjettmodell «Budsjett2019.xlsm»",
       "vendor": "Microsoft (Excel/VBA)",
       "description": "Macro-heavy budget workbook on a file share; the real source for plant budgets.",
       "capability": {
@@ -1512,7 +1512,7 @@
     },
     {
       "id": "SYS-027",
-      "name": "Visma LÃ¸nn (Nordlys)",
+      "name": "Visma Lønn (Nordlys)",
       "vendor": "Visma",
       "description": "Norwegian payroll for the core business; Vestfjord still runs its own.",
       "capability": {
@@ -1563,7 +1563,7 @@
     },
     {
       "id": "SYS-028",
-      "name": "Huldt & Lillevik LÃ¸nn (Vestfjord)",
+      "name": "Huldt & Lillevik Lønn (Vestfjord)",
       "vendor": "Visma (Huldt & Lillevik)",
       "description": "Vestfjord payroll, never migrated.",
       "capability": {
@@ -1613,7 +1613,7 @@
     },
     {
       "id": "SYS-029",
-      "name": "Hogia LÃ¶n (Polarkomponent, SE)",
+      "name": "Hogia Lön (Polarkomponent, SE)",
       "vendor": "Hogia",
       "description": "Swedish payroll; different jurisdiction, so not a true duplicate.",
       "capability": {
@@ -2273,7 +2273,7 @@
     },
     {
       "id": "SYS-043",
-      "name": "Airtable Â«NÃ¸kkelkunder VestÂ»",
+      "name": "Airtable «Nøkkelkunder Vest»",
       "vendor": "Airtable",
       "description": "Key-account tracker built by a regional sales team; contains customer contact data.",
       "capability": {
@@ -3113,7 +3113,7 @@
     },
     {
       "id": "SYS-061",
-      "name": "LeverandÃ¸rkvalifisering (egenutviklet)",
+      "name": "Leverandørkvalifisering (egenutviklet)",
       "vendor": "In-house",
       "description": "Supplier audit questionnaires and scores.",
       "capability": {
@@ -3217,7 +3217,7 @@
       "id": "SYS-063",
       "name": "Lagerstyring LX (Vestfjord, egenutviklet)",
       "vendor": "In-house (Vestfjord)",
-      "description": "Warehouse system at the FlorÃ¸ plant; tightly coupled to NAV.",
+      "description": "Warehouse system at the Florø plant; tightly coupled to NAV.",
       "capability": {
         "l1": "Supply Chain",
         "l2": "Warehouse Management"
@@ -3314,7 +3314,7 @@
     },
     {
       "id": "SYS-065",
-      "name": "HÃ¥ndterminal-app lager (Windows CE)",
+      "name": "Håndterminal-app lager (Windows CE)",
       "vendor": "In-house",
       "description": "Scanner app for picking and goods receipt; devices no longer sold.",
       "capability": {
@@ -3693,7 +3693,7 @@
     },
     {
       "id": "SYS-073",
-      "name": "Siemens Opcenter Execution (GjÃ¸vik, Sunndal)",
+      "name": "Siemens Opcenter Execution (Gjøvik, Sunndal)",
       "vendor": "Siemens",
       "description": "MES for the two largest Norwegian plants.",
       "capability": {
@@ -3794,9 +3794,9 @@
     },
     {
       "id": "SYS-075",
-      "name": "MES FlorÃ¸ (Vestfjord, egenutviklet)",
+      "name": "MES Florø (Vestfjord, egenutviklet)",
       "vendor": "In-house (Vestfjord)",
-      "description": "Home-grown MES at the FlorÃ¸ plant.",
+      "description": "Home-grown MES at the Florø plant.",
       "capability": {
         "l1": "Production/OT",
         "l2": "Manufacturing Execution"
@@ -3894,7 +3894,7 @@
     },
     {
       "id": "SYS-077",
-      "name": "Skiftplan-app (Power Apps, GjÃ¸vik)",
+      "name": "Skiftplan-app (Power Apps, Gjøvik)",
       "vendor": "Microsoft Power Apps",
       "description": "Shift swap app built by a production supervisor.",
       "capability": {
@@ -4091,7 +4091,7 @@
       "id": "SYS-081",
       "name": "IFS Applications 9 vedlikehold (Vestfjord)",
       "vendor": "IFS",
-      "description": "Maintenance module at FlorÃ¸.",
+      "description": "Maintenance module at Florø.",
       "capability": {
         "l1": "Production/OT",
         "l2": "Asset & Maintenance Management"
@@ -4139,7 +4139,7 @@
     },
     {
       "id": "SYS-082",
-      "name": "SmÃ¸replan (Access, Sunndal)",
+      "name": "Smøreplan (Access, Sunndal)",
       "vendor": "Microsoft Access",
       "description": "Lubrication schedule outside Maximo.",
       "capability": {
@@ -4233,7 +4233,7 @@
       "id": "SYS-084",
       "name": "Q-Pulse avvik (Vestfjord)",
       "vendor": "Ideagen",
-      "description": "Quality non-conformance log at FlorÃ¸.",
+      "description": "Quality non-conformance log at Florø.",
       "capability": {
         "l1": "Production/OT",
         "l2": "Quality & Laboratory"
@@ -4278,7 +4278,7 @@
     },
     {
       "id": "SYS-085",
-      "name": "SPC-analyse (egenutviklet, GjÃ¸vik)",
+      "name": "SPC-analyse (egenutviklet, Gjøvik)",
       "vendor": "In-house",
       "description": "Statistical process control charts from machine data.",
       "capability": {
@@ -4472,9 +4472,9 @@
     },
     {
       "id": "SYS-089",
-      "name": "WinCC SCADA GjÃ¸vik",
+      "name": "WinCC SCADA Gjøvik",
       "vendor": "Siemens",
-      "description": "Process control for the GjÃ¸vik foundry.",
+      "description": "Process control for the Gjøvik foundry.",
       "capability": {
         "l1": "Production/OT",
         "l2": "Process Control & Historian"
@@ -4750,7 +4750,7 @@
     {
       "id": "SYS-095",
       "name": "SolidWorks PDM (Polarkomponent)",
-      "vendor": "Dassault SystÃ¨mes",
+      "vendor": "Dassault Systèmes",
       "description": "SolidWorks vault at Kalmar.",
       "capability": {
         "l1": "Production/OT",
@@ -5537,7 +5537,7 @@
     },
     {
       "id": "SYS-111",
-      "name": "Rapportpakke Â«MÃ¥nedstallÂ» (Excel)",
+      "name": "Rapportpakke «Månedstall» (Excel)",
       "vendor": "Microsoft (Excel/VBA)",
       "description": "Monthly management pack assembled by controlling from BW extracts.",
       "capability": {
@@ -6236,7 +6236,7 @@
     },
     {
       "id": "SYS-126",
-      "name": "Intranett Â«NordlysetÂ» (SharePoint Online)",
+      "name": "Intranett «Nordlyset» (SharePoint Online)",
       "vendor": "Microsoft",
       "description": "Group intranet and news.",
       "capability": {
@@ -6285,7 +6285,7 @@
       "id": "SYS-127",
       "name": "Vestfjord intranett (Episerver CMS 7)",
       "vendor": "Optimizely (Episerver)",
-      "description": "Old Vestfjord intranet, still the home page on FlorÃ¸ PCs.",
+      "description": "Old Vestfjord intranet, still the home page on Florø PCs.",
       "capability": {
         "l1": "Collaboration",
         "l2": "Intranet & Internal Communication"
@@ -6519,7 +6519,7 @@
     },
     {
       "id": "SYS-132",
-      "name": "Trello (engineering GjÃ¸vik)",
+      "name": "Trello (engineering Gjøvik)",
       "vendor": "Atlassian",
       "description": "Engineering task boards.",
       "capability": {
@@ -6985,7 +6985,7 @@
     },
     {
       "id": "SYS-142",
-      "name": "KnowBe4 sikkerhetsopplÃ¦ring",
+      "name": "KnowBe4 sikkerhetsopplæring",
       "vendor": "KnowBe4",
       "description": "Phishing simulation and awareness training.",
       "capability": {
@@ -7170,7 +7170,7 @@
     },
     {
       "id": "SYS-146",
-      "name": "Nagios XI overvÃ¥kning",
+      "name": "Nagios XI overvåkning",
       "vendor": "Nagios Enterprises",
       "description": "Infrastructure monitoring; alerts mostly ignored.",
       "capability": {
