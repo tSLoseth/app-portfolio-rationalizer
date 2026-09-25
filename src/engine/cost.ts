@@ -249,10 +249,10 @@ function buildWaterfall(systems: System[], costs: CostResult[], facility: number
   }
   const target = baseline + retire + rightsizing + infraExit + cloudRun;
   return [
-    { key: 'baseline', label: 'Baseline run cost (incl. DC facility)', value: baseline },
+    { key: 'baseline', label: facility > 0 ? 'Baseline run cost (incl. DC facility)' : 'Baseline run cost', value: baseline },
     { key: 'retire', label: 'Retire & consolidate (net)', value: retire },
     { key: 'rightsizing', label: 'Rightsizing: licences & internal support', value: rightsizing },
-    { key: 'infraExit', label: 'Current infra & DC facility removed', value: infraExit },
+    { key: 'infraExit', label: facility > 0 ? 'Current infra & DC facility removed' : 'Current infra removed', value: infraExit },
     { key: 'cloudRun', label: 'Cloud run cost & SaaS subscriptions added', value: cloudRun },
     { key: 'target', label: 'Target run cost', value: target },
   ];

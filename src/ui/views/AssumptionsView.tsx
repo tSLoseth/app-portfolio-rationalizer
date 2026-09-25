@@ -44,7 +44,7 @@ function formatValue(v: unknown, nested = false): string {
   return String(v);
 }
 
-export function AssumptionsView({ baseAssumptions, overrides }: ViewProps) {
+export function AssumptionsView({ baseAssumptions, overrides, imported }: ViewProps) {
   const rows = flatten(baseAssumptions);
   const sections = [...new Set(rows.map((r) => r.path[0]!))];
   const estimated = rows.filter((r) => r.param.estimate).length;
@@ -65,7 +65,9 @@ export function AssumptionsView({ baseAssumptions, overrides }: ViewProps) {
       </header>
 
       <div className="callout">
-        Nordlys Gruppen ASA is a fictional company. All systems, costs and factors are illustrative estimates, not benchmarks. Change a value
+        {imported
+          ? 'The imported inventory is assessed with the demo’s factors, which are illustrative estimates, not benchmarks; the data-center facility cost is set to zero. Change a value'
+          : 'Nordlys Gruppen ASA is a fictional company. All systems, costs and factors are illustrative estimates, not benchmarks. Change a value'}
         in the file and every view follows; the three business-case sliders override their parameter for this session only.
       </div>
 

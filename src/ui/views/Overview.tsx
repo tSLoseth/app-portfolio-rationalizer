@@ -4,7 +4,7 @@ import type { ViewProps } from '../types';
 
 export function Overview({ portfolio, assumptions, result, palette }: ViewProps) {
   const k = kpis(portfolio, result);
-  const f = findings(result, assumptions);
+  const f = findings(result, assumptions, portfolio.meta);
   const n = result.assessments.length;
 
   const timeCounts = TIME_ORDER.map((t) => ({ t, n: result.assessments.filter((a) => a.time.category === t).length }));
@@ -20,9 +20,9 @@ export function Overview({ portfolio, assumptions, result, palette }: ViewProps)
 
       <section className="kpis" aria-label="Key figures">
         <Kpi label="Systems assessed" value={String(k.systems)} sub={`${k.duplicateSystems} sit in duplicate groups`} />
-        <Kpi label="Annual IT run cost" value={nokM(k.runCost)} sub="incl. data-center facility" />
+        <Kpi label="Annual IT run cost" value={nokM(k.runCost)} sub={k.facilityCost > 0 ? 'incl. data-center facility' : 'listed systems only'} />
         <Kpi label="Hosted on-prem" value={pct(k.onPremShare)} sub="of systems, in the DC or at plants" />
-        <Kpi label="Duplicate groups" value={String(k.duplicateGroups)} sub="same L2 capability, post-M&A" />
+        <Kpi label="Duplicate groups" value={String(k.duplicateGroups)} sub={k.postMerger ? 'same L2 capability, post-M&A' : 'overlap within the same L2 capability'} />
         <Kpi label={`${result.cost.horizonYears}-year NPV`} value={nokM(k.npv)} sub={`at ${pct(result.cost.discountRate, 1)} discount rate`} />
         <Kpi
           label="Simple payback (steady state)"
@@ -34,12 +34,16 @@ export function Overview({ portfolio, assumptions, result, palette }: ViewProps)
           value={k.paybackQuarter ?? 'Not reached'}
           sub={k.paybackQuarter ? 'cumulative cash flow turns positive' : 'cumulative cash flow stays negative'}
         />
-        <Kpi
-          label="Data-center exit"
-          value={k.dcExitQuarter ?? 'Not met'}
-          sub={k.dcAchieved ? `meets the ${k.milestone} deadline` : `misses the ${k.milestone} deadline`}
-          warn={!k.dcAchieved}
-        />
+        {k.dcInScope > 0 ? (
+          <Kpi
+            label="Data-center exit"
+            value={k.dcExitQuarter ?? 'Not met'}
+            sub={k.dcAchieved ? `meets the ${k.milestone} deadline` : `misses the ${k.milestone} deadline`}
+            warn={!k.dcAchieved}
+          />
+        ) : (
+          <Kpi label="Data-center exit" value="Not in scope" sub="no data-center-hosted systems" />
+        )}
       </section>
 
       <section className="findings" aria-label="Key findings">

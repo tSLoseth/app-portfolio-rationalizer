@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { CapabilityL1, SystemAssessment } from '../../model/types';
+import { isPostMerger } from '../derive';
 import { cap, nokM, originLabel } from '../format';
 import type { ViewProps } from '../types';
 
@@ -53,7 +54,7 @@ export function CapabilityMap({ portfolio, result, palette, openSystem }: ViewPr
         <h2>Capability map</h2>
         <p>
           Business capabilities (L1 rows, L2 cells). Shading is the number of systems per capability; a marked cell holds at least one
-          duplicate group, the redundancy left by the acquisitions. Select a cell to list its systems.
+          duplicate group{isPostMerger(portfolio.meta) ? ', the redundancy left by the acquisitions' : ''}. Select a cell to list its systems.
         </p>
       </header>
 

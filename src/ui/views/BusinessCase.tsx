@@ -59,7 +59,8 @@ export function BusinessCase({ baseAssumptions, result, palette, overrides, setO
       level += s.value;
     }
     const m = (s.value / 1e6).toFixed(0);
-    return { ...row, short: SHORT[s.key], total, lbl: total ? m : s.value > 0 ? `+${m}` : m.replace('-', '−') };
+    const short = s.key === 'infraExit' && c.dataCenterFacilityAnnual === 0 ? 'Infra|out' : SHORT[s.key];
+    return { ...row, short, total, lbl: total ? m : s.value > 0 ? `+${m}` : m.replace('-', '−') };
   });
 
   const startYear = c.cashFlows[0]?.year ?? 2027;

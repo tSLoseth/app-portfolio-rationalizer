@@ -41,7 +41,9 @@ export function RoadmapView(props: ViewProps) {
           {rm.items.length} systems scheduled from {quarters[0]} to {quarters[n - 1]}, respecting dependencies and a capacity of{' '}
           {rm.capacity.maxCutoversPerQuarter} cutovers and {num(rm.capacity.maxPersonDaysPerQuarter)} person-days per quarter.{' '}
           {rm.retained.length} retained systems are not scheduled.{' '}
-          {rm.dcExit.achieved
+          {rm.dcExit.inScope === 0
+            ? 'No system is hosted in the data center, so there is no exit deadline to meet.'
+            : rm.dcExit.achieved
             ? `All ${rm.dcExit.inScope} data-center systems are out by ${rm.dcExit.exitQuarter}, meeting the ${rm.dcExit.milestone} deadline.`
             : `${rm.dcExit.violations.length} data-center systems miss the ${rm.dcExit.milestone} deadline.`}{' '}
           Rows are grouped by calendar horizon of the cutover and ordered by time; each system also belongs to a migration track (retire,

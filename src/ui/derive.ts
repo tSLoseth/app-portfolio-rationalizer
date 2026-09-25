@@ -1,6 +1,6 @@
 import type { PortfolioAssessment } from '../engine/assess';
 import { quarterIndex } from '../engine/quarters';
-import type { Assumptions, Portfolio, SystemAssessment } from '../model/types';
+import type { Assumptions, Portfolio, PortfolioMeta, SystemAssessment } from '../model/types';
 import { nokM, pct } from './format';
 
 export interface AiRationale {
@@ -24,8 +24,14 @@ export interface Kpis {
   paybackQuarter: string | null;
   dcExitQuarter: string | null;
   dcAchieved: boolean;
+  dcInScope: number;
   milestone: string;
+  facilityCost: number;
+  postMerger: boolean;
 }
+
+/** Demo-only narrative (acquisitions, leased facility) is shown only when the data says so. */
+export const isPostMerger = (meta: PortfolioMeta) => meta.acquisitions.length > 0;
 
 export function kpis(p: Portfolio, r: PortfolioAssessment): Kpis {
   const groups = new Set(p.systems.map((s) => s.duplicateGroup).filter(Boolean));
@@ -40,7 +46,10 @@ export function kpis(p: Portfolio, r: PortfolioAssessment): Kpis {
     paybackQuarter: r.cost.paybackQuarter,
     dcExitQuarter: r.roadmap.dcExit.exitQuarter,
     dcAchieved: r.roadmap.dcExit.achieved,
+    dcInScope: r.roadmap.dcExit.inScope,
     milestone: r.roadmap.dcExit.milestone,
+    facilityCost: r.cost.dataCenterFacilityAnnual,
+    postMerger: isPostMerger(p.meta),
   };
 }
 
@@ -54,12 +63,14 @@ const sum = (xs: SystemAssessment[], f: (a: SystemAssessment) => number) => xs.r
 export function headline(r: PortfolioAssessment): string {
   const c = r.cost;
   const exit = r.roadmap.dcExit;
-  const exitPart = exit.exitQuarter ? `vacate the data center by ${exit.exitQuarter}` : 'work towards a data-center exit';
   const change = c.annualSaving >= 0 ? `cut annual IT run cost by ${nokM(c.annualSaving)} (${pct(c.annualSaving / c.baselineAnnual)})` : `raise annual IT run cost by ${nokM(-c.annualSaving)}`;
-  return `Retire ${c.bySixR.retire.count} systems, migrate ${c.bySixR.rehost.count + c.bySixR.replatform.count + c.bySixR.refactor.count + c.bySixR.repurchase.count} and ${exitPart} to ${change}.`;
+  const moves = `Retire ${c.bySixR.retire.count} systems, migrate ${c.bySixR.rehost.count + c.bySixR.replatform.count + c.bySixR.refactor.count + c.bySixR.repurchase.count}`;
+  if (exit.inScope === 0) return `${moves} to ${change}.`;
+  const exitPart = exit.exitQuarter ? `vacate the data center by ${exit.exitQuarter}` : 'work towards a data-center exit';
+  return `${moves} and ${exitPart} to ${change}.`;
 }
 
-export function findings(r: PortfolioAssessment, a: Assumptions): Finding[] {
+export function findings(r: PortfolioAssessment, a: Assumptions, meta: PortfolioMeta): Finding[] {
   const all = r.assessments;
   const c = r.cost;
   const out: Finding[] = [];
@@ -69,7 +80,7 @@ export function findings(r: PortfolioAssessment, a: Assumptions): Finding[] {
   const plainRetire = all.filter((x) => x.sixR.sixR === 'retire' && !x.sixR.consolidateInto);
   const retireSaving = consolidationSaving + sum(plainRetire, (x) => x.cost.annualSaving);
   out.push({
-    title: 'Post-merger consolidation carries the case',
+    title: isPostMerger(meta) ? 'Post-merger consolidation carries the case' : 'Consolidation carries the case',
     body:
       `${consolidations.length} duplicates retire into a group standard, saving ${nokM(consolidationSaving)} a year, ` +
       `${pct(Math.max(0, consolidationSaving) / Math.max(1, c.annualSaving))} of the total run-cost saving. ` +
@@ -94,6 +105,10 @@ export function findings(r: PortfolioAssessment, a: Assumptions): Finding[] {
 
   const exit = r.roadmap.dcExit;
   const ms = quarterIndex(exit.milestone);
+  // "Lease" only when the inventory carries a facility cost; otherwise the milestone is just an assumed deadline.
+  const lease = c.dataCenterFacilityAnnual > 0;
+  const deadline = lease ? `${exit.milestone} lease deadline` : `${exit.milestone} exit milestone (an assumption)`;
+  if (exit.inScope === 0) return out;
   if (exit.exitQuarter) {
     const slack = ms - quarterIndex(exit.exitQuarter);
     const last = r.roadmap.items.filter((i) => i.dcScope && i.quarter === exit.exitQuarter);
@@ -103,17 +118,19 @@ export function findings(r: PortfolioAssessment, a: Assumptions): Finding[] {
     out.push({
       title: slack <= 0 ? 'The data-center exit has no slack' : `The data-center exit has ${slack} quarter${slack > 1 ? 's' : ''} of slack`,
       body:
-        `All ${exit.inScope} in-scope systems leave by ${exit.exitQuarter} against a ${exit.milestone} lease deadline. ` +
+        `All ${exit.inScope} in-scope systems leave by ${exit.exitQuarter} against the ${deadline}. ` +
         `Last to leave${last.length > 1 ? ` (${last.length})` : ''}: ${names}${last.length > 3 ? ' and others' : ''}. ` +
         `Delivery peaks at ${Math.round(peak).toLocaleString('en-US')} person-days in a quarter, ${pct(peak / r.roadmap.capacity.maxPersonDaysPerQuarter)} of capacity; ` +
         (slack <= 0
-          ? 'any slippage on the critical path pushes systems past the lease.'
-          : `a slip of more than ${slack} quarter${slack > 1 ? 's' : ''} breaches the lease.`),
+          ? `any slippage on the critical path pushes systems past the ${lease ? 'lease' : 'milestone'}.`
+          : `a slip of more than ${slack} quarter${slack > 1 ? 's' : ''} breaches the ${lease ? 'lease' : 'milestone'}.`),
     });
   } else {
     out.push({
       title: 'The data-center exit is not achieved',
-      body: `${exit.violations.length} in-scope systems stay in the data center past ${exit.milestone}. The lease renewal, or more delivery capacity, must be priced in.`,
+      body:
+        `${exit.violations.length} in-scope systems stay in the data center past the ${deadline}. ` +
+        (lease ? 'The lease renewal, or more delivery capacity, must be priced in.' : 'More delivery capacity, or a later milestone, is needed.'),
     });
   }
   return out;
