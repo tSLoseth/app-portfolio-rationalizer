@@ -97,6 +97,24 @@ describe('per-system cost (hand-computed)', () => {
     const [c] = assessCosts([hub], [r('H', 'rehost')], a, buildGraph([hub]));
     expect(c!.integrationMultiplier).toBe(2);
   });
+
+  it('costs the XL core ERP as a programme estimate instead of the rate card', () => {
+    const erp = (id: string, sizeClass: 'L' | 'XL') =>
+      makeSystem({ id, sizeClass, capability: { l1: 'Finance', l2: 'ERP & General Ledger' }, integrations: Array.from({ length: 30 }, (_, i) => `S${i}`) });
+    const sys = [erp('ERP', 'XL'), erp('SAT', 'L'), erp('OLD', 'XL')];
+    const six = [r('ERP', 'repurchase'), r('SAT', 'repurchase'), r('OLD', 'retire')];
+    const [big, small, old] = assessCosts(sys, six, a, buildGraph(sys));
+    expect(big!.erpProgramme).toBe(true);
+    expect(big!.oneOffMigration).toBe(80_000_000); // replaces 6M × 2.0 = 12M
+    expect(big!.migrationPersonDays).toBeCloseTo(80_000_000 / 11_000);
+    expect(big!.rationale.join(' ')).toContain('ERP programme estimate');
+    expect(small!.erpProgramme).toBeUndefined();
+    expect(small!.oneOffMigration).toBe(4_000_000); // L repurchase 2M × capped 2.0
+    expect(old!.oneOffMigration).toBe(2_000_000); // retirements keep the rate card
+    const dear = assessCosts(sys, six, withOverrides(a, { migrationCostMultiplier: 1.3 }), buildGraph(sys));
+    expect(dear[0]!.oneOffMigration).toBeCloseTo(104_000_000);
+    expect(dear[0]!.migrationPersonDays).toBeCloseTo(big!.migrationPersonDays);
+  });
 });
 
 describe('portfolio summary (hand-computed)', () => {

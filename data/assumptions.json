@@ -280,6 +280,27 @@
       "estimate": true,
       "rationale": "Hub systems are migrated with interface virtualisation; cost does not scale linearly forever."
     },
+    "erpProgrammeCapabilityL2": {
+      "value": "ERP & General Ledger",
+      "unit": "L2 capability",
+      "description": "Capability whose moving systems in erpProgrammeSizeClasses are costed as a whole ERP programme.",
+      "estimate": true,
+      "rationale": "The group ERP is not an application swap: replacing it re-implements finance, logistics, sales and production-planning processes at once, so it gets its own cost line instead of the generic 6R rate card."
+    },
+    "erpProgrammeSizeClasses": {
+      "value": ["XL"],
+      "unit": "size classes",
+      "description": "Size classes in the ERP capability that are costed as a programme (smaller ERP-adjacent tools keep the rate card).",
+      "estimate": true,
+      "rationale": "Only the group-wide core ERP (SAP ECC, XL) is a transformation programme; small satellites such as tax exports are ordinary migrations."
+    },
+    "erpProgrammeOneOffNok": {
+      "value": 80000000,
+      "unit": "NOK one-off",
+      "description": "One-off cost of an ERP-class transformation (e.g. SAP ECC → S/4HANA or a cloud ERP), replacing the 6R rate × size × integration multiplier. Scaled by the migration-cost multiplier like every other one-off.",
+      "estimate": true,
+      "rationale": "Order-of-magnitude estimate, not a benchmark. The generic XL repurchase rate (NOK 6M × capped integration multiplier 2.0 = NOK 12M) prices the group ERP like a large application swap. An ECC → S/4HANA-class programme for a ~4 000-employee industrial group with acquired entities covers process redesign, data migration and cleansing, ~40 interfaces, several test cycles, training and hypercare. NOK 80M ≈ 7 300 person-days at the 11 000 NOK blended day rate ≈ 20 FTE for 18 months, which is a plausible scale for a mid-size S/4 transformation; a reasonable estimate range is roughly NOK 60–120M, and the ±30 % sensitivity covers most of it. Chosen below the midpoint because the case assumes a largely standard (fit-to-standard) design; heavy custom-code carry-over would push towards the top of the range."
+    },
     "dataCenterAnnualFixedCostNok": {
       "value": 18000000,
       "unit": "NOK per year",
@@ -378,7 +399,28 @@
       "unit": "person-days per system per quarter",
       "description": "Largest effort one migration team can burn on a single system in a quarter; larger migrations span several quarters.",
       "estimate": true,
-      "rationale": "About 6–7 FTE on one workstream (~60 productive days each per quarter); larger teams on one system hit coordination limits. At 300 (5 FTE) the ERP replacement alone runs four quarters and pushes its dependants past the DC exit."
+      "rationale": "About 6–7 FTE on one workstream (~60 productive days each per quarter); larger teams on one system hit coordination limits. Does not apply to the ERP programme, which has its own team and duration (erpProgrammeDurationQuarters)."
+    },
+    "maxLightRetirementsPerQuarter": {
+      "value": 10,
+      "unit": "systems per quarter",
+      "description": "Separate capacity for light retirements: switching off a SaaS or other non-data-center system that is not a consolidation and has no dependants other than SaaS tools (whose connector is simply disabled). These do not count against maxSystemsPerQuarter.",
+      "estimate": true,
+      "rationale": "Cancelling a subscription and archiving its data needs user communication and an export, not a change window, business test cycle or hypercare, which is what maxSystemsPerQuarter protects. Counting them against that cap pushed trivial quick wins such as Miro to 2028. Still capped so archiving and licence-termination work stays orderly."
+    },
+    "erpProgrammeDurationQuarters": {
+      "value": 6,
+      "unit": "quarters",
+      "description": "Duration of the ERP programme from mobilisation to go-live (cutover).",
+      "estimate": true,
+      "rationale": "About 18 months from design to a single go-live is a plausible, not aggressive, timeline for a fit-to-standard S/4-class programme of this size. Starting in 2027Q1 it goes live in 2028Q2, leaving two quarters before the 2028Q4 lease expiry for the Dynamics NAV consolidation and ERP-dependent systems. That buffer is thin: a slip of more than one quarter puts the DC exit at risk, which is the programme's main schedule risk."
+    },
+    "erpProgrammeSharedCapacityShare": {
+      "value": 0.15,
+      "unit": "share of ERP programme effort",
+      "description": "Share of the ERP programme effort drawn from the shared migration capacity (maxPersonDaysPerQuarter); the rest is delivered by a dedicated programme team (system integrator plus backfilled key users).",
+      "estimate": true,
+      "rationale": "ERP programmes are normally staffed as their own programme; the shared IT pool contributes integration, infrastructure and data-platform work. 15 % of ~7 300 person-days ≈ 180 person-days per quarter, similar to what the generic model previously charged the shared pool for the ERP."
     }
   }
 }

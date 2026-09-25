@@ -173,6 +173,9 @@ export interface Assumptions {
     dayRateNok: Param<number>;
     integrationComplexityPerIntegration: Param<number>;
     integrationComplexityMaxMultiplier: Param<number>;
+    erpProgrammeCapabilityL2: Param<string>;
+    erpProgrammeSizeClasses: Param<SizeClass[]>;
+    erpProgrammeOneOffNok: Param<number>;
     dataCenterAnnualFixedCostNok: Param<number>;
     discountRate: Param<number>;
     horizonYears: Param<number>;
@@ -189,6 +192,9 @@ export interface Assumptions {
     temporaryIntegrationPersonDays: Param<number>;
     retireQuickWinMaxDependants: Param<number>;
     maxPersonDaysPerSystemPerQuarter: Param<number>;
+    maxLightRetirementsPerQuarter: Param<number>;
+    erpProgrammeDurationQuarters: Param<number>;
+    erpProgrammeSharedCapacityShare: Param<number>;
   };
 }
 
@@ -263,6 +269,8 @@ export interface CostResult {
   oneOffMigration: number;
   /** Effort at base prices; the migration-cost slider changes price, not effort. */
   migrationPersonDays: number;
+  /** ERP-class transformation costed as a whole programme instead of rate × size × integrations. */
+  erpProgramme?: boolean;
   /** Years; null when the change never pays back. */
   paybackYears: number | null;
   /** Standalone NPV over the horizon as if cut over in the first programme quarter. */
@@ -338,6 +346,10 @@ export interface RoadmapItem {
   consolidateInto?: string;
   /** Hosted in the closing data center (and not site-bound). */
   dcScope: boolean;
+  /** Switch-off of a non-DC system without dependants or consolidation: uses light-retirement capacity. */
+  lightRetirement: boolean;
+  /** Dedicated ERP programme: own team, fixed duration, only a share of its effort hits the shared pool. */
+  erpProgramme: boolean;
   rationale: string[];
 }
 
@@ -355,7 +367,11 @@ export type DcExitViolationReason = 'retained_in_dc' | 'unscheduled' | 'late';
 
 export interface RoadmapResult {
   items: RoadmapItem[];
-  quarters: { quarter: Quarter; cutovers: number; personDays: number; byWave: Record<Wave, number> }[];
+  /**
+   * cutovers counts every system cut over; lightRetirements is the subset that uses the separate
+   * light-retirement capacity instead of the cutover cap. personDays is shared-pool effort only.
+   */
+  quarters: { quarter: Quarter; cutovers: number; lightRetirements: number; personDays: number; byWave: Record<Wave, number> }[];
   cyclesBroken: BrokenCycle[];
   dcExit: {
     milestone: Quarter;
@@ -369,7 +385,12 @@ export interface RoadmapResult {
   retained: string[];
   /** Did not fit before the end quarter. */
   unscheduled: string[];
-  capacity: { maxCutoversPerQuarter: number; maxPersonDaysPerQuarter: number; maxPersonDaysPerSystemPerQuarter: number };
+  capacity: {
+    maxCutoversPerQuarter: number;
+    maxLightRetirementsPerQuarter: number;
+    maxPersonDaysPerQuarter: number;
+    maxPersonDaysPerSystemPerQuarter: number;
+  };
 }
 
 export interface SystemAssessment {

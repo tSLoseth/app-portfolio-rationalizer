@@ -36,6 +36,13 @@ export function integrationMultiplier(s: System, g: IntegrationGraph, a: Assumpt
   );
 }
 
+/** The group core ERP moving off its platform is costed as a programme, not with the 6R rate card. */
+export const isErpProgramme = (s: System, sixR: SixR, a: Assumptions) =>
+  sixR !== 'retire' &&
+  sixR !== 'retain' &&
+  s.capability.l2 === a.cost.erpProgrammeCapabilityL2.value &&
+  a.cost.erpProgrammeSizeClasses.value.includes(s.sizeClass);
+
 /** End-of-quarter discount factor for quarter k (0 = first programme quarter). */
 export const discountFactor = (k: number, rate: number) => Math.pow(1 + rate, -(k + 1) / 4);
 
@@ -82,10 +89,12 @@ export function assessCost(s: System, r: SixRResult, g: IntegrationGraph, a: Ass
   const annualSaving = baselineAnnual - targetAnnual;
   const mult = integrationMultiplier(s, g, a);
   const price = a.cost.migrationCostMultiplier.value;
+  const erp = isErpProgramme(s, r.sixR, a);
   const rate = a.cost.migrationCostNok.value[r.sixR][s.sizeClass];
   const consolidationRate = r.consolidateInto ? a.cost.consolidationCostNok.value[s.sizeClass] : 0;
-  const effortNok = (rate + consolidationRate) * mult;
-  const migrationCost = rate * mult * price;
+  const moveNok = erp ? a.cost.erpProgrammeOneOffNok.value : rate * mult;
+  const effortNok = moveNok + consolidationRate * mult;
+  const migrationCost = moveNok * price;
   const consolidationCost = consolidationRate * mult * price;
   const oneOffMigration = migrationCost + consolidationCost;
 
@@ -114,7 +123,12 @@ export function assessCost(s: System, r: SixRResult, g: IntegrationGraph, a: Ass
       `Consolidation uplift on the primary: ${a.cost.consolidationRunCostFactor.value} × licence + vendor support = ${nok(target.consolidationUplift)}/yr.`,
     );
   }
-  if (oneOffMigration > 0) {
+  if (erp) {
+    rationale.push(
+      `One-off ${nok(oneOffMigration)} = ERP programme estimate ${nok(a.cost.erpProgrammeOneOffNok.value)} × price factor ${price} ` +
+        `(replaces the ${r.sixR} ${s.sizeClass} rate card, which would give ${nok(rate * mult * price)}; interfaces are inside the programme).`,
+    );
+  } else if (oneOffMigration > 0) {
     rationale.push(
       `One-off ${nok(oneOffMigration)} = (${r.sixR} ${s.sizeClass} ${nok(rate)}` +
         `${consolidationRate ? ` + consolidation ${nok(consolidationRate)}` : ''}) × integration multiplier ${mult.toFixed(2)} ` +
@@ -139,6 +153,7 @@ export function assessCost(s: System, r: SixRResult, g: IntegrationGraph, a: Ass
     consolidationCost,
     oneOffMigration,
     migrationPersonDays: effortNok / a.cost.dayRateNok.value,
+    ...(erp ? { erpProgramme: true } : {}),
     paybackYears,
     npv,
     rationale,

@@ -22,6 +22,7 @@ interface Spec {
   into?: string;
   hosting?: System['hosting'];
   siteBound?: boolean;
+  erp?: boolean;
 }
 
 function plan(specs: Spec[], a: Assumptions = base): RoadmapResult {
@@ -29,7 +30,7 @@ function plan(specs: Spec[], a: Assumptions = base): RoadmapResult {
     makeSystem({ id: s.id, name: `Sys ${s.id}`, integrations: s.deps ?? [], businessCriticality: s.crit ?? 3, hosting: s.hosting ?? 'on_prem_dc', siteBound: s.siteBound ?? false }),
   );
   const sixRs: SixRResult[] = specs.map((s) => ({ systemId: s.id, sixR: s.sixR, flags: [], ...(s.into ? { consolidateInto: s.into } : {}), rationale: [] }));
-  const costs = specs.map((s) => ({ systemId: s.id, sixR: s.sixR, migrationPersonDays: s.pd ?? 20 }) as CostResult);
+  const costs = specs.map((s) => ({ systemId: s.id, sixR: s.sixR, migrationPersonDays: s.pd ?? 20, ...(s.erp ? { erpProgramme: true } : {}) }) as CostResult);
   return planRoadmap(systems, sixRs, costs, a, buildGraph(systems));
 }
 
@@ -162,6 +163,50 @@ describe('capacity', () => {
     expect(r.dcExit.violations).toContainEqual({ systemId: 'C', reason: 'unscheduled' });
     expect(r.dcExit.exitQuarter).toBeNull();
   });
+
+  it('lets light retirements bypass the cutover cap and uses their own cap instead', () => {
+    const r = plan(
+      [
+        { id: 'D1', sixR: 'retire' },
+        { id: 'D2', sixR: 'retire' },
+        { id: 'S1', sixR: 'retire', hosting: 'saas' },
+        { id: 'S2', sixR: 'retire', hosting: 'saas' },
+        { id: 'S3', sixR: 'retire', hosting: 'public_cloud' },
+        { id: 'J', sixR: 'retain', hosting: 'saas', deps: ['S1'] },
+      ],
+      withRoadmap({ maxSystemsPerQuarter: 1, maxLightRetirementsPerQuarter: 2 }),
+    );
+    // D1/D2 are in the data center and share the single cutover slot; S1–S3 use the light cap of 2.
+    expect(['D1', 'D2'].map((id) => qi(r, id) - quarterIndex('2027Q1'))).toEqual([0, 1]);
+    expect(['S1', 'S2', 'S3'].map((id) => qi(r, id) - quarterIndex('2027Q1'))).toEqual([0, 0, 1]);
+    expect(item(r, 'S1').lightRetirement).toBe(true); // its only dependant is a SaaS tool
+    expect(item(r, 'D1').lightRetirement).toBe(false);
+    expect(r.quarters.slice(0, 2).map((q) => [q.cutovers, q.lightRetirements])).toEqual([[3, 2], [2, 1]]);
+    expect(item(r, 'S3').rationale.join(' ')).toContain('Light retirement');
+  });
+
+  it('keeps consolidations and retirements with non-SaaS dependants under the cutover cap', () => {
+    const r = plan([
+      { id: 'S', sixR: 'retire', hosting: 'saas' },
+      { id: 'K', sixR: 'retain', deps: ['S'] },
+      { id: 'C', sixR: 'retire', hosting: 'saas', into: 'P' },
+      { id: 'P', sixR: 'retain', hosting: 'saas' },
+    ]);
+    expect(item(r, 'S').lightRetirement).toBe(false);
+    expect(item(r, 'C').lightRetirement).toBe(false);
+  });
+
+  it('runs the ERP programme over a fixed duration with only a share of its effort in the shared pool', () => {
+    const r = plan([{ id: 'E', sixR: 'repurchase', pd: 7200, erp: true }]);
+    const e = item(r, 'E');
+    expect(e.erpProgramme).toBe(true);
+    expect(e.durationQuarters).toBe(6);
+    expect([e.startQuarter, e.quarter]).toEqual(['2027Q1', '2028Q2']);
+    expect(e.personDays).toBe(7200);
+    for (const q of r.quarters.slice(0, 6)) expect(q.personDays).toBeCloseTo(180); // 0.15 × 7200 / 6
+    expect(r.quarters[6]!.personDays).toBe(0);
+    expect(e.rationale.join(' ')).toContain('ERP programme: dedicated team over 6 quarters');
+  });
 });
 
 describe('consolidation and DC exit', () => {
@@ -244,7 +289,8 @@ describe('roadmap on the real portfolio', () => {
 
   it('respects capacity, dependency and consolidation constraints', () => {
     for (const q of roadmap.quarters) {
-      expect(q.cutovers).toBeLessThanOrEqual(roadmap.capacity.maxCutoversPerQuarter);
+      expect(q.cutovers - q.lightRetirements).toBeLessThanOrEqual(roadmap.capacity.maxCutoversPerQuarter);
+      expect(q.lightRetirements).toBeLessThanOrEqual(roadmap.capacity.maxLightRetirementsPerQuarter);
       expect(q.personDays).toBeLessThanOrEqual(roadmap.capacity.maxPersonDaysPerQuarter + 1e-6);
     }
     for (const i of roadmap.items) {
@@ -257,6 +303,23 @@ describe('roadmap on the real portfolio', () => {
         if (d && !i.temporaryIntegrations.includes(dep)) expect(quarterIndex(d.quarter)).toBeLessThanOrEqual(quarterIndex(i.quarter));
       }
     }
+  });
+
+  it('lands light retirements such as Miro in 2027', () => {
+    const light = roadmap.items.filter((i) => i.lightRetirement);
+    expect(light.length).toBeGreaterThan(0);
+    for (const i of light) expect(i.quarter.startsWith('2027')).toBe(true);
+    const miro = assessments.find((x) => x.system.name === 'Miro')!;
+    expect(items.get(miro.system.id)!.quarter).toBe('2027Q1');
+  });
+
+  it('runs SAP ECC as an ERP programme that goes live before the DC exit', () => {
+    const ecc = assessments.find((x) => x.system.name.startsWith('SAP ECC'))!;
+    expect(ecc.cost.erpProgramme).toBe(true);
+    expect(ecc.cost.oneOffMigration).toBe(80_000_000);
+    const i = items.get(ecc.system.id)!;
+    expect(i.durationQuarters).toBe(6);
+    expect(quarterIndex(i.quarter)).toBeLessThan(quarterIndex(roadmap.dcExit.milestone));
   });
 
   it('schedules every non-retained system and none of the retained ones', () => {

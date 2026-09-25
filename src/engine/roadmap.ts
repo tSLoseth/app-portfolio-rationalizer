@@ -79,7 +79,16 @@ export function assignWaves(
   return out;
 }
 
-const edgeKey = (from: string, to: string) => `${from}→${to}`;
+/**
+ * A retirement that is a plain switch-off: not in the data center, not a consolidation, and any
+ * dependants are SaaS tools whose connector is simply disabled (no interface to re-engineer).
+ */
+export function isLightRetirement(s: System, r: SixRResult, g: IntegrationGraph, byId: Map<string, System>): boolean {
+  if (r.sixR !== 'retire' || r.consolidateInto || isDcScope(s)) return false;
+  return (g.dependents.get(s.id) ?? []).every((d) => byId.get(d)?.hosting === 'saas');
+}
+
+const edgeKey =(from: string, to: string) => `${from}→${to}`;
 
 function findPath(edges: Map<string, string[]>, from: string, to: string): string[] | null {
   const prev = new Map<string, string>([[from, from]]);
@@ -171,11 +180,15 @@ export function planRoadmap(
   const startIdx = quarterIndex(a.roadmap.startQuarter.value);
   const nQ = quarterIndex(a.roadmap.endQuarter.value) - startIdx + 1;
   const maxCutovers = a.roadmap.maxSystemsPerQuarter.value;
+  const maxLight = a.roadmap.maxLightRetirementsPerQuarter.value;
+  const erpDuration = a.roadmap.erpProgrammeDurationQuarters.value;
+  const erpShare = a.roadmap.erpProgrammeSharedCapacityShare.value;
   const maxPd = a.roadmap.maxPersonDaysPerQuarter.value;
   const perSystem = a.roadmap.maxPersonDaysPerSystemPerQuarter.value;
   const bridgeDays = a.roadmap.temporaryIntegrationPersonDays.value;
   const load = new Array<number>(nQ).fill(0);
   const cutovers = new Array<number>(nQ).fill(0);
+  const lightCount = new Array<number>(nQ).fill(0);
   const byWave = Array.from({ length: nQ }, () => ({ 0: 0, 1: 0, 2: 0, 3: 0 }) as Record<Wave, number>);
   const q = (offset: number) => quarterFromIndex(startIdx + offset);
 
@@ -202,10 +215,17 @@ export function planRoadmap(
     const r = sixRs.get(id)!;
     const w = waves.get(id)!;
     const migrationPersonDays = costs.get(id)!.migrationPersonDays;
-    const duration = Math.max(1, Math.ceil(migrationPersonDays / perSystem));
-    const perQuarter = migrationPersonDays / duration;
+    const erp = costs.get(id)!.erpProgramme === true;
+    const light = isLightRetirement(s, r, g, byId);
+    const duration = erp ? erpDuration : Math.max(1, Math.ceil(migrationPersonDays / perSystem));
+    const perQuarter = ((erp ? erpShare : 1) * migrationPersonDays) / duration;
     const rationale = [
       w.reason,
+      ...(light
+        ? [
+            `Light retirement: outside the data center, not a consolidation and no dependants beyond SaaS connectors, so it is a switch-off that uses the separate light-retirement capacity (≤ ${maxLight} per quarter), not a cutover slot.`,
+          ]
+        : []),
       dcFirst.has(id)
         ? 'Scheduling priority: DC-exit critical, placed before systems without a hard deadline.'
         : 'Scheduling priority: no hard deadline, fills capacity left after DC-exit systems.',
@@ -236,7 +256,7 @@ export function planRoadmap(
 
     let cutover = -1;
     for (let c = earliest; c < nQ && !blocked; c++) {
-      if (cutovers[c]! >= maxCutovers) continue;
+      if (light ? lightCount[c]! >= maxLight : cutovers[c]! - lightCount[c]! >= maxCutovers) continue;
       let fits = true;
       for (let k = c - duration + 1; k <= c; k++) {
         if (load[k]! + perQuarter + (k === c ? bridgePersonDays : 0) > maxPd + 1e-9) fits = false;
@@ -254,11 +274,14 @@ export function planRoadmap(
     for (let k = start; k <= cutover; k++) load[k]! += perQuarter;
     load[cutover]! += bridgePersonDays;
     cutovers[cutover]!++;
+    if (light) lightCount[cutover]!++;
     byWave[cutover]![w.wave]++;
     placed.set(id, { start, cutover, bridgePersonDays });
 
     rationale.push(
-      `Effort ${Math.round(migrationPersonDays)} person-days over ${duration} quarter(s) (≤ ${perSystem} per system per quarter): ${q(start)}–${q(cutover)}.`,
+      erp
+        ? `ERP programme: dedicated team over ${duration} quarters, ${q(start)}–${q(cutover)}; ${Math.round(erpShare * 100)} % of its ${Math.round(migrationPersonDays)} person-days (${Math.round(perQuarter)} per quarter) draws on the shared migration pool.`
+        : `Effort ${Math.round(migrationPersonDays)} person-days over ${duration} quarter(s) (≤ ${perSystem} per system per quarter): ${q(start)}–${q(cutover)}.`,
     );
     if (cutover > earliest) rationale.push(`Capacity limits pushed cutover from ${q(earliest)} to ${q(cutover)}.`);
     if (bridges.length) {
@@ -284,6 +307,8 @@ export function planRoadmap(
       temporaryIntegrations: bridges,
       ...(r.consolidateInto ? { consolidateInto: r.consolidateInto } : {}),
       dcScope,
+      lightRetirement: light,
+      erpProgramme: erp,
       rationale,
     });
   }
@@ -313,12 +338,17 @@ export function planRoadmap(
 
   return {
     items: items.sort((x, y) => quarterIndex(x.quarter) - quarterIndex(y.quarter) || x.wave - y.wave || x.systemId.localeCompare(y.systemId)),
-    quarters: load.map((pd, k) => ({ quarter: q(k), cutovers: cutovers[k]!, personDays: pd, byWave: byWave[k]! })),
+    quarters: load.map((pd, k) => ({ quarter: q(k), cutovers: cutovers[k]!, lightRetirements: lightCount[k]!, personDays: pd, byWave: byWave[k]! })),
     cyclesBroken,
     dcExit: { milestone, achieved: violations.length === 0, exitQuarter, inScope: inScope.length, violations },
     retained,
     unscheduled,
-    capacity: { maxCutoversPerQuarter: maxCutovers, maxPersonDaysPerQuarter: maxPd, maxPersonDaysPerSystemPerQuarter: perSystem },
+    capacity: {
+      maxCutoversPerQuarter: maxCutovers,
+      maxLightRetirementsPerQuarter: maxLight,
+      maxPersonDaysPerQuarter: maxPd,
+      maxPersonDaysPerSystemPerQuarter: perSystem,
+    },
   };
 }
 
