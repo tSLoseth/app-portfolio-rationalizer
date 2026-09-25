@@ -1,0 +1,342 @@
+{
+  "version": "1.0",
+  "currency": "NOK",
+  "referenceYear": {
+    "value": 2026,
+    "unit": "year",
+    "description": "Year the assessment is made; EOL distances and ages are measured from here.",
+    "estimate": true,
+    "rationale": "Analysis date of this case (autumn 2026)."
+  },
+  "time": {
+    "businessValueWeights": {
+      "functionalCoverage": {
+        "value": 0.25,
+        "unit": "weight",
+        "description": "Weight of functional coverage in business value (weights sum to 1).",
+        "estimate": true,
+        "rationale": "Analyst judgement: coverage matters, but a system can cover its function and still be strategically irrelevant."
+      },
+      "userSatisfaction": {
+        "value": 0.15,
+        "unit": "weight",
+        "description": "Weight of user satisfaction in business value.",
+        "estimate": true,
+        "rationale": "Kept lowest because satisfaction scores are the noisiest input (survey-based, loud minorities)."
+      },
+      "strategicRelevance": {
+        "value": 0.3,
+        "unit": "weight",
+        "description": "Weight of strategic relevance in business value.",
+        "estimate": true,
+        "rationale": "Rationalisation is driven by the target operating model, so fit with strategy carries most weight together with criticality."
+      },
+      "businessCriticality": {
+        "value": 0.3,
+        "unit": "weight",
+        "description": "Weight of business criticality (1–5) in business value.",
+        "estimate": true,
+        "rationale": "Systems that stop revenue or production when down must never land in a low-value quadrant by accident."
+      }
+    },
+    "technicalHealthWeights": {
+      "supportability": {
+        "value": 0.25,
+        "unit": "weight",
+        "description": "Weight of supportability (skills, vendor support) in technical health (weights sum to 1).",
+        "estimate": true,
+        "rationale": "Key-person dependency is the most common operational risk in legacy custom systems."
+      },
+      "security": {
+        "value": 0.25,
+        "unit": "weight",
+        "description": "Weight of security posture in technical health.",
+        "estimate": true,
+        "rationale": "Equal to supportability; unpatchable systems are a board-level risk (NIS2-era expectations)."
+      },
+      "scalability": {
+        "value": 0.15,
+        "unit": "weight",
+        "description": "Weight of scalability in technical health.",
+        "estimate": true,
+        "rationale": "An industrial group with stable volumes rarely hits scale limits; kept below security and supportability."
+      },
+      "documentation": {
+        "value": 0.1,
+        "unit": "weight",
+        "description": "Weight of documentation quality in technical health.",
+        "estimate": true,
+        "rationale": "Matters for migration effort but is partly captured by supportability."
+      },
+      "eolRisk": {
+        "value": 0.25,
+        "unit": "weight",
+        "description": "Weight of the EOL-risk sub-score (5 = platform far from end of life).",
+        "estimate": true,
+        "rationale": "The data-center exit makes platform age a first-order driver in this case."
+      }
+    },
+    "eolPenalty": {
+      "alreadyExpired": {
+        "value": 0.5,
+        "unit": "points on 1–5 scale",
+        "description": "Subtracted from technical health when the platform is already past vendor end of support.",
+        "estimate": true,
+        "rationale": "Explicit penalty per method spec, on top of the eolRisk sub-score, so an unsupported platform cannot be offset by good documentation."
+      },
+      "expiresWithinWindow": {
+        "value": 0.25,
+        "unit": "points on 1–5 scale",
+        "description": "Subtracted from technical health when the platform reaches end of support within the window.",
+        "estimate": true,
+        "rationale": "Half of the expired penalty: still supported, but an upgrade is unavoidable within the planning horizon."
+      },
+      "windowYears": {
+        "value": 2,
+        "unit": "years",
+        "description": "Look-ahead window for the 'expires soon' penalty.",
+        "estimate": true,
+        "rationale": "Typical lead time for an upgrade or replacement project in an enterprise."
+      }
+    },
+    "valueThreshold": {
+      "value": 3.0,
+      "unit": "score 1–5",
+      "description": "Business value at or above this is 'high value'.",
+      "estimate": true,
+      "rationale": "Midpoint of the 1–5 scale; tested for a plausible quadrant split in the engine tests."
+    },
+    "healthThreshold": {
+      "value": 3.0,
+      "unit": "score 1–5",
+      "description": "Technical health at or above this is 'high health'.",
+      "estimate": true,
+      "rationale": "Midpoint of the 1–5 scale; tested for a plausible quadrant split in the engine tests."
+    },
+    "overrides": {
+      "nonPrimaryDuplicate": {
+        "value": "eliminate",
+        "unit": "TIME category",
+        "description": "Category forced on non-primary members of a duplicate group (same L2 capability).",
+        "estimate": true,
+        "rationale": "Standard post-merger consolidation logic: keep one standard per capability, retire the rest."
+      },
+      "eolMigrateMaxYearsToEol": {
+        "value": 2,
+        "unit": "years",
+        "description": "Platforms reaching end of support in fewer than this many years trigger the 'at least Migrate' override.",
+        "estimate": true,
+        "rationale": "Matches the eolPenalty window: less than one planning cycle left."
+      },
+      "eolMigrateMinCriticality": {
+        "value": 4,
+        "unit": "criticality 1–5",
+        "description": "Minimum business criticality for the EOL override.",
+        "estimate": true,
+        "rationale": "Only business-critical systems justify forcing action; low-criticality EOL systems follow the normal quadrant."
+      }
+    }
+  },
+  "sixR": {
+    "lowComplexityMaxIntegrations": {
+      "value": 3,
+      "unit": "integrations",
+      "description": "A Tolerate system on-prem with at most this many integrations counts as low complexity (→ Rehost).",
+      "estimate": true,
+      "rationale": "Beyond three interfaces a lift-and-shift typically needs integration re-testing that resembles a replatform."
+    },
+    "lowComplexitySizeClasses": {
+      "value": ["S", "M"],
+      "unit": "size classes",
+      "description": "Size classes that count as low complexity for Rehost.",
+      "estimate": true,
+      "rationale": "L/XL systems usually carry clustering, licensing or performance constraints that make pure rehosting risky."
+    },
+    "refactorMinBusinessValue": {
+      "value": 3.5,
+      "unit": "score 1–5",
+      "description": "Migrate + custom systems at or above this business value are refactored; below it they are replatformed.",
+      "estimate": true,
+      "rationale": "Refactoring is the most expensive route; reserve it for clearly high-value custom systems."
+    },
+    "investRefactorSizeClasses": {
+      "value": ["L", "XL"],
+      "unit": "size classes",
+      "description": "Invest + on-prem systems in these size classes are refactored; smaller ones are replatformed.",
+      "estimate": true,
+      "rationale": "Large strategic systems benefit most from cloud-native redesign; small ones get most of the value from a managed platform."
+    },
+    "residencyFlagSensitivity": {
+      "value": "special_category",
+      "unit": "data sensitivity",
+      "description": "Systems with this sensitivity and residencyRequired are flagged 'requires EU/NO region'.",
+      "estimate": true,
+      "rationale": "GDPR art. 9 special-category data (e.g. health) is where residency requirements are typically set by policy."
+    }
+  },
+  "cost": {
+    "fteLoadedCostNok": {
+      "value": 1150000,
+      "unit": "NOK per FTE-year",
+      "description": "Fully loaded internal cost of one IT FTE (salary, employer tax, pension, overhead). Used to express supportFte cost.",
+      "estimate": true,
+      "rationale": "Rough Norwegian IT-specialist salary level plus employer contributions and overhead; not from a benchmark."
+    },
+    "infraFactor": {
+      "value": { "rehost": 0.9, "replatform": 0.7, "refactor": 0.5, "repurchase": 0, "retire": 0, "retain": 1 },
+      "unit": "× current infra cost",
+      "description": "Target annual infrastructure cost relative to today's infra cost, per 6R.",
+      "estimate": true,
+      "rationale": "Lift-and-shift saves little until rightsized; managed services and cloud-native designs save progressively more; repurchase moves hosting into the subscription."
+    },
+    "supportFteFactor": {
+      "value": { "rehost": 0.9, "replatform": 0.75, "refactor": 0.6, "repurchase": 0.5, "retire": 0, "retain": 1 },
+      "unit": "× current internal support cost",
+      "description": "Target internal support effort relative to today, per 6R.",
+      "estimate": true,
+      "rationale": "Less patching and OS work on managed platforms; SaaS still needs application management and vendor governance."
+    },
+    "licenseFactor": {
+      "value": { "rehost": 1, "replatform": 0.9, "refactor": 0.8, "repurchase": 0, "retire": 0, "retain": 1 },
+      "unit": "× current license + vendor support",
+      "description": "Target license and vendor-support cost relative to today, per 6R (repurchase uses the subscription parameters instead).",
+      "estimate": true,
+      "rationale": "Replatforming often drops commercial DB/OS licences; refactoring removes more of them."
+    },
+    "repurchaseSubscriptionFactor": {
+      "value": 1.25,
+      "unit": "× current (license + vendor support + infra)",
+      "description": "Annual SaaS subscription after repurchase, relative to today's license, vendor support and infra.",
+      "estimate": true,
+      "rationale": "SaaS subscriptions bundle hosting and upgrades and commonly cost more than on-prem maintenance alone; savings come from internal effort, not licences."
+    },
+    "repurchaseMinSubscriptionNok": {
+      "value": 150000,
+      "unit": "NOK per year",
+      "description": "Floor for a replacement SaaS subscription.",
+      "estimate": true,
+      "rationale": "Avoids unrealistically cheap replacements for custom systems with near-zero licence cost today."
+    },
+    "migrationCostNok": {
+      "value": {
+        "rehost": { "S": 150000, "M": 400000, "L": 1000000, "XL": 2500000 },
+        "replatform": { "S": 300000, "M": 800000, "L": 2000000, "XL": 5000000 },
+        "refactor": { "S": 800000, "M": 2000000, "L": 5000000, "XL": 12000000 },
+        "repurchase": { "S": 250000, "M": 700000, "L": 2000000, "XL": 6000000 },
+        "retire": { "S": 50000, "M": 150000, "L": 400000, "XL": 1000000 },
+        "retain": { "S": 0, "M": 0, "L": 0, "XL": 0 }
+      },
+      "unit": "NOK one-off",
+      "description": "One-off migration cost per 6R and size class, before the integration-complexity multiplier.",
+      "estimate": true,
+      "rationale": "Order-of-magnitude project sizes (weeks to years of effort at the day rate below); relative ordering rehost < replatform < repurchase < refactor follows common migration practice."
+    },
+    "dayRateNok": {
+      "value": 11000,
+      "unit": "NOK per person-day",
+      "description": "Blended internal/consultant day rate; converts migration cost to person-days for roadmap capacity.",
+      "estimate": true,
+      "rationale": "Blend of internal staff and Norwegian consultancy rates; not from a published rate card."
+    },
+    "integrationComplexityPerIntegration": {
+      "value": 0.08,
+      "unit": "multiplier per integration",
+      "description": "Migration cost multiplier = 1 + this × number of integrations (inbound + outbound), capped below.",
+      "estimate": true,
+      "rationale": "Each interface needs re-pointing and regression testing, roughly a few person-days to weeks each."
+    },
+    "integrationComplexityMaxMultiplier": {
+      "value": 2.0,
+      "unit": "multiplier",
+      "description": "Cap on the integration-complexity multiplier.",
+      "estimate": true,
+      "rationale": "Hub systems are migrated with interface virtualisation; cost does not scale linearly forever."
+    },
+    "dataCenterAnnualFixedCostNok": {
+      "value": 18000000,
+      "unit": "NOK per year",
+      "description": "Facility cost of the leased data center (lease, power, cooling, physical security) not allocated to individual systems; avoided after DC exit.",
+      "estimate": true,
+      "rationale": "Plausible for a mid-size enterprise data hall; fictional company, no benchmark used."
+    },
+    "discountRate": {
+      "value": 0.08,
+      "unit": "per year",
+      "description": "Discount rate for the 5-year NPV.",
+      "estimate": true,
+      "rationale": "Corporate cost-of-capital level for an industrial company; deliberately above the 4 % real rate Finansdepartementet prescribes for public projects (R-109/2021). Adjustable in the dashboard."
+    },
+    "horizonYears": {
+      "value": 5,
+      "unit": "years",
+      "description": "Business-case horizon.",
+      "estimate": true,
+      "rationale": "Common horizon for IT investment cases; long enough to capture payback of refactors."
+    },
+    "sensitivityRange": {
+      "value": 0.3,
+      "unit": "± share",
+      "description": "Range applied to cloud run-cost factors and migration costs in the sensitivity analysis.",
+      "estimate": true,
+      "rationale": "Reflects the uncertainty in unbenchmarked factors; wide enough to test whether the recommendation flips."
+    }
+  },
+  "roadmap": {
+    "startQuarter": {
+      "value": "2027Q1",
+      "unit": "quarter",
+      "description": "First quarter of the migration programme.",
+      "estimate": true,
+      "rationale": "Programme mobilised after budget approval in Q4 2026."
+    },
+    "endQuarter": {
+      "value": "2029Q4",
+      "unit": "quarter",
+      "description": "Last quarter of the migration programme.",
+      "estimate": true,
+      "rationale": "Three-year programme; post-DC-exit refactors complete in 2029."
+    },
+    "maxSystemsPerQuarter": {
+      "value": 12,
+      "unit": "systems per quarter",
+      "description": "Maximum number of systems cut over in one quarter.",
+      "estimate": true,
+      "rationale": "Limited by change-freeze windows, business testing capacity and hypercare."
+    },
+    "maxPersonDaysPerQuarter": {
+      "value": 1500,
+      "unit": "person-days per quarter",
+      "description": "Migration delivery capacity per quarter.",
+      "estimate": true,
+      "rationale": "Roughly 25 FTE across internal staff and partners (~60 productive days per quarter each)."
+    },
+    "dcExitMilestone": {
+      "value": "2028Q4",
+      "unit": "quarter",
+      "description": "Hard milestone: every data-center-hosted system that is not site-bound must be retired or moved by the end of this quarter.",
+      "estimate": true,
+      "rationale": "Data-center lease expires in 2028 in the case narrative."
+    },
+    "waves": {
+      "value": { "0": ["retire"], "1": ["rehost"], "2": ["replatform"], "3": ["refactor", "repurchase"] },
+      "unit": "6R per wave",
+      "description": "Wave assignment by 6R: quick-win retirements first, heavy transformations last. Retain is not scheduled.",
+      "estimate": true,
+      "rationale": "Standard migration sequencing: free capacity and cost early, build cloud skills on simple moves before complex ones."
+    },
+    "rehostWaveMaxIntegrations": {
+      "value": 3,
+      "unit": "integrations",
+      "description": "Rehost candidates with more integrations than this move to wave 2.",
+      "estimate": true,
+      "rationale": "Wave 1 should be low-risk moves that build migration muscle."
+    },
+    "temporaryIntegrationPersonDays": {
+      "value": 10,
+      "unit": "person-days",
+      "description": "Effort to build a temporary bridge when a system moves before a dependency (e.g. to break a cycle).",
+      "estimate": true,
+      "rationale": "A simple hybrid connection (VPN/API proxy) plus testing; rough estimate."
+    }
+  }
+}

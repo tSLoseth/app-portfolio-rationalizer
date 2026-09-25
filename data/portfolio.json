@@ -1,0 +1,7401 @@
+{
+  "meta": {
+    "company": "Nordlys Gruppen ASA (fiktiv)",
+    "description": "Fictional Norwegian industrial group (hydraulics, castings, components). Grew by acquiring Vestfjord Maskin AS (2022) and Polarkomponent AB (2024); runs its own leased data center whose lease expires in 2028.",
+    "employees": 4000,
+    "referenceYear": 2026,
+    "dataCenterLeaseExpiry": 2028,
+    "acquisitions": [
+      {
+        "origin": "acquired_A",
+        "name": "Vestfjord Maskin AS (fiktiv)",
+        "year": 2022,
+        "employees": 900
+      },
+      {
+        "origin": "acquired_B",
+        "name": "Polarkomponent AB (fiktiv)",
+        "year": 2024,
+        "employees": 500
+      }
+    ],
+    "seed": 20261008,
+    "generator": "scripts/generate.ts (mulberry32)"
+  },
+  "capabilities": [
+    {
+      "id": "FIN-ERP",
+      "l1": "Finance",
+      "l2": "ERP & General Ledger",
+      "saasAlternative": true,
+      "saasAlternativeExample": "SAP S/4HANA Cloud, Dynamics 365 Finance"
+    },
+    {
+      "id": "FIN-AP",
+      "l1": "Finance",
+      "l2": "Accounts Payable & Credit",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Basware, Coupa"
+    },
+    {
+      "id": "FIN-TRE",
+      "l1": "Finance",
+      "l2": "Treasury & Cash Management",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Kyriba"
+    },
+    {
+      "id": "FIN-FPA",
+      "l1": "Finance",
+      "l2": "Planning & Consolidation",
+      "saasAlternative": true,
+      "saasAlternativeExample": "SAP Group Reporting, Board"
+    },
+    {
+      "id": "FIN-EXP",
+      "l1": "Finance",
+      "l2": "Travel & Expense",
+      "saasAlternative": true,
+      "saasAlternativeExample": "SAP Concur"
+    },
+    {
+      "id": "HR-CORE",
+      "l1": "HR",
+      "l2": "Core HR & Payroll",
+      "saasAlternative": true,
+      "saasAlternativeExample": "SAP SuccessFactors, Visma"
+    },
+    {
+      "id": "HR-REC",
+      "l1": "HR",
+      "l2": "Recruiting & Onboarding",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Webcruiter, Teamtailor"
+    },
+    {
+      "id": "HR-LMS",
+      "l1": "HR",
+      "l2": "Learning & Competence",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Cornerstone"
+    },
+    {
+      "id": "HR-TIME",
+      "l1": "HR",
+      "l2": "Time & Attendance",
+      "saasAlternative": true,
+      "saasAlternativeExample": "UKG Pro, Visma Time"
+    },
+    {
+      "id": "SAL-CRM",
+      "l1": "Sales & CRM",
+      "l2": "Customer Relationship Management",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Salesforce Sales Cloud"
+    },
+    {
+      "id": "SAL-CPQ",
+      "l1": "Sales & CRM",
+      "l2": "Quoting, Pricing & Configuration",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Salesforce CPQ, Tacton"
+    },
+    {
+      "id": "SAL-SVC",
+      "l1": "Sales & CRM",
+      "l2": "Customer & Field Service",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Salesforce Service Cloud"
+    },
+    {
+      "id": "SAL-WEB",
+      "l1": "Sales & CRM",
+      "l2": "E-commerce & Dealer Portal",
+      "saasAlternative": false
+    },
+    {
+      "id": "SCM-PRO",
+      "l1": "Supply Chain",
+      "l2": "Procurement & Supplier Management",
+      "saasAlternative": true,
+      "saasAlternativeExample": "SAP Ariba"
+    },
+    {
+      "id": "SCM-WMS",
+      "l1": "Supply Chain",
+      "l2": "Warehouse Management",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Manhattan Active WM"
+    },
+    {
+      "id": "SCM-TMS",
+      "l1": "Supply Chain",
+      "l2": "Transport, Customs & Logistics",
+      "saasAlternative": true,
+      "saasAlternativeExample": "nShift, Transporeon"
+    },
+    {
+      "id": "SCM-DP",
+      "l1": "Supply Chain",
+      "l2": "Demand & Supply Planning",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Kinaxis RapidResponse"
+    },
+    {
+      "id": "OT-MES",
+      "l1": "Production/OT",
+      "l2": "Manufacturing Execution",
+      "saasAlternative": false
+    },
+    {
+      "id": "OT-EAM",
+      "l1": "Production/OT",
+      "l2": "Asset & Maintenance Management",
+      "saasAlternative": true,
+      "saasAlternativeExample": "IBM Maximo Application Suite (SaaS)"
+    },
+    {
+      "id": "OT-QMS",
+      "l1": "Production/OT",
+      "l2": "Quality & Laboratory",
+      "saasAlternative": true,
+      "saasAlternativeExample": "LabWare Cloud, ETQ"
+    },
+    {
+      "id": "OT-SCADA",
+      "l1": "Production/OT",
+      "l2": "Process Control & Historian",
+      "saasAlternative": false
+    },
+    {
+      "id": "OT-PLM",
+      "l1": "Production/OT",
+      "l2": "Product Lifecycle & Engineering",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Teamcenter X"
+    },
+    {
+      "id": "OT-HSE",
+      "l1": "Production/OT",
+      "l2": "Health, Safety & Environment",
+      "saasAlternative": true,
+      "saasAlternativeExample": "DNV Synergi Life"
+    },
+    {
+      "id": "DA-BI",
+      "l1": "Data & Analytics",
+      "l2": "Business Intelligence & Reporting",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Power BI"
+    },
+    {
+      "id": "DA-DWH",
+      "l1": "Data & Analytics",
+      "l2": "Data Platform & Warehouse",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Microsoft Fabric, Databricks"
+    },
+    {
+      "id": "DA-ETL",
+      "l1": "Data & Analytics",
+      "l2": "Data Integration & ETL",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Azure Data Factory"
+    },
+    {
+      "id": "DA-ADV",
+      "l1": "Data & Analytics",
+      "l2": "Advanced Analytics & ML",
+      "saasAlternative": false
+    },
+    {
+      "id": "COL-EMAIL",
+      "l1": "Collaboration",
+      "l2": "Email & Productivity",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Microsoft 365"
+    },
+    {
+      "id": "COL-DMS",
+      "l1": "Collaboration",
+      "l2": "Document & Records Management",
+      "saasAlternative": true,
+      "saasAlternativeExample": "SharePoint Online"
+    },
+    {
+      "id": "COL-INTRA",
+      "l1": "Collaboration",
+      "l2": "Intranet & Internal Communication",
+      "saasAlternative": true,
+      "saasAlternativeExample": "SharePoint Online"
+    },
+    {
+      "id": "COL-PM",
+      "l1": "Collaboration",
+      "l2": "Project & Work Management",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Jira, Planner"
+    },
+    {
+      "id": "IT-IAM",
+      "l1": "IT/Security",
+      "l2": "Identity & Access Management",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Microsoft Entra ID"
+    },
+    {
+      "id": "IT-ITSM",
+      "l1": "IT/Security",
+      "l2": "IT Service Management",
+      "saasAlternative": true,
+      "saasAlternativeExample": "ServiceNow"
+    },
+    {
+      "id": "IT-INT",
+      "l1": "IT/Security",
+      "l2": "Integration Middleware",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Azure Integration Services"
+    },
+    {
+      "id": "IT-SEC",
+      "l1": "IT/Security",
+      "l2": "Security & Access Control",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Microsoft Defender"
+    },
+    {
+      "id": "IT-INFRA",
+      "l1": "IT/Security",
+      "l2": "Infrastructure, Backup & Monitoring",
+      "saasAlternative": true,
+      "saasAlternativeExample": "Azure Monitor, Veeam Cloud"
+    }
+  ],
+  "systems": [
+    {
+      "id": "SYS-001",
+      "name": "Active Directory (nordlys.local)",
+      "vendor": "Microsoft",
+      "description": "On-prem directory and Kerberos authentication for all domain-joined servers and clients.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Identity & Access Management"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2017,
+      "users": 4231,
+      "businessCriticality": 5,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 1098000,
+        "infra": 630000,
+        "supportFte": 627000,
+        "vendorSupport": 708000
+      },
+      "integrations": [],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-ad",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-002",
+      "name": "Microsoft Entra ID",
+      "vendor": "Microsoft",
+      "description": "Cloud identity, SSO and MFA; synchronised from nordlys.local AD.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Identity & Access Management"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 4015,
+      "businessCriticality": 5,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 4,
+        "scalability": 5,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 1006000,
+        "infra": 0,
+        "supportFte": 170000,
+        "vendorSupport": 26000
+      },
+      "integrations": [
+        "SYS-001"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-003",
+      "name": "Active Directory (vestfjord.local)",
+      "vendor": "Microsoft",
+      "description": "Separate AD forest kept after the Vestfjord acquisition; one-way trust only.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Identity & Access Management"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2015,
+      "users": 919,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 4,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 118000,
+        "infra": 83000,
+        "supportFte": 73000,
+        "vendorSupport": 68000
+      },
+      "integrations": [
+        "SYS-001"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-ad",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-004",
+      "name": "Active Directory (polar.local)",
+      "vendor": "Microsoft",
+      "description": "Polarkomponent AD forest, not yet consolidated.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Identity & Access Management"
+      },
+      "origin": "acquired_B",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2016,
+      "users": 503,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 4,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 172000,
+        "infra": 124000,
+        "supportFte": 98000,
+        "vendorSupport": 77000
+      },
+      "integrations": [
+        "SYS-001"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-ad",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-005",
+      "name": "CyberArk Privileged Access",
+      "vendor": "CyberArk",
+      "description": "Vault and session management for admin and service accounts.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Identity & Access Management"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2021,
+      "users": 58,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 5,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 581000,
+        "infra": 517000,
+        "supportFte": 478000,
+        "vendorSupport": 444000
+      },
+      "integrations": [
+        "SYS-001"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-006",
+      "name": "SAP PI/PO 7.5",
+      "vendor": "SAP",
+      "description": "SAP-centric middleware for IDoc and EDI flows to and from ECC.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Integration Middleware"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "SAP ECC 6.0 EhP7",
+        "SAP NetWeaver ABAP 7.40",
+        "Oracle Database 19c",
+        "SUSE Linux Enterprise 12"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2016,
+      "users": 6,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 2,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 2167000,
+        "infra": 1922000,
+        "supportFte": 1556000,
+        "vendorSupport": 1123000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-011"
+      ],
+      "sizeClass": "L",
+      "duplicateGroup": "dup-int",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-007",
+      "name": "Microsoft BizTalk Server 2013 R2",
+      "vendor": "Microsoft",
+      "description": "Integration hub for non-SAP systems; ~140 orchestrations, few people left who know them.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Integration Middleware"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "BizTalk Server 2013 R2",
+        "Windows Server 2012 R2",
+        "SQL Server 2014"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2014,
+      "users": 8,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 2116000,
+        "infra": 2011000,
+        "supportFte": 1841000,
+        "vendorSupport": 1394000
+      },
+      "integrations": [
+        "SYS-001"
+      ],
+      "sizeClass": "L",
+      "duplicateGroup": "dup-int",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-008",
+      "name": "Azure Integration Services (Logic Apps, Service Bus)",
+      "vendor": "Microsoft",
+      "description": "Target integration platform; first flows live since 2024.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Integration Middleware"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "public_cloud",
+      "techStack": [
+        "Azure PaaS",
+        ".NET 8",
+        "Azure SQL"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 6,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 5,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 5,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 448000,
+        "infra": 380000,
+        "supportFte": 274000,
+        "vendorSupport": 117000
+      },
+      "integrations": [
+        "SYS-002"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-int",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-009",
+      "name": "Lobster_data EDI (Polarkomponent)",
+      "vendor": "Lobster",
+      "description": "EDI translation for Swedish customers and carriers.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Integration Middleware"
+      },
+      "origin": "acquired_B",
+      "type": "cots",
+      "hosting": "private_cloud",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2022,
+      "users": 4,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 142000,
+        "infra": 122000,
+        "supportFte": 104000,
+        "vendorSupport": 101000
+      },
+      "integrations": [
+        "SYS-004"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-int",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-010",
+      "name": "SFTP-server for EDI (filoverfÃ¸ring)",
+      "vendor": "In-house (OpenSSH on Windows)",
+      "description": "File-based EDI exchange with banks, carriers and key suppliers.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Integration Middleware"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2015,
+      "users": 5,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 5,
+        "userSatisfaction": 3,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 141000,
+        "infra": 126000,
+        "supportFte": 90000,
+        "vendorSupport": 105000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-011",
+      "name": "SAP ECC 6.0 (Nordlys core)",
+      "vendor": "SAP",
+      "description": "Group ERP: finance, logistics, sales order management and production planning for core and Polarkomponent.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "ERP & General Ledger"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "SAP ECC 6.0 EhP7",
+        "SAP NetWeaver ABAP 7.40",
+        "Oracle Database 19c",
+        "SUSE Linux Enterprise 12"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2017,
+      "users": 1434,
+      "businessCriticality": 5,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 4314000,
+        "infra": 3750000,
+        "supportFte": 3603000,
+        "vendorSupport": 3533000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-006",
+        "SYS-073"
+      ],
+      "sizeClass": "XL",
+      "duplicateGroup": "dup-erp",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-012",
+      "name": "Microsoft Dynamics NAV 2016 (Vestfjord)",
+      "vendor": "Microsoft",
+      "description": "Vestfjord ERP kept after acquisition; monthly consolidation into SAP via file export.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "ERP & General Ledger"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        "SQL Server 2012"
+      ],
+      "platformEolYear": 2022,
+      "lastMajorUpgrade": 2014,
+      "users": 284,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 2339000,
+        "infra": 1261000,
+        "supportFte": 1621000,
+        "vendorSupport": 1254000
+      },
+      "integrations": [
+        "SYS-003",
+        "SYS-007"
+      ],
+      "sizeClass": "L",
+      "duplicateGroup": "dup-erp",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-013",
+      "name": "SAF-T og MVA-eksport (egenutviklet)",
+      "vendor": "In-house",
+      "description": "Builds SAF-T files and VAT reporting extracts from SAP for the tax authorities.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "ERP & General Ledger"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        ".NET Framework 4.8",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2019,
+      "users": 8,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 11000,
+        "infra": 85000,
+        "supportFte": 118000,
+        "vendorSupport": 22000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-011"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-014",
+      "name": "Anleggsmiddelregister (Access)",
+      "vendor": "Microsoft Access",
+      "description": "Fixed-asset register kept by group accounting outside SAP.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "ERP & General Ledger"
+      },
+      "origin": "shadow_it",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Microsoft Access 2010",
+        "File share"
+      ],
+      "platformEolYear": 2020,
+      "lastMajorUpgrade": 2011,
+      "users": 6,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 4,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 6000,
+        "infra": 54000,
+        "supportFte": 110000,
+        "vendorSupport": 14000
+      },
+      "integrations": [
+        "SYS-011"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-015",
+      "name": "Basware P2P (fakturamottak)",
+      "vendor": "Basware",
+      "description": "Invoice capture, matching and approval workflow.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "Accounts Payable & Credit"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2026,
+      "users": 330,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 5,
+        "userSatisfaction": 4,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 5,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 2373000,
+        "infra": 0,
+        "supportFte": 332000,
+        "vendorSupport": 61000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-011",
+        "SYS-013"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-ap",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-016",
+      "name": "Kofax fakturaskanning (Vestfjord)",
+      "vendor": "Tungsten Automation (Kofax)",
+      "description": "OCR scanning of supplier invoices into NAV.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "Accounts Payable & Credit"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        "SQL Server 2012"
+      ],
+      "platformEolYear": 2022,
+      "lastMajorUpgrade": 2014,
+      "users": 24,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 138000,
+        "infra": 107000,
+        "supportFte": 75000,
+        "vendorSupport": 72000
+      },
+      "integrations": [
+        "SYS-003",
+        "SYS-012"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-ap",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-017",
+      "name": "Creditsafe kredittvurdering",
+      "vendor": "Creditsafe",
+      "description": "Credit checks on new customers and suppliers.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "Accounts Payable & Credit"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 28,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 4,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 545000,
+        "infra": 0,
+        "supportFte": 78000,
+        "vendorSupport": 10000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-011",
+        "SYS-013"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-018",
+      "name": "Kredinor inkassoportal",
+      "vendor": "Kredinor",
+      "description": "Hand-off of overdue receivables to debt collection.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "Accounts Payable & Credit"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 10,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 466000,
+        "infra": 0,
+        "supportFte": 88000,
+        "vendorSupport": 12000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-011",
+        "SYS-013"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-019",
+      "name": "Kyriba Treasury",
+      "vendor": "Kyriba",
+      "description": "Cash positioning, FX hedging and payment factory.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "Treasury & Cash Management"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 15,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 5,
+        "userSatisfaction": 5,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 1390000,
+        "infra": 0,
+        "supportFte": 162000,
+        "vendorSupport": 33000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-020"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-020",
+      "name": "Bankintegrasjon ISO 20022 (egenutviklet)",
+      "vendor": "In-house",
+      "description": "Converts SAP payment runs to ISO 20022 pain.001 and reads camt.053 statements.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "Treasury & Cash Management"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        ".NET Framework 4.8",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2017,
+      "users": 10,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 4,
+        "documentation": 2,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 32000,
+        "infra": 220000,
+        "supportFte": 388000,
+        "vendorSupport": 59000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-010",
+        "SYS-011",
+        "SYS-017"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-021",
+      "name": "SAP BPC 10.1 (konsolidering)",
+      "vendor": "SAP",
+      "description": "Group budgeting and statutory consolidation.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "Planning & Consolidation"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2019,
+      "users": 65,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 2,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 1499000,
+        "infra": 1053000,
+        "supportFte": 799000,
+        "vendorSupport": 834000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-011",
+        "SYS-018",
+        "SYS-019",
+        "SYS-102"
+      ],
+      "sizeClass": "L"
+    },
+    {
+      "id": "SYS-022",
+      "name": "Board Planning (Vestfjord)",
+      "vendor": "Board International",
+      "description": "Rolling forecast for the Vestfjord business unit.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "Planning & Consolidation"
+      },
+      "origin": "acquired_A",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 30,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 586000,
+        "infra": 0,
+        "supportFte": 97000,
+        "vendorSupport": 16000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-012",
+        "SYS-014"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-023",
+      "name": "Budsjettmodell Â«Budsjett2019.xlsmÂ»",
+      "vendor": "Microsoft (Excel/VBA)",
+      "description": "Macro-heavy budget workbook on a file share; the real source for plant budgets.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "Planning & Consolidation"
+      },
+      "origin": "shadow_it",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Microsoft Excel",
+        "VBA macros"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2019,
+      "users": 40,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 1,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 5000,
+        "infra": 47000,
+        "supportFte": 68000,
+        "vendorSupport": 13000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-024",
+      "name": "SAP Concur Expense",
+      "vendor": "SAP Concur",
+      "description": "Travel booking and expense claims.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "Travel & Expense"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 3630,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 1212000,
+        "infra": 0,
+        "supportFte": 256000,
+        "vendorSupport": 32000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-011",
+        "SYS-012"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-exp",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-025",
+      "name": "Visma Expense (Polarkomponent)",
+      "vendor": "Visma",
+      "description": "Expense claims for Polarkomponent employees.",
+      "capability": {
+        "l1": "Finance",
+        "l2": "Travel & Expense"
+      },
+      "origin": "acquired_B",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 477,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 339000,
+        "infra": 0,
+        "supportFte": 36000,
+        "vendorSupport": 7000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-011",
+        "SYS-014"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-exp",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-026",
+      "name": "SAP SuccessFactors Employee Central",
+      "vendor": "SAP",
+      "description": "Group HR master data, org structure, absence and performance.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Core HR & Payroll"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 4391,
+      "businessCriticality": 4,
+      "dataSensitivity": "special_category",
+      "residencyRequired": true,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 5,
+        "userSatisfaction": 5,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 4,
+        "scalability": 5,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 3683000,
+        "infra": 0,
+        "supportFte": 535000,
+        "vendorSupport": 74000
+      },
+      "integrations": [
+        "SYS-002"
+      ],
+      "sizeClass": "L"
+    },
+    {
+      "id": "SYS-027",
+      "name": "Visma LÃ¸nn (Nordlys)",
+      "vendor": "Visma",
+      "description": "Norwegian payroll for the core business; Vestfjord still runs its own.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Core HR & Payroll"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2022,
+      "users": 19,
+      "businessCriticality": 5,
+      "dataSensitivity": "personal",
+      "residencyRequired": true,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 2,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 2,
+        "scalability": 4,
+        "documentation": 2,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 986000,
+        "infra": 605000,
+        "supportFte": 663000,
+        "vendorSupport": 415000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-011",
+        "SYS-026",
+        "SYS-037"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-payroll",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-028",
+      "name": "Huldt & Lillevik LÃ¸nn (Vestfjord)",
+      "vendor": "Visma (Huldt & Lillevik)",
+      "description": "Vestfjord payroll, never migrated.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Core HR & Payroll"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        "SQL Server 2012"
+      ],
+      "platformEolYear": 2022,
+      "lastMajorUpgrade": 2015,
+      "users": 13,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": true,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 4,
+        "documentation": 3,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 900000,
+        "infra": 760000,
+        "supportFte": 661000,
+        "vendorSupport": 499000
+      },
+      "integrations": [
+        "SYS-006",
+        "SYS-012",
+        "SYS-039"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-payroll",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-029",
+      "name": "Hogia LÃ¶n (Polarkomponent, SE)",
+      "vendor": "Hogia",
+      "description": "Swedish payroll; different jurisdiction, so not a true duplicate.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Core HR & Payroll"
+      },
+      "origin": "acquired_B",
+      "type": "cots",
+      "hosting": "private_cloud",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2021,
+      "users": 6,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": true,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 209000,
+        "infra": 142000,
+        "supportFte": 100000,
+        "vendorSupport": 114000
+      },
+      "integrations": [
+        "SYS-004"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-030",
+      "name": "BHT-journal (bedriftshelsetjeneste)",
+      "vendor": "In-house",
+      "description": "Occupational health records, including health assessments for shift workers.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Core HR & Payroll"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        ".NET Framework 3.5",
+        "SQL Server 2014"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2012,
+      "users": 8,
+      "businessCriticality": 3,
+      "dataSensitivity": "special_category",
+      "residencyRequired": true,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 10000,
+        "infra": 95000,
+        "supportFte": 145000,
+        "vendorSupport": 23000
+      },
+      "integrations": [
+        "SYS-026"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-031",
+      "name": "Webcruiter",
+      "vendor": "Webcruiter",
+      "description": "Recruitment and applicant tracking.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Recruiting & Onboarding"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 112,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": true,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 3,
+        "scalability": 4,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 385000,
+        "infra": 0,
+        "supportFte": 58000,
+        "vendorSupport": 7000
+      },
+      "integrations": [
+        "SYS-002"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-rec",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-032",
+      "name": "Teamtailor (Polarkomponent)",
+      "vendor": "Teamtailor",
+      "description": "Swedish recruitment site and applicant tracking.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Recruiting & Onboarding"
+      },
+      "origin": "acquired_B",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 26,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": true,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 222000,
+        "infra": 0,
+        "supportFte": 32000,
+        "vendorSupport": 5000
+      },
+      "integrations": [
+        "SYS-002"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-rec",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-033",
+      "name": "Onboarding-portal (SharePoint 2013)",
+      "vendor": "Microsoft",
+      "description": "Checklists and forms for new hires.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Recruiting & Onboarding"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "SharePoint Server 2013",
+        "Windows Server 2012 R2"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2014,
+      "users": 544,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 1,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 102000,
+        "infra": 58000,
+        "supportFte": 65000,
+        "vendorSupport": 49000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-032"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-034",
+      "name": "Cornerstone Learning",
+      "vendor": "Cornerstone OnDemand",
+      "description": "E-learning, mandatory HSE courses and certifications.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Learning & Competence"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2026,
+      "users": 3793,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": true,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 2010000,
+        "infra": 0,
+        "supportFte": 313000,
+        "vendorSupport": 64000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-026"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-035",
+      "name": "Kompetanseregister (Access)",
+      "vendor": "Microsoft Access",
+      "description": "Welding and crane certificates per operator; used in audits.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Learning & Competence"
+      },
+      "origin": "shadow_it",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Microsoft Access 2010",
+        "File share"
+      ],
+      "platformEolYear": 2020,
+      "lastMajorUpgrade": 2012,
+      "users": 27,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": true,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 7000,
+        "infra": 54000,
+        "supportFte": 90000,
+        "vendorSupport": 18000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-036",
+      "name": "Simployer medarbeidersamtaler",
+      "vendor": "Simployer",
+      "description": "Annual performance dialogues.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Learning & Competence"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 3755,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": true,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 4,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 531000,
+        "infra": 0,
+        "supportFte": 102000,
+        "vendorSupport": 14000
+      },
+      "integrations": [
+        "SYS-002"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-037",
+      "name": "UKG Workforce Central (tid og skift)",
+      "vendor": "UKG",
+      "description": "Time clocks, shift planning and overtime feeding payroll.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Time & Attendance"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2019,
+      "users": 3350,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": true,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 2,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 1,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 2639000,
+        "infra": 1900000,
+        "supportFte": 1878000,
+        "vendorSupport": 1204000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-026",
+        "SYS-038"
+      ],
+      "sizeClass": "L",
+      "duplicateGroup": "dup-time",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-038",
+      "name": "Stemplingsur-integrasjon (egenutviklet)",
+      "vendor": "In-house",
+      "description": "Polls physical time clocks and pushes punches to UKG.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Time & Attendance"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2008 R2",
+        "Visual Basic 6",
+        "SQL Server 2008 R2"
+      ],
+      "platformEolYear": 2020,
+      "lastMajorUpgrade": 2006,
+      "users": 5,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 10000,
+        "infra": 66000,
+        "supportFte": 122000,
+        "vendorSupport": 29000
+      },
+      "integrations": [
+        "SYS-001"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-039",
+      "name": "Tripletex Timer (Vestfjord)",
+      "vendor": "Tripletex (Visma)",
+      "description": "Hour registration for Vestfjord projects and payroll.",
+      "capability": {
+        "l1": "HR",
+        "l2": "Time & Attendance"
+      },
+      "origin": "acquired_A",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 757,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": true,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 113000,
+        "infra": 0,
+        "supportFte": 22000,
+        "vendorSupport": 3000
+      },
+      "integrations": [
+        "SYS-002"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-time",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-040",
+      "name": "Salesforce Sales Cloud",
+      "vendor": "Salesforce",
+      "description": "Group CRM for accounts, opportunities and key-account plans.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Customer Relationship Management"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 385,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 5,
+        "scalability": 5,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 3740000,
+        "infra": 0,
+        "supportFte": 662000,
+        "vendorSupport": 98000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-011",
+        "SYS-045"
+      ],
+      "sizeClass": "L",
+      "duplicateGroup": "dup-crm",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-041",
+      "name": "Microsoft Dynamics 365 Sales (Vestfjord)",
+      "vendor": "Microsoft",
+      "description": "Vestfjord CRM; customers overlap ~30 % with Salesforce.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Customer Relationship Management"
+      },
+      "origin": "acquired_A",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 116,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 1258000,
+        "infra": 0,
+        "supportFte": 199000,
+        "vendorSupport": 32000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-012"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-crm",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-042",
+      "name": "SuperOffice CRM (Polarkomponent)",
+      "vendor": "SuperOffice",
+      "description": "Polarkomponent CRM hosted by a Swedish MSP.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Customer Relationship Management"
+      },
+      "origin": "acquired_B",
+      "type": "cots",
+      "hosting": "private_cloud",
+      "techStack": [
+        "Windows Server 2016",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2017,
+      "users": 70,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 2,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 713000,
+        "infra": 468000,
+        "supportFte": 374000,
+        "vendorSupport": 505000
+      },
+      "integrations": [
+        "SYS-004",
+        "SYS-011",
+        "SYS-041"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-crm",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-043",
+      "name": "Airtable Â«NÃ¸kkelkunder VestÂ»",
+      "vendor": "Airtable",
+      "description": "Key-account tracker built by a regional sales team; contains customer contact data.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Customer Relationship Management"
+      },
+      "origin": "shadow_it",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 12,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 4,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 116000,
+        "infra": 0,
+        "supportFte": 19000,
+        "vendorSupport": 2000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-044",
+      "name": "HubSpot Marketing Hub",
+      "vendor": "HubSpot",
+      "description": "Newsletter and campaign tool bought on a marketing credit card.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Customer Relationship Management"
+      },
+      "origin": "shadow_it",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2026,
+      "users": 12,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 1,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 120000,
+        "infra": 0,
+        "supportFte": 23000,
+        "vendorSupport": 3000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-045",
+      "name": "KONFIG produktkonfigurator (egenutviklet)",
+      "vendor": "In-house",
+      "description": "Rules engine for configuring hydraulic systems; every order passes through it. Two developers know the Delphi code.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Quoting, Pricing & Configuration"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        "Delphi 7",
+        "Oracle Database 11g R2"
+      ],
+      "platformEolYear": 2020,
+      "lastMajorUpgrade": 2010,
+      "users": 385,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 209000,
+        "infra": 1648000,
+        "supportFte": 3299000,
+        "vendorSupport": 519000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-006",
+        "SYS-011",
+        "SYS-040",
+        "SYS-093"
+      ],
+      "sizeClass": "L"
+    },
+    {
+      "id": "SYS-046",
+      "name": "Salesforce CPQ",
+      "vendor": "Salesforce",
+      "description": "Quote documents and discount approval on top of Sales Cloud; configuration still done in KONFIG.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Quoting, Pricing & Configuration"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 164,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 2,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 4,
+        "documentation": 2,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 914000,
+        "infra": 0,
+        "supportFte": 192000,
+        "vendorSupport": 28000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-040",
+        "SYS-045"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-047",
+      "name": "Tilbudskalkulator.xlsm (Polarkomponent)",
+      "vendor": "Microsoft (Excel/VBA)",
+      "description": "Quote calculator with embedded price lists.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Quoting, Pricing & Configuration"
+      },
+      "origin": "shadow_it",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Microsoft Excel",
+        "VBA macros"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2017,
+      "users": 20,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 4,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 1,
+        "scalability": 1,
+        "documentation": 2,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 6000,
+        "infra": 57000,
+        "supportFte": 103000,
+        "vendorSupport": 18000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-048",
+      "name": "Salesforce Service Cloud",
+      "vendor": "Salesforce",
+      "description": "Customer service cases and warranty claims.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Customer & Field Service"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 175,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 5,
+        "userSatisfaction": 4,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 4,
+        "scalability": 5,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 1909000,
+        "infra": 0,
+        "supportFte": 250000,
+        "vendorSupport": 45000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-040",
+        "SYS-042"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-svc",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-049",
+      "name": "IFS Field Service (Vestfjord)",
+      "vendor": "IFS",
+      "description": "Dispatch and work orders for field technicians.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Customer & Field Service"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2021,
+      "users": 94,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 717000,
+        "infra": 550000,
+        "supportFte": 426000,
+        "vendorSupport": 468000
+      },
+      "integrations": [
+        "SYS-003",
+        "SYS-012",
+        "SYS-047"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-050",
+      "name": "Zendesk (Polarkomponent)",
+      "vendor": "Zendesk",
+      "description": "Support tickets for Swedish customers.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Customer & Field Service"
+      },
+      "origin": "acquired_B",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 31,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 2,
+        "scalability": 4,
+        "documentation": 2,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 491000,
+        "infra": 0,
+        "supportFte": 94000,
+        "vendorSupport": 15000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-011",
+        "SYS-042"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-svc",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-051",
+      "name": "Garantisaker (Lotus Notes)",
+      "vendor": "HCL (IBM) Notes",
+      "description": "Legacy warranty database, read-only since 2021 but still consulted.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Customer & Field Service"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "HCL Notes/Domino 9.0.1",
+        "Windows Server 2012 R2"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2015,
+      "users": 45,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 1,
+        "scalability": 3,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 112000,
+        "infra": 84000,
+        "supportFte": 63000,
+        "vendorSupport": 61000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-011",
+        "SYS-041"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-052",
+      "name": "Puzzel kundesenter",
+      "vendor": "Puzzel",
+      "description": "Contact-centre telephony and chat.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "Customer & Field Service"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 55,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 475000,
+        "infra": 0,
+        "supportFte": 77000,
+        "vendorSupport": 11000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-053",
+      "name": "Forhandlerportal Nordlys Partner (egenutviklet)",
+      "vendor": "In-house",
+      "description": "Dealer ordering, spare parts and documentation for ~300 external dealers.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "E-commerce & Dealer Portal"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        ".NET Framework 4.8",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2017,
+      "users": 980,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 2,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 99000,
+        "infra": 632000,
+        "supportFte": 1590000,
+        "vendorSupport": 257000
+      },
+      "integrations": [
+        "SYS-006",
+        "SYS-011",
+        "SYS-045",
+        "SYS-048",
+        "SYS-056"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-054",
+      "name": "B2B-nettbutikk (Optimizely Commerce)",
+      "vendor": "Optimizely",
+      "description": "Online spare-parts shop for industrial customers.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "E-commerce & Dealer Portal"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "public_cloud",
+      "techStack": [
+        "Azure PaaS",
+        ".NET 8",
+        "Azure SQL"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2023,
+      "users": 2527,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 1195000,
+        "infra": 1034000,
+        "supportFte": 608000,
+        "vendorSupport": 247000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-011",
+        "SYS-053",
+        "SYS-056"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-055",
+      "name": "Reservedelskatalog (Vestfjord)",
+      "vendor": "In-house (Vestfjord)",
+      "description": "Static spare-parts catalogue, largely superseded by the B2B shop.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "E-commerce & Dealer Portal"
+      },
+      "origin": "acquired_A",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        ".NET Framework 3.5",
+        "SQL Server 2014"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2011,
+      "users": 428,
+      "businessCriticality": 3,
+      "dataSensitivity": "public",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 12000,
+        "infra": 114000,
+        "supportFte": 166000,
+        "vendorSupport": 38000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-056",
+      "name": "inriver PIM",
+      "vendor": "inriver",
+      "description": "Product master data and media for web shop and dealer portal.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "E-commerce & Dealer Portal"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2026,
+      "users": 42,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 1916000,
+        "infra": 0,
+        "supportFte": 325000,
+        "vendorSupport": 45000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-093"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-057",
+      "name": "Kampanjesider (WordPress)",
+      "vendor": "WordPress (self-hosted)",
+      "description": "Campaign microsites set up by an agency on a cheap VPS.",
+      "capability": {
+        "l1": "Sales & CRM",
+        "l2": "E-commerce & Dealer Portal"
+      },
+      "origin": "shadow_it",
+      "type": "cots",
+      "hosting": "public_cloud",
+      "techStack": [
+        "WordPress",
+        "PHP 7.4",
+        "MySQL 5.7"
+      ],
+      "platformEolYear": 2022,
+      "lastMajorUpgrade": 2021,
+      "users": 5,
+      "businessCriticality": 1,
+      "dataSensitivity": "public",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 49000,
+        "infra": 49000,
+        "supportFte": 32000,
+        "vendorSupport": 12000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-058",
+      "name": "SAP Ariba Sourcing",
+      "vendor": "SAP",
+      "description": "Sourcing events, contracts and supplier onboarding.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Procurement & Supplier Management"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 130,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 5,
+        "scalability": 5,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 761000,
+        "infra": 0,
+        "supportFte": 152000,
+        "vendorSupport": 19000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-011"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-059",
+      "name": "Mercell TendSign",
+      "vendor": "Mercell",
+      "description": "Public-sector tenders the group responds to.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Procurement & Supplier Management"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 26,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 224000,
+        "infra": 0,
+        "supportFte": 30000,
+        "vendorSupport": 4000
+      },
+      "integrations": [
+        "SYS-011",
+        "SYS-058"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-060",
+      "name": "Kontraktsdatabase (SharePoint 2013)",
+      "vendor": "Microsoft",
+      "description": "Supplier contract repository, duplicated in Ariba since 2023.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Procurement & Supplier Management"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "SharePoint Server 2013",
+        "Windows Server 2012 R2"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2014,
+      "users": 56,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 238000,
+        "infra": 212000,
+        "supportFte": 169000,
+        "vendorSupport": 128000
+      },
+      "integrations": [
+        "SYS-001"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-061",
+      "name": "LeverandÃ¸rkvalifisering (egenutviklet)",
+      "vendor": "In-house",
+      "description": "Supplier audit questionnaires and scores.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Procurement & Supplier Management"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        ".NET Framework 3.5",
+        "SQL Server 2014"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2012,
+      "users": 32,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 1,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 5000,
+        "infra": 32000,
+        "supportFte": 72000,
+        "vendorSupport": 12000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-006",
+        "SYS-011",
+        "SYS-058"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-062",
+      "name": "Manhattan WMS (sentrallager Moss)",
+      "vendor": "Manhattan Associates",
+      "description": "Central warehouse management for finished goods and spare parts.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Warehouse Management"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "RHEL 7",
+        "Java 8",
+        "Oracle Database 12c"
+      ],
+      "platformEolYear": 2024,
+      "lastMajorUpgrade": 2016,
+      "users": 242,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 2152000,
+        "infra": 1545000,
+        "supportFte": 1478000,
+        "vendorSupport": 1256000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-007",
+        "SYS-011",
+        "SYS-068"
+      ],
+      "sizeClass": "L",
+      "duplicateGroup": "dup-wms",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-063",
+      "name": "Lagerstyring LX (Vestfjord, egenutviklet)",
+      "vendor": "In-house (Vestfjord)",
+      "description": "Warehouse system at the FlorÃ¸ plant; tightly coupled to NAV.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Warehouse Management"
+      },
+      "origin": "acquired_A",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        ".NET Framework 3.5",
+        "SQL Server 2014"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2014,
+      "users": 68,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 2,
+        "scalability": 1,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 102000,
+        "infra": 662000,
+        "supportFte": 1506000,
+        "vendorSupport": 266000
+      },
+      "integrations": [
+        "SYS-003",
+        "SYS-012"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-wms",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-064",
+      "name": "Astro WMS (Polarkomponent)",
+      "vendor": "Consafe Logistics",
+      "description": "Warehouse management at the Kalmar site.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Warehouse Management"
+      },
+      "origin": "acquired_B",
+      "type": "cots",
+      "hosting": "private_cloud",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2021,
+      "users": 47,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 4,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 4,
+        "documentation": 2,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 932000,
+        "infra": 654000,
+        "supportFte": 512000,
+        "vendorSupport": 564000
+      },
+      "integrations": [
+        "SYS-004",
+        "SYS-011"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-wms",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-065",
+      "name": "HÃ¥ndterminal-app lager (Windows CE)",
+      "vendor": "In-house",
+      "description": "Scanner app for picking and goods receipt; devices no longer sold.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Warehouse Management"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Embedded Compact 7",
+        ".NET Compact Framework 3.5"
+      ],
+      "platformEolYear": 2021,
+      "lastMajorUpgrade": 2013,
+      "users": 114,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 12000,
+        "infra": 80000,
+        "supportFte": 216000,
+        "vendorSupport": 28000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-058",
+        "SYS-062"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-066",
+      "name": "nShift Delivery (Consignor)",
+      "vendor": "nShift",
+      "description": "Carrier booking and shipping labels.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Transport, Customs & Logistics"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 114,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 4,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 602000,
+        "infra": 0,
+        "supportFte": 106000,
+        "vendorSupport": 14000
+      },
+      "integrations": [
+        "SYS-062"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-067",
+      "name": "Fraktberegning (AS/400)",
+      "vendor": "In-house",
+      "description": "Freight cost estimation, partly replaced by nShift.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Transport, Customs & Logistics"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "IBM i 7.2",
+        "RPG IV",
+        "COBOL",
+        "Db2 for i"
+      ],
+      "platformEolYear": 2021,
+      "lastMajorUpgrade": 2010,
+      "users": 31,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 1,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 17000,
+        "infra": 100000,
+        "supportFte": 262000,
+        "vendorSupport": 40000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-074"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-068",
+      "name": "Transporeon transportplanlegging",
+      "vendor": "Transporeon",
+      "description": "Full-truckload tendering and dock scheduling.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Transport, Customs & Logistics"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 57,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 5,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 2602000,
+        "infra": 0,
+        "supportFte": 420000,
+        "vendorSupport": 50000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-011",
+        "SYS-058",
+        "SYS-062"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-069",
+      "name": "Tolldeklarasjon (egenutviklet)",
+      "vendor": "In-house",
+      "description": "Export declarations to Norwegian customs; exports stop if it is down.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Transport, Customs & Logistics"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        ".NET Framework 3.5",
+        "SQL Server 2014"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2013,
+      "users": 13,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 5,
+        "userSatisfaction": 4,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 7000,
+        "infra": 45000,
+        "supportFte": 90000,
+        "vendorSupport": 14000
+      },
+      "integrations": [
+        "SYS-010",
+        "SYS-011",
+        "SYS-059",
+        "SYS-062"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-070",
+      "name": "Kinaxis RapidResponse",
+      "vendor": "Kinaxis",
+      "description": "Sales and operations planning and supply scenarios.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Demand & Supply Planning"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 77,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 4,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 5,
+        "documentation": 5,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 4968000,
+        "infra": 0,
+        "supportFte": 890000,
+        "vendorSupport": 136000
+      },
+      "integrations": [
+        "SYS-011"
+      ],
+      "sizeClass": "L"
+    },
+    {
+      "id": "SYS-071",
+      "name": "NORD-PLAN produksjonsplanlegging (egenutviklet)",
+      "vendor": "In-house",
+      "description": "Finite-capacity scheduling for all Norwegian plants; written in Delphi in 2004.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Demand & Supply Planning"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        "Delphi 7",
+        "Oracle Database 11g R2"
+      ],
+      "platformEolYear": 2020,
+      "lastMajorUpgrade": 2012,
+      "users": 128,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 252000,
+        "infra": 2343000,
+        "supportFte": 3343000,
+        "vendorSupport": 687000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-007",
+        "SYS-011",
+        "SYS-074"
+      ],
+      "sizeClass": "L"
+    },
+    {
+      "id": "SYS-072",
+      "name": "Prognose-Excel (Polarkomponent)",
+      "vendor": "Microsoft (Excel/VBA)",
+      "description": "Demand forecast workbook on OneDrive.",
+      "capability": {
+        "l1": "Supply Chain",
+        "l2": "Demand & Supply Planning"
+      },
+      "origin": "shadow_it",
+      "type": "custom",
+      "hosting": "saas",
+      "techStack": [
+        "Microsoft Excel",
+        "VBA macros"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2020,
+      "users": 6,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 4,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 1,
+        "scalability": 3,
+        "documentation": 1,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 6000,
+        "infra": 43000,
+        "supportFte": 79000,
+        "vendorSupport": 11000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-073",
+      "name": "Siemens Opcenter Execution (GjÃ¸vik, Sunndal)",
+      "vendor": "Siemens",
+      "description": "MES for the two largest Norwegian plants.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Manufacturing Execution"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2023,
+      "users": 691,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 5,
+        "documentation": 5,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 2703000,
+        "infra": 2583000,
+        "supportFte": 2277000,
+        "vendorSupport": 1838000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-007",
+        "SYS-011",
+        "SYS-071",
+        "SYS-088"
+      ],
+      "sizeClass": "XL",
+      "duplicateGroup": "dup-mes",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-074",
+      "name": "Ordremottak produksjon (AS/400)",
+      "vendor": "In-house",
+      "description": "Releases production orders to the shop floor and prints routing cards; RPG/COBOL from the 1990s.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Manufacturing Execution"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "IBM i 7.2",
+        "RPG IV",
+        "COBOL",
+        "Db2 for i"
+      ],
+      "platformEolYear": 2021,
+      "lastMajorUpgrade": 2011,
+      "users": 278,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 267000,
+        "infra": 1877000,
+        "supportFte": 3381000,
+        "vendorSupport": 472000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-011"
+      ],
+      "sizeClass": "L"
+    },
+    {
+      "id": "SYS-075",
+      "name": "MES FlorÃ¸ (Vestfjord, egenutviklet)",
+      "vendor": "In-house (Vestfjord)",
+      "description": "Home-grown MES at the FlorÃ¸ plant.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Manufacturing Execution"
+      },
+      "origin": "acquired_A",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        ".NET Framework 3.5",
+        "SQL Server 2014"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2013,
+      "users": 113,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 1,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 147000,
+        "infra": 1040000,
+        "supportFte": 1608000,
+        "vendorSupport": 285000
+      },
+      "integrations": [
+        "SYS-003",
+        "SYS-012",
+        "SYS-063",
+        "SYS-073"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-mes",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-076",
+      "name": "AVEVA MES (Polarkomponent Kalmar)",
+      "vendor": "AVEVA",
+      "description": "MES at the Kalmar plant; runs in the plant server room.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Manufacturing Execution"
+      },
+      "origin": "acquired_B",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2020,
+      "users": 89,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": true,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 4,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 442000,
+        "infra": 237000,
+        "supportFte": 267000,
+        "vendorSupport": 182000
+      },
+      "integrations": [
+        "SYS-011"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-mes",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-077",
+      "name": "Skiftplan-app (Power Apps, GjÃ¸vik)",
+      "vendor": "Microsoft Power Apps",
+      "description": "Shift swap app built by a production supervisor.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Manufacturing Execution"
+      },
+      "origin": "shadow_it",
+      "type": "custom",
+      "hosting": "saas",
+      "techStack": [
+        "Microsoft Power Apps",
+        "Dataverse"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2023,
+      "users": 61,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 4
+      },
+      "annualCost": {
+        "license": 8000,
+        "infra": 55000,
+        "supportFte": 106000,
+        "vendorSupport": 21000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-078",
+      "name": "NiceLabel etikettprinting",
+      "vendor": "Loftware (NiceLabel)",
+      "description": "Product and pallet labels printed from MES and WMS.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Manufacturing Execution"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2019,
+      "users": 93,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 4,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 4,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 196000,
+        "infra": 120000,
+        "supportFte": 91000,
+        "vendorSupport": 84000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-062",
+        "SYS-073",
+        "SYS-074"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-079",
+      "name": "Sporbarhet og serienummer (egenutviklet)",
+      "vendor": "In-house",
+      "description": "Serial-number genealogy required by offshore customers.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Manufacturing Execution"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        ".NET Framework 4.8",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2019,
+      "users": 204,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 4,
+        "documentation": 2,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 103000,
+        "infra": 1011000,
+        "supportFte": 1382000,
+        "vendorSupport": 260000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-073",
+        "SYS-074"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-080",
+      "name": "IBM Maximo 7.6",
+      "vendor": "IBM",
+      "description": "Maintenance work orders and spare parts for Norwegian plants.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Asset & Maintenance Management"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "RHEL 7",
+        "Java 8",
+        "Oracle Database 12c"
+      ],
+      "platformEolYear": 2024,
+      "lastMajorUpgrade": 2017,
+      "users": 329,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 4,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 4,
+        "scalability": 3,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 1223000,
+        "infra": 755000,
+        "supportFte": 755000,
+        "vendorSupport": 582000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-007",
+        "SYS-011",
+        "SYS-075",
+        "SYS-088"
+      ],
+      "sizeClass": "L",
+      "duplicateGroup": "dup-eam",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-081",
+      "name": "IFS Applications 9 vedlikehold (Vestfjord)",
+      "vendor": "IFS",
+      "description": "Maintenance module at FlorÃ¸.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Asset & Maintenance Management"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        "Oracle Database 11g R2"
+      ],
+      "platformEolYear": 2020,
+      "lastMajorUpgrade": 2013,
+      "users": 77,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 2,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 3,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 496000,
+        "infra": 404000,
+        "supportFte": 351000,
+        "vendorSupport": 283000
+      },
+      "integrations": [
+        "SYS-003",
+        "SYS-012",
+        "SYS-077"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-eam",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-082",
+      "name": "SmÃ¸replan (Access, Sunndal)",
+      "vendor": "Microsoft Access",
+      "description": "Lubrication schedule outside Maximo.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Asset & Maintenance Management"
+      },
+      "origin": "shadow_it",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Microsoft Access 2010",
+        "File share"
+      ],
+      "platformEolYear": 2020,
+      "lastMajorUpgrade": 2014,
+      "users": 8,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 4,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 1,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 9000,
+        "infra": 55000,
+        "supportFte": 86000,
+        "vendorSupport": 20000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-083",
+      "name": "LabWare LIMS",
+      "vendor": "LabWare",
+      "description": "Material testing and lab results.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Quality & Laboratory"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2018,
+      "users": 68,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 536000,
+        "infra": 477000,
+        "supportFte": 365000,
+        "vendorSupport": 448000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-073",
+        "SYS-078"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-084",
+      "name": "Q-Pulse avvik (Vestfjord)",
+      "vendor": "Ideagen",
+      "description": "Quality non-conformance log at FlorÃ¸.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Quality & Laboratory"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        "SQL Server 2012"
+      ],
+      "platformEolYear": 2022,
+      "lastMajorUpgrade": 2015,
+      "users": 154,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 173000,
+        "infra": 123000,
+        "supportFte": 139000,
+        "vendorSupport": 145000
+      },
+      "integrations": [
+        "SYS-003",
+        "SYS-075"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-085",
+      "name": "SPC-analyse (egenutviklet, GjÃ¸vik)",
+      "vendor": "In-house",
+      "description": "Statistical process control charts from machine data.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Quality & Laboratory"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        ".NET Framework 4.8",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2019,
+      "users": 44,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 14000,
+        "infra": 105000,
+        "supportFte": 215000,
+        "vendorSupport": 45000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-006",
+        "SYS-088"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-086",
+      "name": "Sertifikatgenerator 3.1 (egenutviklet)",
+      "vendor": "In-house",
+      "description": "Generates EN 10204 3.1 material certificates shipped with every order.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Quality & Laboratory"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2008 R2",
+        "Visual Basic 6",
+        "SQL Server 2008 R2"
+      ],
+      "platformEolYear": 2020,
+      "lastMajorUpgrade": 2011,
+      "users": 46,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 5,
+        "userSatisfaction": 4,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 1,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 13000,
+        "infra": 99000,
+        "supportFte": 195000,
+        "vendorSupport": 26000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-011",
+        "SYS-083"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-087",
+      "name": "Beamex CMX kalibrering",
+      "vendor": "Beamex",
+      "description": "Calibration register for measuring instruments.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Quality & Laboratory"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2019,
+      "users": 36,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 3,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 70000,
+        "infra": 65000,
+        "supportFte": 48000,
+        "vendorSupport": 47000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-007",
+        "SYS-080"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-088",
+      "name": "AVEVA PI System (historian)",
+      "vendor": "AVEVA",
+      "description": "Process data historian for all plants.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Process Control & Historian"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2022,
+      "users": 197,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 3,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 1199000,
+        "infra": 1080000,
+        "supportFte": 864000,
+        "vendorSupport": 725000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-089",
+        "SYS-090"
+      ],
+      "sizeClass": "L"
+    },
+    {
+      "id": "SYS-089",
+      "name": "WinCC SCADA GjÃ¸vik",
+      "vendor": "Siemens",
+      "description": "Process control for the GjÃ¸vik foundry.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Process Control & Historian"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows 10 Enterprise LTSC 2019",
+        "SCADA runtime"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2020,
+      "users": 39,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": true,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 3,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 1074000,
+        "infra": 778000,
+        "supportFte": 561000,
+        "vendorSupport": 563000
+      },
+      "integrations": [],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-090",
+      "name": "WinCC SCADA Sunndal",
+      "vendor": "Siemens",
+      "description": "Process control for Sunndal; operator stations on Windows 7 Embedded.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Process Control & Historian"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Embedded Standard 7",
+        "Siemens WinCC 7.3"
+      ],
+      "platformEolYear": 2020,
+      "lastMajorUpgrade": 2013,
+      "users": 30,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": true,
+      "businessFit": {
+        "functionalCoverage": 5,
+        "userSatisfaction": 4,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 1,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 926000,
+        "infra": 801000,
+        "supportFte": 577000,
+        "vendorSupport": 667000
+      },
+      "integrations": [],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-091",
+      "name": "Citect SCADA (Polarkomponent)",
+      "vendor": "AVEVA (Schneider Electric)",
+      "description": "Process control at Kalmar.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Process Control & Historian"
+      },
+      "origin": "acquired_B",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows 10 Enterprise LTSC 2019",
+        "SCADA runtime"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2020,
+      "users": 21,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": true,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 2,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 956000,
+        "infra": 622000,
+        "supportFte": 570000,
+        "vendorSupport": 434000
+      },
+      "integrations": [],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-092",
+      "name": "Prosessdata-eksport (Python-skript)",
+      "vendor": "In-house",
+      "description": "Nightly scripts copying historian data to Excel reports; written by a summer intern.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Process Control & Historian"
+      },
+      "origin": "shadow_it",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Python 2.7 scripts",
+        "Windows Server 2012 R2"
+      ],
+      "platformEolYear": 2020,
+      "lastMajorUpgrade": 2016,
+      "users": 9,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 1,
+        "scalability": 1,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 4000,
+        "infra": 28000,
+        "supportFte": 60000,
+        "vendorSupport": 11000
+      },
+      "integrations": [
+        "SYS-088"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-093",
+      "name": "Siemens Teamcenter",
+      "vendor": "Siemens",
+      "description": "CAD data, BOMs and engineering change management.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Product Lifecycle & Engineering"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2022,
+      "users": 452,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 5,
+        "scalability": 5,
+        "documentation": 3,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 1884000,
+        "infra": 1008000,
+        "supportFte": 1245000,
+        "vendorSupport": 1131000
+      },
+      "integrations": [
+        "SYS-007",
+        "SYS-011"
+      ],
+      "sizeClass": "L",
+      "duplicateGroup": "dup-plm",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-094",
+      "name": "Autodesk Vault (Vestfjord)",
+      "vendor": "Autodesk",
+      "description": "Inventor CAD vault at Vestfjord.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Product Lifecycle & Engineering"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2017,
+      "users": 91,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 506000,
+        "infra": 387000,
+        "supportFte": 298000,
+        "vendorSupport": 346000
+      },
+      "integrations": [
+        "SYS-003",
+        "SYS-007",
+        "SYS-087"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-plm",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-095",
+      "name": "SolidWorks PDM (Polarkomponent)",
+      "vendor": "Dassault SystÃ¨mes",
+      "description": "SolidWorks vault at Kalmar.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Product Lifecycle & Engineering"
+      },
+      "origin": "acquired_B",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2018,
+      "users": 46,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 2,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 56000,
+        "infra": 48000,
+        "supportFte": 42000,
+        "vendorSupport": 33000
+      },
+      "integrations": [
+        "SYS-011",
+        "SYS-082"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-plm",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-096",
+      "name": "Tegningsarkiv (egenutviklet)",
+      "vendor": "In-house",
+      "description": "Scanned legacy drawings; lookup UI in VB6.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Product Lifecycle & Engineering"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2008 R2",
+        "Visual Basic 6",
+        "SQL Server 2008 R2"
+      ],
+      "platformEolYear": 2020,
+      "lastMajorUpgrade": 2008,
+      "users": 141,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 18000,
+        "infra": 134000,
+        "supportFte": 315000,
+        "vendorSupport": 58000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-092"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-097",
+      "name": "DNV Synergi Life",
+      "vendor": "DNV",
+      "description": "HSE incidents, risk assessments and audits.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Health, Safety & Environment"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 3966,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 5,
+        "scalability": 5,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 2045000,
+        "infra": 0,
+        "supportFte": 226000,
+        "vendorSupport": 40000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-026",
+        "SYS-074"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-hse",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-098",
+      "name": "Landax HMS (Vestfjord)",
+      "vendor": "Landax",
+      "description": "HSE non-conformances at Vestfjord.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Health, Safety & Environment"
+      },
+      "origin": "acquired_A",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 776,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 4,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 164000,
+        "infra": 0,
+        "supportFte": 25000,
+        "vendorSupport": 5000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-076"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-hse",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-099",
+      "name": "EcoOnline stoffkartotek",
+      "vendor": "EcoOnline",
+      "description": "Chemical register and safety data sheets.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Health, Safety & Environment"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 558,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 154000,
+        "infra": 0,
+        "supportFte": 33000,
+        "vendorSupport": 4000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-085",
+        "SYS-094"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-100",
+      "name": "EcoStruxure Resource Advisor (energi/ESG)",
+      "vendor": "Schneider Electric",
+      "description": "Energy monitoring and CSRD emissions data.",
+      "capability": {
+        "l1": "Production/OT",
+        "l2": "Health, Safety & Environment"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 20,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 117000,
+        "infra": 0,
+        "supportFte": 13000,
+        "vendorSupport": 2000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-082"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-101",
+      "name": "Nordlys Dataplattform (Azure Synapse / Data Lake)",
+      "vendor": "Microsoft",
+      "description": "Target data platform; lakehouse with SAP, CRM and MES sources.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Data Platform & Warehouse"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "public_cloud",
+      "techStack": [
+        "Azure PaaS",
+        ".NET 8",
+        "Azure SQL"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 41,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 5,
+        "scalability": 4,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 88000,
+        "infra": 1358000,
+        "supportFte": 1761000,
+        "vendorSupport": 340000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-011",
+        "SYS-040",
+        "SYS-073",
+        "SYS-088",
+        "SYS-104"
+      ],
+      "sizeClass": "L",
+      "duplicateGroup": "dup-dwh",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-102",
+      "name": "SAP BW 7.5",
+      "vendor": "SAP",
+      "description": "Financial and logistics reporting warehouse on top of ECC.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Data Platform & Warehouse"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "SAP BW 7.5",
+        "SAP NetWeaver 7.50",
+        "Oracle Database 19c"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2017,
+      "users": 66,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 1,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 2166000,
+        "infra": 1479000,
+        "supportFte": 1481000,
+        "vendorSupport": 1245000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-007",
+        "SYS-011",
+        "SYS-101",
+        "SYS-105"
+      ],
+      "sizeClass": "L"
+    },
+    {
+      "id": "SYS-103",
+      "name": "Datavarehus Vestfjord (SQL Server 2012)",
+      "vendor": "In-house (Vestfjord)",
+      "description": "Vestfjord reporting database, loaded nightly from NAV.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Data Platform & Warehouse"
+      },
+      "origin": "acquired_A",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        "SQL Server 2012"
+      ],
+      "platformEolYear": 2022,
+      "lastMajorUpgrade": 2015,
+      "users": 16,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 2,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 74000,
+        "infra": 610000,
+        "supportFte": 949000,
+        "vendorSupport": 170000
+      },
+      "integrations": [
+        "SYS-106"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-dwh",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-104",
+      "name": "Azure Data Factory",
+      "vendor": "Microsoft",
+      "description": "Pipelines feeding the data platform.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Data Integration & ETL"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "public_cloud",
+      "techStack": [
+        "Azure PaaS",
+        ".NET 8",
+        "Azure SQL"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2026,
+      "users": 11,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 951000,
+        "infra": 916000,
+        "supportFte": 508000,
+        "vendorSupport": 222000
+      },
+      "integrations": [
+        "SYS-011"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-etl",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-105",
+      "name": "Informatica PowerCenter",
+      "vendor": "Informatica",
+      "description": "Legacy ETL into BW and BusinessObjects universes.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Data Integration & ETL"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "RHEL 7",
+        "Java 8",
+        "Oracle Database 12c"
+      ],
+      "platformEolYear": 2024,
+      "lastMajorUpgrade": 2016,
+      "users": 12,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 4,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 1045000,
+        "infra": 632000,
+        "supportFte": 709000,
+        "vendorSupport": 668000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-007",
+        "SYS-011",
+        "SYS-074",
+        "SYS-103"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-etl",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-106",
+      "name": "SSIS-pakker (Vestfjord)",
+      "vendor": "Microsoft",
+      "description": "ETL for the Vestfjord data warehouse.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Data Integration & ETL"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        "SQL Server 2012"
+      ],
+      "platformEolYear": 2022,
+      "lastMajorUpgrade": 2014,
+      "users": 4,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 223000,
+        "infra": 142000,
+        "supportFte": 112000,
+        "vendorSupport": 122000
+      },
+      "integrations": [
+        "SYS-007",
+        "SYS-012",
+        "SYS-104"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-etl",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-107",
+      "name": "Microsoft Power BI",
+      "vendor": "Microsoft",
+      "description": "Group-standard BI and self-service reporting.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Business Intelligence & Reporting"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 1863,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 5,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 5,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 2093000,
+        "infra": 0,
+        "supportFte": 352000,
+        "vendorSupport": 40000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-101",
+        "SYS-102"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-bi",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-108",
+      "name": "Qlik Sense Enterprise (Vestfjord)",
+      "vendor": "Qlik",
+      "description": "Vestfjord dashboards; loved by its users.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Business Intelligence & Reporting"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Qlik Sense Enterprise on Windows",
+        "Windows Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2022,
+      "users": 239,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 3,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 396000,
+        "infra": 193000,
+        "supportFte": 173000,
+        "vendorSupport": 224000
+      },
+      "integrations": [
+        "SYS-003",
+        "SYS-103"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-bi",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-109",
+      "name": "Tableau Server (Polarkomponent)",
+      "vendor": "Salesforce (Tableau)",
+      "description": "Polarkomponent sales and production dashboards.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Business Intelligence & Reporting"
+      },
+      "origin": "acquired_B",
+      "type": "cots",
+      "hosting": "private_cloud",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2022,
+      "users": 83,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 4,
+        "documentation": 2,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 858000,
+        "infra": 621000,
+        "supportFte": 524000,
+        "vendorSupport": 462000
+      },
+      "integrations": [
+        "SYS-011"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-bi",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-110",
+      "name": "SAP BusinessObjects BI 4.2",
+      "vendor": "SAP",
+      "description": "Legacy statutory and operational reports on BW.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Business Intelligence & Reporting"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "SAP BusinessObjects BI 4.2",
+        "Windows Server 2016"
+      ],
+      "platformEolYear": 2024,
+      "lastMajorUpgrade": 2018,
+      "users": 478,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 1,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 406000,
+        "infra": 245000,
+        "supportFte": 181000,
+        "vendorSupport": 169000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-102",
+        "SYS-106"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-bi",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-111",
+      "name": "Rapportpakke Â«MÃ¥nedstallÂ» (Excel)",
+      "vendor": "Microsoft (Excel/VBA)",
+      "description": "Monthly management pack assembled by controlling from BW extracts.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Business Intelligence & Reporting"
+      },
+      "origin": "shadow_it",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Microsoft Excel",
+        "VBA macros"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2017,
+      "users": 27,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 1,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 7000,
+        "infra": 48000,
+        "supportFte": 76000,
+        "vendorSupport": 15000
+      },
+      "integrations": [
+        "SYS-102"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-112",
+      "name": "Prediktivt vedlikehold (Azure ML)",
+      "vendor": "In-house",
+      "description": "Failure prediction for critical pumps from PI data.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Advanced Analytics & ML"
+      },
+      "origin": "core",
+      "type": "custom",
+      "hosting": "public_cloud",
+      "techStack": [
+        "Azure Kubernetes Service",
+        "Python 3.12",
+        "PostgreSQL 16"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 26,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 35000,
+        "infra": 818000,
+        "supportFte": 1002000,
+        "vendorSupport": 198000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-080",
+        "SYS-088",
+        "SYS-108"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-113",
+      "name": "Priselastisitetsmodell (R)",
+      "vendor": "In-house",
+      "description": "Pricing model maintained by one analyst.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Advanced Analytics & ML"
+      },
+      "origin": "shadow_it",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "R 3.6",
+        "Windows Server 2012 R2"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2017,
+      "users": 4,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 9000,
+        "infra": 59000,
+        "supportFte": 108000,
+        "vendorSupport": 24000
+      },
+      "integrations": [
+        "SYS-102"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-114",
+      "name": "SAS 9.4 (Vestfjord analyse)",
+      "vendor": "SAS Institute",
+      "description": "Statistical analysis licences, mostly unused since 2023.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Advanced Analytics & ML"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2019,
+      "users": 14,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 2,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 857000,
+        "infra": 835000,
+        "supportFte": 695000,
+        "vendorSupport": 574000
+      },
+      "integrations": [
+        "SYS-006"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-115",
+      "name": "Databricks (pilot)",
+      "vendor": "Databricks",
+      "description": "Pilot workspace for data science.",
+      "capability": {
+        "l1": "Data & Analytics",
+        "l2": "Advanced Analytics & ML"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 11,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 411000,
+        "infra": 0,
+        "supportFte": 68000,
+        "vendorSupport": 8000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-101"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-116",
+      "name": "Microsoft 365 (Exchange Online, Teams, OneDrive)",
+      "vendor": "Microsoft",
+      "description": "Email, Teams, Office apps and OneDrive for the whole group.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Email & Productivity"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2026,
+      "users": 4066,
+      "businessCriticality": 5,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 5,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 3,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 11997000,
+        "infra": 0,
+        "supportFte": 2506000,
+        "vendorSupport": 297000
+      },
+      "integrations": [
+        "SYS-002"
+      ],
+      "sizeClass": "XL",
+      "duplicateGroup": "dup-email",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-117",
+      "name": "Exchange Server 2013 (Polarkomponent)",
+      "vendor": "Microsoft",
+      "description": "Polarkomponent mailboxes, not yet migrated to Exchange Online.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Email & Productivity"
+      },
+      "origin": "acquired_B",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Exchange Server 2013",
+        "Windows Server 2012 R2"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2015,
+      "users": 473,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 270000,
+        "infra": 155000,
+        "supportFte": 134000,
+        "vendorSupport": 153000
+      },
+      "integrations": [
+        "SYS-004"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-email",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-118",
+      "name": "Google Workspace (markedsavdelingen)",
+      "vendor": "Google",
+      "description": "Marketing team docs and shared drives outside M365.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Email & Productivity"
+      },
+      "origin": "shadow_it",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2026,
+      "users": 35,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 2,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 76000,
+        "infra": 0,
+        "supportFte": 11000,
+        "vendorSupport": 2000
+      },
+      "integrations": [],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-email",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-119",
+      "name": "Miro",
+      "vendor": "Miro",
+      "description": "Whiteboards; many team licences on expense claims.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Email & Productivity"
+      },
+      "origin": "shadow_it",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 187,
+      "businessCriticality": 1,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 4,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 1,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 136000,
+        "infra": 0,
+        "supportFte": 24000,
+        "vendorSupport": 4000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-120",
+      "name": "SharePoint Online",
+      "vendor": "Microsoft",
+      "description": "Group document management and team sites.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Document & Records Management"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2026,
+      "users": 3867,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 5,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 4,
+        "scalability": 5,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 1716000,
+        "infra": 0,
+        "supportFte": 344000,
+        "vendorSupport": 42000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-117"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-dms",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-121",
+      "name": "M-Files (Polarkomponent)",
+      "vendor": "M-Files",
+      "description": "Document vault at Polarkomponent.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Document & Records Management"
+      },
+      "origin": "acquired_B",
+      "type": "cots",
+      "hosting": "private_cloud",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2023,
+      "users": 440,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 49000,
+        "infra": 28000,
+        "supportFte": 29000,
+        "vendorSupport": 25000
+      },
+      "integrations": [
+        "SYS-004",
+        "SYS-118"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-dms",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-122",
+      "name": "Dropbox Business (prosjektavdelingen)",
+      "vendor": "Dropbox",
+      "description": "Project documents shared with EPC customers.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Document & Records Management"
+      },
+      "origin": "shadow_it",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 64,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 1,
+        "scalability": 3,
+        "documentation": 1,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 55000,
+        "infra": 0,
+        "supportFte": 7000,
+        "vendorSupport": 1000
+      },
+      "integrations": [],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-dms",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-123",
+      "name": "Filserver nordlys-fs01",
+      "vendor": "Microsoft (Windows file services)",
+      "description": "Departmental file shares, 38 TB, many with open permissions.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Document & Records Management"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2013,
+      "users": 3443,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 535000,
+        "infra": 441000,
+        "supportFte": 422000,
+        "vendorSupport": 380000
+      },
+      "integrations": [
+        "SYS-001"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-124",
+      "name": "Documentum sertifikatarkiv",
+      "vendor": "OpenText",
+      "description": "Archive of quality certificates and as-built documentation.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Document & Records Management"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "RHEL 7",
+        "Java 8",
+        "Oracle Database 12c"
+      ],
+      "platformEolYear": 2024,
+      "lastMajorUpgrade": 2018,
+      "users": 182,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 479000,
+        "infra": 315000,
+        "supportFte": 296000,
+        "vendorSupport": 267000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-086",
+        "SYS-120"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-125",
+      "name": "Penneo e-signering",
+      "vendor": "Penneo",
+      "description": "Electronic signing of contracts.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Document & Records Management"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 160,
+      "businessCriticality": 2,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 131000,
+        "infra": 0,
+        "supportFte": 20000,
+        "vendorSupport": 3000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-118"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-126",
+      "name": "Intranett Â«NordlysetÂ» (SharePoint Online)",
+      "vendor": "Microsoft",
+      "description": "Group intranet and news.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Intranet & Internal Communication"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 4090,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 188000,
+        "infra": 0,
+        "supportFte": 32000,
+        "vendorSupport": 5000
+      },
+      "integrations": [
+        "SYS-002"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-intra",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-127",
+      "name": "Vestfjord intranett (Episerver CMS 7)",
+      "vendor": "Optimizely (Episerver)",
+      "description": "Old Vestfjord intranet, still the home page on FlorÃ¸ PCs.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Intranet & Internal Communication"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        ".NET Framework 3.5",
+        "SQL Server 2014"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2012,
+      "users": 843,
+      "businessCriticality": 1,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 194000,
+        "infra": 192000,
+        "supportFte": 124000,
+        "vendorSupport": 115000
+      },
+      "integrations": [
+        "SYS-003",
+        "SYS-126"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-intra",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-128",
+      "name": "Staffbase (Polarkomponent)",
+      "vendor": "Staffbase",
+      "description": "Employee app for Kalmar shop-floor workers.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Intranet & Internal Communication"
+      },
+      "origin": "acquired_B",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2026,
+      "users": 465,
+      "businessCriticality": 1,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 221000,
+        "infra": 0,
+        "supportFte": 41000,
+        "vendorSupport": 7000
+      },
+      "integrations": [
+        "SYS-002"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-intra",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-129",
+      "name": "Kantinebestilling (egenutviklet)",
+      "vendor": "In-house",
+      "description": "Lunch ordering page built by a facilities employee.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Intranet & Internal Communication"
+      },
+      "origin": "shadow_it",
+      "type": "custom",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "WordPress",
+        "PHP 7.4",
+        "MySQL 5.7"
+      ],
+      "platformEolYear": 2022,
+      "lastMajorUpgrade": 2020,
+      "users": 748,
+      "businessCriticality": 1,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 4,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 6000,
+        "infra": 58000,
+        "supportFte": 113000,
+        "vendorSupport": 16000
+      },
+      "integrations": [],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-130",
+      "name": "Jira Software Cloud",
+      "vendor": "Atlassian",
+      "description": "Work management for IT, engineering and projects.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Project & Work Management"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 252,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 344000,
+        "infra": 0,
+        "supportFte": 68000,
+        "vendorSupport": 11000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-119"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-pm",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-131",
+      "name": "Microsoft Project Server 2013",
+      "vendor": "Microsoft",
+      "description": "Capital project portfolio and resource plans.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Project & Work Management"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "SharePoint Server 2013",
+        "Windows Server 2012 R2"
+      ],
+      "platformEolYear": 2023,
+      "lastMajorUpgrade": 2014,
+      "users": 137,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 3,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 375000,
+        "infra": 340000,
+        "supportFte": 212000,
+        "vendorSupport": 209000
+      },
+      "integrations": [],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-pm",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-132",
+      "name": "Trello (engineering GjÃ¸vik)",
+      "vendor": "Atlassian",
+      "description": "Engineering task boards.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Project & Work Management"
+      },
+      "origin": "shadow_it",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 39,
+      "businessCriticality": 1,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 1,
+        "scalability": 3,
+        "documentation": 1,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 35000,
+        "infra": 0,
+        "supportFte": 6000,
+        "vendorSupport": 1000
+      },
+      "integrations": [],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-pm",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-133",
+      "name": "Asana (markedsavdelingen)",
+      "vendor": "Asana",
+      "description": "Campaign planning.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Project & Work Management"
+      },
+      "origin": "shadow_it",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 26,
+      "businessCriticality": 1,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 2,
+        "scalability": 3,
+        "documentation": 1,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 96000,
+        "infra": 0,
+        "supportFte": 14000,
+        "vendorSupport": 2000
+      },
+      "integrations": [],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-pm",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-134",
+      "name": "monday.com (Polarkomponent)",
+      "vendor": "monday.com",
+      "description": "Customer project tracking at Kalmar.",
+      "capability": {
+        "l1": "Collaboration",
+        "l2": "Project & Work Management"
+      },
+      "origin": "shadow_it",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 38,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 1,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 102000,
+        "infra": 0,
+        "supportFte": 19000,
+        "vendorSupport": 3000
+      },
+      "integrations": [],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-pm",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-135",
+      "name": "ServiceNow ITSM",
+      "vendor": "ServiceNow",
+      "description": "Incident, request, change and CMDB.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "IT Service Management"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 4740,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 5,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 4186000,
+        "infra": 0,
+        "supportFte": 648000,
+        "vendorSupport": 94000
+      },
+      "integrations": [
+        "SYS-002"
+      ],
+      "sizeClass": "L",
+      "duplicateGroup": "dup-itsm",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-136",
+      "name": "TOPdesk (Polarkomponent)",
+      "vendor": "TOPdesk",
+      "description": "Service desk for Polarkomponent.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "IT Service Management"
+      },
+      "origin": "acquired_B",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 565,
+      "businessCriticality": 3,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 244000,
+        "infra": 0,
+        "supportFte": 36000,
+        "vendorSupport": 6000
+      },
+      "integrations": [
+        "SYS-135"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-itsm",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-137",
+      "name": "Lansweeper IT-asset",
+      "vendor": "Lansweeper",
+      "description": "Hardware and software inventory scanning.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "IT Service Management"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2021,
+      "users": 11,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 5,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 47000,
+        "infra": 29000,
+        "supportFte": 25000,
+        "vendorSupport": 25000
+      },
+      "integrations": [
+        "SYS-001"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-138",
+      "name": "Confluence Data Center",
+      "vendor": "Atlassian",
+      "description": "IT runbooks and knowledge base.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "IT Service Management"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "RHEL 8",
+        "PostgreSQL 13"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2023,
+      "users": 457,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 2,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 184000,
+        "infra": 123000,
+        "supportFte": 128000,
+        "vendorSupport": 138000
+      },
+      "integrations": [
+        "SYS-001"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-139",
+      "name": "Microsoft Defender for Endpoint",
+      "vendor": "Microsoft",
+      "description": "Endpoint detection and response.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Security & Access Control"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 4156,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 5,
+        "scalability": 3,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 1309000,
+        "infra": 0,
+        "supportFte": 184000,
+        "vendorSupport": 24000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-135",
+        "SYS-136"
+      ],
+      "sizeClass": "M",
+      "duplicateGroup": "dup-sec",
+      "isPrimary": true
+    },
+    {
+      "id": "SYS-140",
+      "name": "Symantec Endpoint Protection (Vestfjord)",
+      "vendor": "Broadcom",
+      "description": "Antivirus on Vestfjord clients and servers.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Security & Access Control"
+      },
+      "origin": "acquired_A",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        "SQL Server 2012"
+      ],
+      "platformEolYear": 2022,
+      "lastMajorUpgrade": 2015,
+      "users": 962,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 3,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 3,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 111000,
+        "infra": 68000,
+        "supportFte": 71000,
+        "vendorSupport": 57000
+      },
+      "integrations": [
+        "SYS-003"
+      ],
+      "sizeClass": "S",
+      "duplicateGroup": "dup-sec",
+      "isPrimary": false
+    },
+    {
+      "id": "SYS-141",
+      "name": "Splunk Enterprise (SIEM)",
+      "vendor": "Splunk (Cisco)",
+      "description": "Security log collection and SOC use cases.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Security & Access Control"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "RHEL 8",
+        "PostgreSQL 13"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2023,
+      "users": 16,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 5,
+        "scalability": 5,
+        "documentation": 3,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 1529000,
+        "infra": 1058000,
+        "supportFte": 1103000,
+        "vendorSupport": 993000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-135",
+        "SYS-150"
+      ],
+      "sizeClass": "L"
+    },
+    {
+      "id": "SYS-142",
+      "name": "KnowBe4 sikkerhetsopplÃ¦ring",
+      "vendor": "KnowBe4",
+      "description": "Phishing simulation and awareness training.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Security & Access Control"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2024,
+      "users": 4010,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 3
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 5,
+        "scalability": 3,
+        "documentation": 4,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 228000,
+        "infra": 0,
+        "supportFte": 40000,
+        "vendorSupport": 6000
+      },
+      "integrations": [
+        "SYS-002",
+        "SYS-137"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-143",
+      "name": "Adgangskontroll ASSA ARX",
+      "vendor": "ASSA ABLOY",
+      "description": "Physical access cards for all sites.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Security & Access Control"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2012 R2",
+        "SQL Server 2012"
+      ],
+      "platformEolYear": 2022,
+      "lastMajorUpgrade": 2013,
+      "users": 3834,
+      "businessCriticality": 4,
+      "dataSensitivity": "personal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 5,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 101000,
+        "infra": 73000,
+        "supportFte": 73000,
+        "vendorSupport": 72000
+      },
+      "integrations": [
+        "SYS-001"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-144",
+      "name": "VMware vSphere 6.7 (datasenter Nordlys)",
+      "vendor": "Broadcom (VMware)",
+      "description": "Virtualisation platform hosting ~420 VMs in the leased data center.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Infrastructure, Backup & Monitoring"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "VMware vSphere 6.7",
+        "Dell PowerEdge R740"
+      ],
+      "platformEolYear": 2022,
+      "lastMajorUpgrade": 2018,
+      "users": 10,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 5,
+        "userSatisfaction": 3,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 1,
+        "security": 1,
+        "scalability": 2,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 2044000,
+        "infra": 1444000,
+        "supportFte": 1087000,
+        "vendorSupport": 874000
+      },
+      "integrations": [
+        "SYS-001"
+      ],
+      "sizeClass": "L"
+    },
+    {
+      "id": "SYS-145",
+      "name": "Veeam Backup & Replication",
+      "vendor": "Veeam",
+      "description": "Backup of all VMs to on-site disk and tape.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Infrastructure, Backup & Monitoring"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2019",
+        "SQL Server 2019"
+      ],
+      "platformEolYear": 2029,
+      "lastMajorUpgrade": 2023,
+      "users": 8,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 2,
+        "strategicRelevance": 2
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 3,
+        "scalability": 4,
+        "documentation": 3,
+        "eolRisk": 3
+      },
+      "annualCost": {
+        "license": 906000,
+        "infra": 796000,
+        "supportFte": 591000,
+        "vendorSupport": 539000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-144"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-146",
+      "name": "Nagios XI overvÃ¥kning",
+      "vendor": "Nagios Enterprises",
+      "description": "Infrastructure monitoring; alerts mostly ignored.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Infrastructure, Backup & Monitoring"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "RHEL 7"
+      ],
+      "platformEolYear": 2024,
+      "lastMajorUpgrade": 2017,
+      "users": 9,
+      "businessCriticality": 3,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 2,
+        "userSatisfaction": 3,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 3,
+        "security": 2,
+        "scalability": 2,
+        "documentation": 1,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 207000,
+        "infra": 121000,
+        "supportFte": 136000,
+        "vendorSupport": 97000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-006",
+        "SYS-140",
+        "SYS-144"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-147",
+      "name": "Microsoft Intune",
+      "vendor": "Microsoft",
+      "description": "Device and app management for laptops and phones.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Infrastructure, Backup & Monitoring"
+      },
+      "origin": "core",
+      "type": "saas",
+      "hosting": "saas",
+      "techStack": [
+        "SaaS (vendor-managed)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 4234,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 4,
+        "userSatisfaction": 4,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 5,
+        "scalability": 5,
+        "documentation": 3,
+        "eolRisk": 5
+      },
+      "annualCost": {
+        "license": 1519000,
+        "infra": 0,
+        "supportFte": 205000,
+        "vendorSupport": 25000
+      },
+      "integrations": [
+        "SYS-002"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-148",
+      "name": "PaperCut utskrift",
+      "vendor": "PaperCut",
+      "description": "Follow-me printing.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Infrastructure, Backup & Monitoring"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Windows Server 2016",
+        "SQL Server 2017"
+      ],
+      "platformEolYear": 2027,
+      "lastMajorUpgrade": 2019,
+      "users": 4027,
+      "businessCriticality": 2,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 4,
+        "strategicRelevance": 1
+      },
+      "technicalFit": {
+        "supportability": 4,
+        "security": 4,
+        "scalability": 4,
+        "documentation": 4,
+        "eolRisk": 2
+      },
+      "annualCost": {
+        "license": 158000,
+        "infra": 115000,
+        "supportFte": 122000,
+        "vendorSupport": 117000
+      },
+      "integrations": [
+        "SYS-006"
+      ],
+      "sizeClass": "S"
+    },
+    {
+      "id": "SYS-149",
+      "name": "Citrix Virtual Apps 7.15 (fjerntilgang)",
+      "vendor": "Cloud Software Group (Citrix)",
+      "description": "Publishes KONFIG, NORD-PLAN and other fat clients to remote users.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Infrastructure, Backup & Monitoring"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Citrix Virtual Apps 7.15 LTSR",
+        "Windows Server 2016"
+      ],
+      "platformEolYear": 2022,
+      "lastMajorUpgrade": 2017,
+      "users": 581,
+      "businessCriticality": 4,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 5,
+        "userSatisfaction": 3,
+        "strategicRelevance": 4
+      },
+      "technicalFit": {
+        "supportability": 2,
+        "security": 3,
+        "scalability": 1,
+        "documentation": 2,
+        "eolRisk": 1
+      },
+      "annualCost": {
+        "license": 720000,
+        "infra": 632000,
+        "supportFte": 463000,
+        "vendorSupport": 552000
+      },
+      "integrations": [
+        "SYS-001",
+        "SYS-144"
+      ],
+      "sizeClass": "M"
+    },
+    {
+      "id": "SYS-150",
+      "name": "Palo Alto Panorama (brannmurer)",
+      "vendor": "Palo Alto Networks",
+      "description": "Central management of site firewalls.",
+      "capability": {
+        "l1": "IT/Security",
+        "l2": "Infrastructure, Backup & Monitoring"
+      },
+      "origin": "core",
+      "type": "cots",
+      "hosting": "on_prem_dc",
+      "techStack": [
+        "Vendor appliance (PAN-OS)"
+      ],
+      "platformEolYear": null,
+      "lastMajorUpgrade": 2025,
+      "users": 6,
+      "businessCriticality": 5,
+      "dataSensitivity": "internal",
+      "residencyRequired": false,
+      "siteBound": false,
+      "businessFit": {
+        "functionalCoverage": 3,
+        "userSatisfaction": 3,
+        "strategicRelevance": 5
+      },
+      "technicalFit": {
+        "supportability": 5,
+        "security": 5,
+        "scalability": 5,
+        "documentation": 4,
+        "eolRisk": 4
+      },
+      "annualCost": {
+        "license": 477000,
+        "infra": 248000,
+        "supportFte": 294000,
+        "vendorSupport": 274000
+      },
+      "integrations": [],
+      "sizeClass": "M"
+    }
+  ]
+}
