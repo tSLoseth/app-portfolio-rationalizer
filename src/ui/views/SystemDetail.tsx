@@ -129,8 +129,10 @@ export function SystemDetail({ assessment: a, all, originLabels, onClose, onOpen
               <dd className="num">{nokM(a.cost.annualSaving, 2)}</dd>
               <dt>One-off cost</dt>
               <dd className="num">{nokM(a.cost.oneOffMigration, 2)}</dd>
-              <dt>Payback</dt>
-              <dd className="num">{a.cost.paybackYears === null ? 'None on run cost' : `${a.cost.paybackYears.toFixed(1)} years`}</dd>
+              <dt>Simple payback</dt>
+              <dd className="num">
+                {a.sixR.sixR === 'retain' ? 'Not applicable' : a.cost.paybackYears === null ? 'None on run cost' : `${a.cost.paybackYears.toFixed(1)} years`}
+              </dd>
               <dt>Cost split today</dt>
               <dd className="num">
                 licence {nokM(s.annualCost.license)}, infra {nokM(s.annualCost.infra)}, support staff {nokM(s.annualCost.supportFte)}, vendor{' '}

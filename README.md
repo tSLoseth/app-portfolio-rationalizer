@@ -6,8 +6,8 @@ case and a wave-based migration roadmap — reproducible, auditable, recomputed 
 - **Classifies** every system with Gartner's TIME model (Tolerate / Invest / Migrate / Eliminate)
   and a 6R migration strategy (Rehost, Replatform, Refactor, Repurchase, Retire, Retain) using an
   explicit, tested rules engine.
-- **Prices** the change: baseline TCO → target run cost per 6R, one-off migration cost, payback,
-  5-year NPV and a ±30 % sensitivity grid.
+- **Prices** the change: baseline TCO → target run cost per 6R, one-off migration cost, simple
+  payback, cash break-even quarter, 5-year NPV and a ±30 % sensitivity grid.
 - **Plans** the programme: quarterly waves on a dependency graph with cycle breaking, capacity
   limits and validation against a hard data-center exit date.
 - **Explains** itself: every decision carries a rule trace (`rationale[]`); an LLM (Claude Haiku
@@ -35,7 +35,8 @@ company.
 | Annual IT run cost today → target | NOK 297.8M → NOK 214.0M (−NOK 83.8M, −28 %) |
 | One-off investment | NOK 177.5M (incl. NOK 80M core ERP programme) |
 | 5-year NPV at 8 % | NOK 78.8M (sensitivity range −NOK 32.1M to +NOK 189.7M) |
-| Payback | 2.1 years of steady-state savings; cumulative cash flow positive from 2030Q2 |
+| Simple payback (steady state) | 2.1 years (one-off ÷ annual run-cost saving) |
+| Cash break-even | 2030Q2 (cumulative undiscounted cash flow turns positive, using the roadmap's timing) |
 | Decisions | 68 Retire · 45 Retain · 21 Repurchase · 9 Replatform · 5 Rehost · 2 Refactor |
 | Data-center exit | All 81 in-scope systems out by 2028Q4 — on the deadline, zero slack |
 | Where the money is | Consolidating 39 duplicates delivers 56 % of the saving for 16 % of the one-off |
@@ -117,7 +118,10 @@ flowchart TD
   The group ERP is costed as a **programme** (NOK 80M estimate) rather than a rate-card line, because
   an ECC → S/4-class transformation is not a large application swap.
 - **Business case**: quarterly cash flows use the roadmap's actual start and cutover quarters,
-  giving payback, 5-year NPV and a 3 × 3 sensitivity grid (cloud run cost × migration cost, ±30 %).
+  giving the cash break-even quarter, 5-year NPV and a 3 × 3 sensitivity grid (cloud run cost ×
+  migration cost, ±30 %). **Simple payback** is the steady-state ratio one-off ÷ annual saving; **cash
+  break-even** is when cumulative undiscounted cash flow turns positive. They differ because savings
+  only start at each system's cutover.
 
 ### 4. Roadmap
 

@@ -37,8 +37,8 @@ BI stacks, which were never integrated.
 | Temporary integrations | – | NOK 2.4M |
 | **Total** | **NOK 83.8M (−28 %)** | **NOK 177.5M** |
 
-**5-year NPV NOK 78.8M** at 8 %; payback 2.1 years of steady-state savings, with cumulative cash
-flow positive from 2030Q2. Moving cloud run cost and migration cost ±30 % gives an NPV between
+**5-year NPV NOK 78.8M** at 8 %. Simple payback (steady state) is 2.1 years; cash break-even, when
+cumulative cash flow turns positive, is 2030Q2. Moving cloud run cost and migration cost ±30 % gives an NPV between
 **−NOK 32.1M and +NOK 189.7M**: if both land 30 % worse, the case is negative over five years.
 Cloud and SaaS moves are justified by risk and the DC exit, not by savings; consolidation carries
 the economics.

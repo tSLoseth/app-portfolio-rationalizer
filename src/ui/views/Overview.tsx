@@ -25,9 +25,14 @@ export function Overview({ portfolio, assumptions, result, palette }: ViewProps)
         <Kpi label="Duplicate groups" value={String(k.duplicateGroups)} sub="same L2 capability, post-M&A" />
         <Kpi label={`${result.cost.horizonYears}-year NPV`} value={nokM(k.npv)} sub={`at ${pct(result.cost.discountRate, 1)} discount rate`} />
         <Kpi
-          label="Payback"
+          label="Simple payback (steady state)"
           value={k.paybackYears === null ? 'None' : `${k.paybackYears.toFixed(1)} yrs`}
-          sub={k.paybackQuarter ? `cash-positive from ${k.paybackQuarter}` : 'never cash-positive'}
+          sub="one-off ÷ annual run-cost saving"
+        />
+        <Kpi
+          label="Cash break-even"
+          value={k.paybackQuarter ?? 'Not reached'}
+          sub={k.paybackQuarter ? 'cumulative cash flow turns positive' : 'cumulative cash flow stays negative'}
         />
         <Kpi
           label="Data-center exit"

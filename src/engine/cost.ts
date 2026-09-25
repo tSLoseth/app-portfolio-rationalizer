@@ -136,9 +136,11 @@ export function assessCost(s: System, r: SixRResult, g: IntegrationGraph, a: Ass
     );
   }
   rationale.push(
-    paybackYears === null
-      ? 'Does not pay back on run cost alone; justified by risk, EOL or DC exit.'
-      : `Payback ${paybackYears.toFixed(1)} years.`,
+    r.sixR === 'retain' && oneOffMigration === 0 && annualSaving === 0
+      ? 'Retained as-is: no one-off cost and no run-cost change, so no payback applies.'
+      : paybackYears === null
+        ? 'No simple payback on run cost (the annual saving is not positive); the move rests on end-of-life, risk or data-center-exit grounds, not on savings.'
+        : `Simple payback (one-off ÷ annual saving): ${paybackYears.toFixed(1)} years.`,
   );
 
   return {

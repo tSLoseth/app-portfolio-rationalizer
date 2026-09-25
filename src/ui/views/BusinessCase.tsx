@@ -126,9 +126,14 @@ export function BusinessCase({ baseAssumptions, result, palette, overrides, setO
           <div className="kpi-sub">at {pct(c.discountRate, 1)}</div>
         </div>
         <div className="kpi">
-          <div className="kpi-label">Payback</div>
+          <div className="kpi-label">Simple payback (steady state)</div>
           <div className="kpi-value">{c.paybackYears === null ? 'None' : `${c.paybackYears.toFixed(1)} yrs`}</div>
-          <div className="kpi-sub">{c.paybackQuarter ? `cash-positive from ${c.paybackQuarter}` : 'never cash-positive'}</div>
+          <div className="kpi-sub">one-off ÷ annual run-cost saving</div>
+        </div>
+        <div className="kpi">
+          <div className="kpi-label">Cash break-even</div>
+          <div className="kpi-value">{c.paybackQuarter ?? 'Not reached'}</div>
+          <div className="kpi-sub">{c.paybackQuarter ? 'cumulative cash flow turns positive' : 'cumulative cash flow stays negative'}</div>
         </div>
         <div className="kpi">
           <div className="kpi-label">One-off investment</div>
@@ -188,11 +193,11 @@ export function BusinessCase({ baseAssumptions, result, palette, overrides, setO
             </span>
             {paybackX ? (
               <span className="legend-item">
-                <span className="line-key dashed" style={{ borderColor: palette.ink2 }} /> Payback {c.paybackQuarter}
+                <span className="line-key dashed" style={{ borderColor: palette.ink2 }} /> Cash break-even {c.paybackQuarter}
               </span>
             ) : (
               <span className="legend-item muted">
-                {c.paybackQuarter ? `Payback ${c.paybackQuarter}, after the horizon` : 'No payback'}
+                {c.paybackQuarter ? `Cash break-even ${c.paybackQuarter}, after the horizon` : 'No cash break-even'}
               </span>
             )}
           </div>
